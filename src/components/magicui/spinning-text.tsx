@@ -19,13 +19,15 @@ type SpinningTextProps = {
 };
 
 const BASE_TRANSITION = {
+  delay:0.2,
+  duration:0.3,
   repeat: Infinity,
   ease: "linear",
 };
 
 const BASE_ITEM_VARIANTS = {
   hidden: {
-    opacity: 1,
+    opacity: 0,
   },
   visible: {
     opacity: 1,
