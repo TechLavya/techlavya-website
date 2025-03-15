@@ -4,7 +4,7 @@ Techlavya is the official **Tech Fest website** of **Ramkrishna Mahato Governmen
 
 ## 🚀 Visit Our Website
 
-[![Visit our website](https://vercel.com/button)](https://techlavya-rkmgec.com/)
+[![Visit our website](https://vercel.com/button)](https://techlavya.vercel.app/)
 
 ## 🎨 Preview
 
