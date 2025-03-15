@@ -1,6 +1,6 @@
-import React, { Suspense } from 'react'
-import Image from 'next/image'
 import dynamic from 'next/dynamic'
+import { Suspense } from 'react'
+import LandingImage from '../LandingImage'
 const SpinningText = dynamic(() => import('@/components/magicui/spinning-text'), { ssr: false })
 
 const LandingSection = () => {
@@ -10,15 +10,8 @@ const LandingSection = () => {
                <div className="absolute inset-0 bg-black/60"></div>
 
                <div className="h-full max-w-screen-xl mx-auto flex flex-col justify-center items-center p-4 relative z-10">
-                    <div className="relative flex justify-center items-center pt-14 pb-16 md:pb-14">
-                         <Image
-                              src="/techlavya-logo.png"
-                              alt="techlavya-logo"
-                              width={240}
-                              height={240}
-                              priority
-                              className="h-52 w-52 md:h-60 md:w-60 object-contain"
-                         />
+                    <div className="relative flex justify-center items-center pt-14 pb-20 md:pb-14">
+                         <LandingImage/>
                          <Suspense fallback={null}>
                               <SpinningText className="absolute text-white font-bold">
                                    TECHLAVYA • TECH FEST • RKMGEC • TECHLAVYA • TECH FEST • RKMGEC •
