@@ -1,5 +1,5 @@
 import React from 'react';
-import { Facebook, Instagram, Youtube, MapPin } from 'lucide-react';
+import { Facebook, Instagram, Youtube, MapPin, Github } from 'lucide-react';
 import Image from 'next/image';
 
 const Footer: React.FC = () => {
@@ -38,6 +38,9 @@ const Footer: React.FC = () => {
                                    </a>
                                    <a href="https://www.youtube.com/@RKMGECOFFICIAL" target="_blank" rel="noopener noreferrer">
                                         <Youtube className="w-7 h-7 text-gray-400 hover:text-yellow-400 transition duration-300" />
+                                   </a>
+                                   <a href="https://github.com/TechLavya" target="_blank" rel="noopener noreferrer">
+                                        <Github className="w-7 h-7 text-gray-400 hover:text-yellow-400 transition duration-300" />
                                    </a>
                               </div>
                          </div>
