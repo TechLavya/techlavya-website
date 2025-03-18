@@ -17,9 +17,6 @@ export const timelineData: TimelineEntry[] = [
       { title: "Chess ( 2pm - 3pm )", type: "esports" },
       { title: "Asphalt ( 4pm - 6pm )", type: "esports" },
       { title: "BGMI ( 7pm - 9pm )", type: "esports" },
-
-
-
     ],
   },
   {
@@ -31,7 +28,6 @@ export const timelineData: TimelineEntry[] = [
       { title: "FIFA (PC) ( 3pm - 5pm )", type: "esports" },
       { title: "FREE FIRE MAX ( 6pm - 9pm )", type: "esports" },
       { title: "Brainbuster ( 5pm - 7pm )", type: "tech" },
-
     ],
   },
   {
@@ -51,7 +47,6 @@ export const timelineData: TimelineEntry[] = [
       { title: "Typing Test ( 12pm - 2pm )", type: "tech" },
       { title: "Clash of Clans ( 2pm - 4pm )", type: "esports" },
       { title: "Mini Militia ( 4pm - 5:30pm )", type: "esports" },
-
     ],
   },
 ];
