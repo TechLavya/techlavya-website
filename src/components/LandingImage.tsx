@@ -17,7 +17,7 @@ const LandingImage = () => {
                     width={240}
                     height={240}
                     priority
-                    className="h-52 w-52 md:h-60 md:w-60 object-contain"
+                    className="h-52 w-52 md:h-[14rem] md:w-[14rem] object-contain"
                />
           </motion.div>
      )

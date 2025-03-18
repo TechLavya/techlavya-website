@@ -48,7 +48,7 @@ const SpinningText = ({
   useEffect(() => {
     if (typeof window !== "undefined") {
       const updateRadius = () => {
-        setRadius(window.innerWidth < 768 ? 14 : 16);
+        setRadius(window.innerWidth < 768 ? 14 : 15);
       };
 
       updateRadius(); // Set initial value
