@@ -11,7 +11,7 @@ export type EventDataType = {
   contact: string;
   lastDate: string;
   registrationLink: string;
-  type:'techlavya' | 'esport';
+  type: 'techlavya' | 'esport';
 }
 
 
@@ -27,7 +27,7 @@ export const TechlavyaEventData: EventDataType[] = [
     contact: 'Yet to be announced',
     lastDate: 'Yet to be announced',
     registrationLink: 'https://forms.gle/ajzqMfXUXeRrPcBG9',
-    type:'techlavya'
+    type: 'techlavya'
   },
   {
     id: uuidv4(),
@@ -40,7 +40,7 @@ export const TechlavyaEventData: EventDataType[] = [
     contact: 'Yet to be announced',
     lastDate: 'Yet to be announced',
     registrationLink: 'https://forms.gle/WxxtrhwMbtq2PpzP9',
-    type:'techlavya'
+    type: 'techlavya'
   },
   {
     id: uuidv4(),
@@ -53,7 +53,7 @@ export const TechlavyaEventData: EventDataType[] = [
     contact: 'Yet to be announced',
     lastDate: 'Yet to be announced',
     registrationLink: 'https://forms.gle/SYxCZjnKkNrSTpNc8',
-    type:'techlavya'
+    type: 'techlavya'
   },
   {
     id: uuidv4(),
@@ -66,7 +66,7 @@ export const TechlavyaEventData: EventDataType[] = [
     contact: 'Yet to be announced',
     lastDate: 'Yet to be announced',
     registrationLink: 'https://forms.gle/bgk1wsUw53SXaXDh8',
-    type:'techlavya'
+    type: 'techlavya'
   },
   {
     id: uuidv4(),
@@ -79,7 +79,7 @@ export const TechlavyaEventData: EventDataType[] = [
     contact: 'Yet to be announced',
     lastDate: 'Yet to be announced',
     registrationLink: 'https://forms.gle/z8M2QZ2AP8pBQXE96',
-    type:'techlavya'
+    type: 'techlavya'
   },
   {
     id: uuidv4(),
@@ -92,7 +92,7 @@ export const TechlavyaEventData: EventDataType[] = [
     contact: 'Yet to be announced',
     lastDate: 'Yet to be announced',
     registrationLink: 'https://forms.gle/MKt2wuDs73EE4uHn7',
-    type:'techlavya'
+    type: 'techlavya'
   },
   {
     id: uuidv4(),
@@ -105,7 +105,7 @@ export const TechlavyaEventData: EventDataType[] = [
     contact: 'Yet to be announced',
     lastDate: 'Yet to be announced',
     registrationLink: 'https://forms.gle/oTfk15d36X9mZLhu6',
-    type:'techlavya'
+    type: 'techlavya'
   },
   {
     id: uuidv4(),
@@ -118,7 +118,7 @@ export const TechlavyaEventData: EventDataType[] = [
     contact: 'Yet to be announced',
     lastDate: 'Yet to be announced',
     registrationLink: 'https://forms.gle/QLi3z2Z1Abgu1h3G7',
-    type:'techlavya'
+    type: 'techlavya'
   }
 ]
 
@@ -135,7 +135,7 @@ export const EsportsEventData: EventDataType[] = [
     contact: 'Yet to be announced',
     lastDate: 'Yet to be announced',
     registrationLink: 'https://forms.gle/AG4SdvVqsBr8GuNH6',
-    type:'esport'
+    type: 'esport'
   },
   {
     id: uuidv4(),
@@ -148,7 +148,7 @@ export const EsportsEventData: EventDataType[] = [
     contact: 'Yet to be announced',
     lastDate: 'Yet to be announced',
     registrationLink: 'https://forms.gle/PqyW4Ty3pKFWN8fdA',
-    type:'esport'
+    type: 'esport'
   },
   {
     id: uuidv4(),
@@ -161,7 +161,7 @@ export const EsportsEventData: EventDataType[] = [
     contact: 'Yet to be announced',
     lastDate: 'Yet to be announced',
     registrationLink: 'https://forms.gle/yMSyy6n3khNb59Gc8',
-    type:'esport'
+    type: 'esport'
   },
   {
     id: uuidv4(),
@@ -174,7 +174,7 @@ export const EsportsEventData: EventDataType[] = [
     contact: 'Yet to be announced',
     lastDate: 'Yet to be announced',
     registrationLink: 'https://forms.gle/2tmTyfAV7dCeVvMA9',
-    type:'esport'
+    type: 'esport'
   },
   {
     id: uuidv4(),
@@ -187,7 +187,7 @@ export const EsportsEventData: EventDataType[] = [
     contact: 'Yet to be announced',
     lastDate: 'Yet to be announced',
     registrationLink: 'https://forms.gle/39ZuYHdLjWgg5mGx9',
-    type:'esport'
+    type: 'esport'
   },
   {
     id: uuidv4(),
@@ -200,7 +200,20 @@ export const EsportsEventData: EventDataType[] = [
     contact: 'Yet to be announced',
     lastDate: 'Yet to be announced',
     registrationLink: 'https://forms.gle/sxVgXs6AoMLG2a5r9',
-    type:'esport'
+    type: 'esport'
+  },
+  {
+    id: uuidv4(),
+    title: 'Asphalt 9',
+    image: '/events/esports-event/Asphalt_Web_Picsay_Riyan.webp',
+    buttonText: 'Tap in Register',
+    prizePool: 'Yet to be announced',
+    time: 'Yet to be announced',
+    location: 'Yet to be announced',
+    contact: 'Yet to be announced',
+    lastDate: 'Yet to be announced',
+    registrationLink: 'https://forms.gle/z2xAWzFZCcMKWsBF7',
+    type: 'esport'
   },
   {
     id: uuidv4(),
@@ -213,7 +226,7 @@ export const EsportsEventData: EventDataType[] = [
     contact: 'Yet to be announced',
     lastDate: 'Yet to be announced',
     registrationLink: 'https://forms.gle/RnixY7wswCxBRDLg6',
-    type:'esport'
+    type: 'esport'
   },
   {
     id: uuidv4(),
@@ -226,7 +239,7 @@ export const EsportsEventData: EventDataType[] = [
     contact: 'Yet to be announced',
     lastDate: 'Yet to be announced',
     registrationLink: 'https://forms.gle/VkTbWWGmH7xHeUYA7',
-    type:'esport'
+    type: 'esport'
   },
   {
     id: uuidv4(),
@@ -239,7 +252,7 @@ export const EsportsEventData: EventDataType[] = [
     contact: 'Yet to be announced',
     lastDate: 'Yet to be announced',
     registrationLink: 'https://forms.gle/FZ9cPDVkXM6kutV39',
-    type:'esport'
+    type: 'esport'
   },
 ]
 
