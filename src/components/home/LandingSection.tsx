@@ -1,6 +1,7 @@
 import dynamic from 'next/dynamic'
 import { Suspense } from 'react'
 import LandingImage from '../LandingImage'
+import CountdownTimer from '../CountdownTimer'
 const SpinningText = dynamic(() => import('@/components/magicui/spinning-text'), { ssr: false })
 
 const LandingSection = () => {
@@ -26,6 +27,7 @@ const LandingSection = () => {
                               Get ready to experience a world of <br />
                               <span className="text-green-500">Creativity</span>, <span className="text-orange-500">Innovation</span>, and <span className="text-violet-500">Entertainment</span> ❤️‍🔥
                          </p>
+                         <CountdownTimer />
                     </div>
                </div>
           </div>
