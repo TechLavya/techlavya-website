@@ -111,7 +111,7 @@ export const teamMembers: TeamMember[] = [
   {
     "name": "Sourav Sahoo",
     "role": "Decoration Head",
-    "image": "",
+    "image": "https://drive.google.com/uc?export=view&id=1Q4eoW5ncfaLWDDg6zA2AdSbVWLRe9S4X",
     "facebook": "",
     "instagram": "",
     "twitter": "",
