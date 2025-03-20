@@ -15,7 +15,6 @@ const Navbar = () => {
           { icon: <Images size={18} />, text: "Gallery", navigateTo: "/#gallery" },
           { icon: <Landmark size={18} />, text: "Sponsors", navigateTo: "/#sponsors" },
           { icon: <Users size={18} />, text: "Teams", navigateTo: "/teams" },
-          // { component: <MoreDropdown /> },
      ];
 
      return (
@@ -29,7 +28,7 @@ const Navbar = () => {
                     />
 
                     {/* Desktop Navigation */}
-                    <div className="hidden md:flex items-center justify-center flex-grow">
+                    <div className="hidden lg:flex items-center justify-center flex-grow">
                          <div className="flex items-center px-2 py-1 rounded-2xl space-x-2 bg-stone-500/10 backdrop-blur-sm">
                               {navItems.map((item, index) =>
                                    item.component ? (
@@ -42,7 +41,7 @@ const Navbar = () => {
                     </div>
 
                     {/* Mobile Menu */}
-                    <div className="md:hidden">
+                    <div className="lg:hidden">
                          <Sheet>
                               <SheetTrigger>
                                    <Menu size={24} className="text-gray-300" />
@@ -64,7 +63,7 @@ type NavItemProps = {
 };
 
 const NavItem: React.FC<NavItemProps> = ({ icon, text, navigateTo }) => (
-     <Link href={navigateTo} className="flex items-center space-x-2 px-4 py-2 rounded-xl text-base font-medium transition-all duration-500 ease-out group hover:bg-stone-500/20 text-gray-300 hover:text-white">
+     <Link href={navigateTo} className="flex items-center space-x-2 px-4 py-2 rounded-xl text-lg font-medium font-kodeMono transition-all duration-500 ease-out group hover:bg-stone-500/20 text-gray-300 hover:text-white">
           <span className="transition-transform duration-300 ease-out group-hover:scale-105">{icon}</span>
           <span className="transition-transform duration-300 ease-out group-hover:translate-x-1">{text}</span>
      </Link>

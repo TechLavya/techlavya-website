@@ -16,6 +16,6 @@ const TimelineSection: React.FC = () => {
       <Timeline data={data} />
     </div>
   );
-};
+};  
 
 export default TimelineSection;

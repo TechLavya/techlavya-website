@@ -32,7 +32,7 @@ const MobileMenubar: React.FC = () => {
      return (
           <>
                <SheetHeader className="mb-5">
-                    <SheetTitle className="text-xl font-bold bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent text-left px-4">
+                    <SheetTitle className="text-xl font-Orbitron font-bold bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent text-left px-4">
                          Menu
                     </SheetTitle>
                </SheetHeader>
@@ -40,7 +40,7 @@ const MobileMenubar: React.FC = () => {
                     {MenuSections.map((section, index) => (
                          <React.Fragment key={index}>
                               {section.title && (
-                                   <div className="px-4 py-2 text-xs font-semibold text-gray-400 border-b border-stone-700">
+                                   <div className="px-4 py-2 text-sm font-Orbitron font-semibold text-gray-400 border-b border-stone-700">
                                         {section.title}
                                    </div>
                               )}
@@ -66,7 +66,7 @@ const MobileNavItem: React.FC<MobileNavItemProps> = ({ icon, text, navigateTo })
      <SheetClose asChild>
           <Link
                href={navigateTo}
-               className="flex items-center space-x-3 px-4 py-3 rounded-xl text-base font-medium transition-all duration-300 text-gray-300 hover:text-white hover:bg-stone-700/50"
+               className="flex items-center space-x-3 px-4 py-3 rounded-xl text-lg font-kodeMono tracking-wide font-medium transition-all duration-300 text-gray-300 hover:text-white hover:bg-stone-700/50"
           >
                {icon}
                <span>{text}</span>

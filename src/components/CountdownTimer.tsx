@@ -75,7 +75,7 @@ const CalendarCard: React.FC<{ title: string; value: number; color: string }> = 
         </div>
 
         {/* Calendar header */}
-        <CardHeader className={`${color} text-white text-xs md:text-sm font-semibold text-center py-2 rounded-t-lg`}>
+        <CardHeader className={`${color} text-white text-xs md:text-sm font-kodeMono font-semibold text-center py-2 rounded-t-lg`}>
           {title}
         </CardHeader>
 
@@ -88,7 +88,7 @@ const CalendarCard: React.FC<{ title: string; value: number; color: string }> = 
               animate={{ y: "0%", opacity: 1 }}
               exit={{ y: "100%", opacity: 0 }}
               transition={{ duration: 0.4, ease: "easeInOut" }}
-              className="text-3xl md:text-4xl font-bold tabular-nums absolute"
+              className="text-3xl md:text-4xl tabular-nums absolute font-digital font-medium"
             >
               {value.toString().padStart(2, "0")}
             </motion.span>
@@ -96,7 +96,7 @@ const CalendarCard: React.FC<{ title: string; value: number; color: string }> = 
         </CardContent>
 
         {/* Calendar page curl effect */}
-        <div className="absolute bottom-0 right-0 w-3 h-3 md:w-4 md:h-4 bg-gradient-to-br from-transparent to-[#47535E] rounded-tl-md" />
+        <div className={`absolute bottom-0 right-0 w-3 h-3 md:w-4 md:h-4 bg-gradient-to-br from-transparent to-[#47535E] rounded-tl-md`} />
       </Card>
     </div>
   );

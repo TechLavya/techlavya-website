@@ -53,7 +53,7 @@ const EventCard: React.FC<Props> = ({ eventId, duration, eventData, flippedCardI
                                    className="w-full h-full object-cover"
                               />
                          </div>
-                         <button className="w-full absolute bottom-2 text-center text-white/40">
+                         <button className="w-full absolute bottom-2 text-center font-kodeMono tracking-wide text-white/40">
                               Tap to Register
                          </button>
                     </div>
@@ -64,7 +64,7 @@ const EventCard: React.FC<Props> = ({ eventId, duration, eventData, flippedCardI
                          onClick={handleFlip}
                     >
                          {registrationLink ? (
-                              <Button className="px-5 py-2 bg-[#4834DF] hover:bg-[#4834DF]/80">
+                              <Button className="px-5 py-2 bg-[#4834DF] hover:bg-[#4834DF]/80 font-kodeMono tracking-wider">
                                    <Link href={registrationLink} target="_blank">
                                         Register Now
                                    </Link>

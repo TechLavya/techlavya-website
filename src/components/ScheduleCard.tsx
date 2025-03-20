@@ -11,8 +11,8 @@ export const ScheduleCard: React.FC<ScheduleCardProps> = ({ events }) => {
     <div className="max-w-sm relative overflow-hidden rounded-2xl border border-stone-700 bg-black/60 backdrop-blur-lg p-8 md:p-10 h-auto shadow-xl shadow-indigo-500/20 group transition-all duration-300 hover:shadow-indigo-500/40">
       <div className="relative z-10">
         <div className="flex items-center gap-2 mb-6">
-          <Calendar className="h-6 w-6 text-indigo-400" />
-          <p className="text-xl md:text-2xl font-bold text-indigo-300">Events</p>
+          <Calendar className="h-7 w-7 text-indigo-400" />
+          <p className="text-xl md:text-3xl font-bold font-kodeMono text-indigo-300">Events</p>
         </div>
 
         <div className="text-neutral-300 mt-4 relative z-20">
@@ -43,7 +43,7 @@ const EventItem: React.FC<{ title: string; type: string }> = ({ title, type }) =
       >
         {getIconForEvent(type)}
       </div>
-      <p className="text-indigo-200 text-sm md:text-lg group-hover/item:translate-x-2 transition-transform duration-300 ease-in-out">
+      <p className="text-indigo-200 text-sm sm:text-lg font-kodeMono tracking-wide group-hover/item:translate-x-2 transition-transform duration-300 ease-in-out">
         {title}
       </p>
     </li>
@@ -52,8 +52,8 @@ const EventItem: React.FC<{ title: string; type: string }> = ({ title, type }) =
 
 const getIconForEvent = (type: string) => {
   return {
-    tech: <Zap size={18} className="text-red-400" />,
-    esports: <Gamepad2 size={18} className="text-purple-400" />,
-    cultural: <Sparkles size={18} className="text-yellow-400" />,
-  }[type] || <Sparkles size={18} className="text-yellow-400" />;
+    tech: <Zap size={18} className=" h-4 w-4 text-red-400" />,
+    esports: <Gamepad2 size={18} className="h-4 w-4 text-purple-400" />,
+    cultural: <Sparkles size={18} className="h-4 w-4 text-yellow-400" />,
+  }[type] || <Sparkles size={18} className="h-4 w-4 text-yellow-400" />;
 };

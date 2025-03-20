@@ -31,7 +31,7 @@ const TeamCard: React.FC<TeamCardProps> = ({ name, role, image, instagram, twitt
 
                <div>
                     <h2 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-teal-400">{name}</h2>
-                    <p className="text-gray-300 text-base font-semibold">{role}</p>
+                    <p className="text-gray-300 text-base font-kodeMono font-medium">{role}</p>
                </div>
 
                {/* Social Links */}

@@ -9,6 +9,12 @@ const config: Config = {
 	],
 	theme: {
 		extend: {
+			fontFamily:{
+				digital: ['var(--font-digital)'],
+				kodeMono: ['var(--font-kode-mono)'],
+				burnoAce: ['var(--font-bruno-ace)'],
+				Orbitron: ['var(--font-orbitron)'],
+			},
 			colors: {
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
@@ -150,7 +156,6 @@ const config: Config = {
 			},
 			backgroundImage:{
 				'footer':'url("/footerbg.png")',
-				// 'landing':'url("/landingbg.jpg")',
 			}
 		}
 	},
