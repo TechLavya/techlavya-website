@@ -30,7 +30,7 @@ export const teamMembers: TeamMember[] = [
   {
     "name": "Rabin Mahato",
     "role": "Convenor",
-    "image": "https://drive.google.com/uc?export=view&id=1WnhjvomDOClgNgh2e7-KJkg3B8qwIf6C",
+    "image": "https://drive.google.com/uc?export=view&id=1MwLrGFuiFddBOSaPE8xAXl7N9v5mlP5v",
     "facebook": "",
     "instagram": "",
     "twitter": "",
@@ -57,7 +57,7 @@ export const teamMembers: TeamMember[] = [
   {
     "name": "Supra Mandal",
     "role": "Vice-Secretary",
-    "image": "https://drive.google.com/uc?export=view&id=1FMB733MX2263Yzd4qbbpJO8VL5d2G0F6",
+    "image": "https://drive.google.com/uc?export=view&id=16gAz_e29nOg5pQFlFSImkPyGnJuu5BRs",
     "facebook": "https://www.facebook.com/share/15rDpiXap5/",
     "instagram": "",
     "twitter": "",
@@ -102,7 +102,7 @@ export const teamMembers: TeamMember[] = [
   {
     "name": "Subhadip Mandal",
     "role": "Social Media Head",
-    "image": "https://drive.google.com/uc?export=view&id=1N47iHlx2KEN6-xk4Z2JlZlakF0bV0LMI",
+    "image": "https://drive.google.com/uc?export=view&id=1tC5BArzoe2nSHDuwDNupozetMcEgJ4Np",
     "facebook": "https://www.facebook.com/share/18hCMdiDyb/",
     "instagram": "https://www.instagram.com/this.is_subhadip/profilecard/?igsh=bHFrdmcxZnN3djJh",
     "twitter": "",
