@@ -35,17 +35,17 @@ const Timeline = ({ data }: { data: TimelineEntry[] }) => {
 
   return (
     <div
-      className="w-ful font-sans md:px-10 pt-12"
+      className="w-ful font-sans px-4 md:px-10 pt-12"
       ref={containerRef}
     >
       <Title title="Events Schedule" className=" pt-10 from-[#290ccb] to-[#ba089d]" />
-      <div ref={ref} className="relative max-w-5xl mx-auto pb-20">
+      <div ref={ref} className="relative max-w-4xl mx-auto pb-20">
         {data.map((item, index) => (
           <div
             key={index}
-            className="flex justify-start pt-10 md:pt-40 md:gap-10"
+            className="flex justify-start pt-20 md:pt-40 "
           >
-            <div className="sticky flex flex-col lg:flex-row z-40 items-center top-40 self-start max-w-xs lg:max-w-sm lg:w-full">
+            <div className=" flex lg:sticky flex-col lg:flex-row z-40 items-center top-40 self-start max-w-xs lg:w-full">
               <div className="h-10 absolute left-3 lg:left-3 w-10 rounded-full bg-purple-500 dark:bg-black flex items-center justify-center">
                 <div className="h-4 w-4 rounded-full bg-neutral-200 dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-700 p-2" />
               </div>
@@ -54,7 +54,7 @@ const Timeline = ({ data }: { data: TimelineEntry[] }) => {
               </h3>
             </div>
 
-            <div className="relative pl-20 md:pl-10 w-full">
+            <div className="relative pl-20 w-full">
               <h3 className="lg:hidden block text-3xl sm:text-4xl text-left font-Orbitron font-bold text-white dark:text-neutral-500 mb-5">
                 {item.title}
               </h3>

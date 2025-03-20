@@ -1,5 +1,5 @@
 import React from 'react';
-import { Facebook, Instagram, Youtube, MapPin, Github } from 'lucide-react';
+import { Facebook, Instagram, Youtube, MapPin, Github, Copyright } from 'lucide-react';
 import Image from 'next/image';
 
 const Footer: React.FC = () => {
@@ -59,8 +59,9 @@ const Footer: React.FC = () => {
                     <hr className="my-6 border-gray-700" />
 
                     {/* Copyright */}
-                    <p className="text-center text-gray-400">
-                         © 2024-25 Aikatan RKMGEC - Web & Designer Team. All rights reserved.
+                    <p className="flex justify-center items-center text-xs sm:text-sm text-center text-gray-400">
+                         <Copyright className=' h-4 w-4 mr-1'/>
+                         <span>2024-25 Aikatan RKMGEC - Web & Designer Team. All rights reserved.</span>
                     </p>
                </div>
           </footer>

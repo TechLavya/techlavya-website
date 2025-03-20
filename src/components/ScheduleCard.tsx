@@ -8,11 +8,11 @@ interface ScheduleCardProps {
 
 export const ScheduleCard: React.FC<ScheduleCardProps> = ({ events }) => {
   return (
-    <div className="max-w-sm relative overflow-hidden rounded-2xl border border-stone-700 bg-black/60 backdrop-blur-lg p-8 md:p-10 h-auto shadow-xl shadow-indigo-500/20 group transition-all duration-300 hover:shadow-indigo-500/40">
+    <div className="max-w-md relative overflow-hidden rounded-2xl border border-stone-700 bg-black/60 backdrop-blur-lg p-5 md:p-10 h-auto shadow-xl shadow-indigo-500/20 group transition-all duration-300 hover:shadow-indigo-500/40">
       <div className="relative z-10">
         <div className="flex items-center gap-2 mb-6">
           <Calendar className="h-7 w-7 text-indigo-400" />
-          <p className="text-xl md:text-3xl font-bold font-kodeMono text-indigo-300">Events</p>
+          <p className="text-lg min-[400]:text-xl md:text-3xl font-bold font-kodeMono text-indigo-300">Events</p>
         </div>
 
         <div className="text-neutral-300 mt-4 relative z-20">

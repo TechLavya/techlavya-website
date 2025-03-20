@@ -23,10 +23,10 @@ const LandingSection = () => {
         </div>
 
         <div>
-          <h1 className="text-3xl max-w-[465px]:text-4xl md:text-5xl lg:text-6xl text-center font-bold font-Orbitron mb-3 text-transparent bg-clip-text bg-gradient-to-r from-rose-500 to-violet-500">
+          <h1 className="text-3xl min-[465px]:text-4xl md:text-5xl lg:text-6xl text-center font-bold font-Orbitron mb-3 text-transparent bg-clip-text bg-gradient-to-r from-rose-500 to-violet-500">
             #Tech Meets Culture
           </h1>
-          <p className="text-center text-base max-w-[465px]:text-lg sm:text-xl md:text-2xl font-burnoAce text-white">
+          <p className="text-center text-base min-[465px]:text-lg sm:text-xl md:text-2xl font-burnoAce text-white">
             Get ready to experience a world of <br />
             <span className="text-green-500">Creativity</span>, <span className="text-orange-500">Innovation</span>, and <span className="text-violet-500">Entertainment</span> ❤️‍🔥
           </p>

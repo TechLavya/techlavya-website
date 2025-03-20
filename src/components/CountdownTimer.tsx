@@ -63,7 +63,11 @@ const CalendarCard: React.FC<{ title: string; value: number; color: string }> = 
   color,
 }) => {
   return (
-    <div className="flex flex-col items-center relative">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 0.3 }}
+      className="flex flex-col items-center relative">
       <Card className="w-20 md:w-[100px] shadow-lg relative overflow-viaible">
         {/* Calendar top binding */}
         <div className={`absolute -top-2 left-0 right-0 h-4 ${color} rounded-t-md flex justify-center items-center`}>
@@ -98,6 +102,6 @@ const CalendarCard: React.FC<{ title: string; value: number; color: string }> = 
         {/* Calendar page curl effect */}
         <div className={`absolute bottom-0 right-0 w-3 h-3 md:w-4 md:h-4 bg-gradient-to-br from-transparent to-[#47535E] rounded-tl-md`} />
       </Card>
-    </div>
+    </motion.div>
   );
 };

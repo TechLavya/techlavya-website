@@ -10,7 +10,7 @@ interface TimelineEntry {
 
 export const timelineData: TimelineEntry[] = [
   {
-    title: "Day1",
+    title: "Day 1",
     events: [
       { title: "Hackvengers (9am-9pm)", type: "tech" },
       { title: "CadBuilder (10am-1pm)", type: "tech" },
@@ -20,7 +20,7 @@ export const timelineData: TimelineEntry[] = [
     ],
   },
   {
-    title: "Day2",
+    title: "Day 2",
     events: [
       { title: "SchoolEvent (8am-4pm)", type: "tech" },
       { title: "Seminar (10am-12pm)", type: "tech" },
@@ -31,7 +31,7 @@ export const timelineData: TimelineEntry[] = [
     ],
   },
   {
-    title: "Day3",
+    title: "Day 3",
     events: [
       { title: "0-Gravity (10am-1pm)", type: "tech" },
       { title: "CircuitDesign (1pm-4pm)", type: "tech" },
@@ -41,7 +41,7 @@ export const timelineData: TimelineEntry[] = [
     ],
   },
   {
-    title: "Day4",
+    title: "Day 4",
     events: [
       { title: "Roborush (11am-4pm)", type: "tech" },
       { title: "TypingTest (12pm-2pm)", type: "tech" },
