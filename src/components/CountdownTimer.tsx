@@ -68,7 +68,7 @@ const CalendarCard: React.FC<{ title: string; value: number; color: string }> = 
       animate={{ opacity: 1 }}
       transition={{ delay: 0.3 }}
       className="flex flex-col items-center relative">
-      <Card className="w-20 md:w-[100px] shadow-lg relative overflow-viaible">
+      <Card className="w-[4.5rem] sm:w-20 lg:w-24 shadow-lg relative overflow-viaible">
         {/* Calendar top binding */}
         <div className={`absolute -top-2 left-0 right-0 h-4 ${color} rounded-t-md flex justify-center items-center`}>
           <div className="flex gap-2.5 md:gap-4">
@@ -84,7 +84,7 @@ const CalendarCard: React.FC<{ title: string; value: number; color: string }> = 
         </CardHeader>
 
         {/* Animated Number Content */}
-        <CardContent className="w-full flex items-center justify-center p-3 text-white bg-[#2C3335] relative overflow-hidden h-14 md:h-16">
+        <CardContent className="w-full flex items-center justify-center p-3 text-white bg-[#2C3335] relative overflow-hidden h-14 lg:h-16">
           <AnimatePresence mode="popLayout">
             <motion.span
               key={value}
@@ -92,7 +92,7 @@ const CalendarCard: React.FC<{ title: string; value: number; color: string }> = 
               animate={{ y: "0%", opacity: 1 }}
               exit={{ y: "100%", opacity: 0 }}
               transition={{ duration: 0.4, ease: "easeInOut" }}
-              className="text-3xl md:text-4xl tabular-nums absolute font-digital font-medium"
+              className="text-[1.75rem] sm:text-3xl lg:text-4xl tabular-nums absolute font-digital font-medium"
             >
               {value.toString().padStart(2, "0")}
             </motion.span>
@@ -100,7 +100,7 @@ const CalendarCard: React.FC<{ title: string; value: number; color: string }> = 
         </CardContent>
 
         {/* Calendar page curl effect */}
-        <div className={`absolute bottom-0 right-0 w-3 h-3 md:w-4 md:h-4 bg-gradient-to-br from-transparent to-[#47535E] rounded-tl-md`} />
+        <div className={`absolute bottom-0 right-0 w-3 h-3 md:w-3.5 md:h-3.5 bg-gradient-to-br from-transparent to-[#47535E] rounded-tl-md`} />
       </Card>
     </motion.div>
   );

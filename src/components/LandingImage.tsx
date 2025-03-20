@@ -6,10 +6,10 @@ import Image from 'next/image'
 const LandingImage = () => {
      return (
           <motion.div
-          initial={{scale:0, opacity:0}}
-          whileInView={{scale:1, opacity:1}}
-          transition={{delay:0.2, duration:0.3}}
-          viewport={{once:true}}
+               initial={{ scale: 0, opacity: 0 }}
+               whileInView={{ scale: 1, opacity: 1 }}
+               transition={{ delay: 0.2, duration: 0.3 }}
+               viewport={{ once: true }}
           >
                <Image
                     src="/techlavya-logo.png"
@@ -17,7 +17,7 @@ const LandingImage = () => {
                     width={240}
                     height={240}
                     priority
-                    className="h-52 w-52 md:h-[14rem] md:w-[14rem] object-contain"
+                    className="h-44 w-44 xs:h-[14rem] xs:w-[14rem] object-contain"
                />
           </motion.div>
      )

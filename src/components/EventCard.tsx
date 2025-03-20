@@ -32,7 +32,7 @@ const EventCard: React.FC<Props> = ({ eventId, duration, eventData, flippedCardI
                     type: "spring",
                }}
                viewport={{ once: true }}
-               className="flip-card w-full max-w-md mx-auto h-[19rem]"
+               className="flip-card w-full max-w-md mx-auto h-[18rem] xs:h-[19rem]"
           >
                <motion.div
                     className="flip-card-inner w-full h-full rounded-lg flex justify-center items-center hover:scale-110"
@@ -53,7 +53,7 @@ const EventCard: React.FC<Props> = ({ eventId, duration, eventData, flippedCardI
                                    className="w-full h-full object-cover"
                               />
                          </div>
-                         <button className="w-full absolute bottom-2 text-center font-kodeMono tracking-wide text-white/40">
+                         <button className="w-full absolute text-xs sm:text-sm bottom-2 text-center font-kodeMono tracking-wide text-white/40">
                               Tap to Register
                          </button>
                     </div>

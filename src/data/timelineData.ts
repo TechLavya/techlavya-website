@@ -46,7 +46,7 @@ export const timelineData: TimelineEntry[] = [
       { title: "Roborush (11am-4pm)", type: "tech" },
       { title: "TypingTest (12pm-2pm)", type: "tech" },
       { title: "ClashofClans (2pm-4pm)", type: "esports" },
-      { title: "MiniMilitia (4pm-5:30pm)", type: "esports" },
+      { title: "MiniMilitia (4pm-6pm)", type: "esports" },
     ],
   },
 ];

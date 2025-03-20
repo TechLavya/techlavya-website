@@ -15,7 +15,7 @@ const Title: React.FC<Props> = ({ title, className }) => {
                whileInView={{ y: 0, opacity: 1 }}
                transition={{ delay: 0.2, type: "spring", stiffness: 120 }}
                viewport={{ once: true }}
-               className={cn('text-3xl max-w-[500px]:text-4xl md:text-5xl font-Poppins font-[600] uppercase text-center mb-10 mb:mb-16 text-transparent bg-clip-text bg-gradient-to-r font-bold font-Orbitron', className)}
+               className={cn('text-[25px] xs:text-3xl sm:text-4xl lg:text-5xl font-bold font-Orbitron uppercase text-center mb-10 mb:mb-16 text-transparent bg-clip-text bg-gradient-to-r', className)}
           >
                {title}
           </motion.h1>

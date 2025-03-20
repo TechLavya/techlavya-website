@@ -49,12 +49,12 @@ const Timeline = ({ data }: { data: TimelineEntry[] }) => {
               <div className="h-10 absolute left-3 lg:left-3 w-10 rounded-full bg-purple-500 dark:bg-black flex items-center justify-center">
                 <div className="h-4 w-4 rounded-full bg-neutral-200 dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-700 p-2" />
               </div>
-              <h3 className="hidden lg:block text-xl lg:pl-20 lg:text-5xl font-Orbitron font-bold text-white dark:text-neutral-500">
+              <h3 className="hidden lg:block text-xl lg:pl-20 lg:text-4xl font-Orbitron font-bold text-white dark:text-neutral-500">
                 {item.title}
               </h3>
             </div>
 
-            <div className="relative pl-20 w-full">
+            <div className="relative pl-16 w-full">
               <h3 className="lg:hidden block text-3xl sm:text-4xl text-left font-Orbitron font-bold text-white dark:text-neutral-500 mb-5">
                 {item.title}
               </h3>

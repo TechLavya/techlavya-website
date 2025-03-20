@@ -44,7 +44,7 @@ const Navbar = () => {
                     <div className="lg:hidden">
                          <Sheet>
                               <SheetTrigger>
-                                   <Menu size={24} className="text-gray-300" />
+                                   <Menu size={25} className="text-gray-300" />
                               </SheetTrigger>
                               <SheetContent className="max-w-[60%] bg-black/60 border-none">
                                    <MobileMenubar />
@@ -63,7 +63,7 @@ type NavItemProps = {
 };
 
 const NavItem: React.FC<NavItemProps> = ({ icon, text, navigateTo }) => (
-     <Link href={navigateTo} className="flex items-center space-x-2 px-4 py-2 rounded-xl text-lg font-medium font-kodeMono transition-all duration-500 ease-out group hover:bg-stone-500/20 text-gray-300 hover:text-white">
+     <Link href={navigateTo} className="flex items-center space-x-2 px-4 py-2 rounded-xl text-base font-medium font-kodeMono transition-all duration-500 ease-out group hover:bg-stone-500/20 text-gray-300 hover:text-white">
           <span className="transition-transform duration-300 ease-out group-hover:scale-105">{icon}</span>
           <span className="transition-transform duration-300 ease-out group-hover:translate-x-1">{text}</span>
      </Link>

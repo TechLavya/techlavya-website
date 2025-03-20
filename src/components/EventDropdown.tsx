@@ -13,7 +13,6 @@ interface Event {
 const events: Event[] = [
   { id: '1', name: 'Techlavya', section: 'techlavya' },
   { id: '2', name: 'Esports', section: 'esports' },
-  // { id: '3', name: 'Cultural', section: 'cultural' },
 ];
 
 export const EventDropdown = () => {
@@ -46,7 +45,7 @@ export const EventDropdown = () => {
         className="flex items-center space-x-2 px-4 py-2 rounded-xl text-sm font-medium transition-all duration-500 ease-out group hover:bg-stone-500/20 text-gray-300 hover:text-white"
       >
         <PartyPopper size={19} />
-        <span className='text-lg font-medium font-kodeMono'>Events</span>
+        <span className='text-base font-medium font-kodeMono'>Events</span>
         <ChevronDown size={14} className={`transform transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
       </button>
 
@@ -64,7 +63,7 @@ export const EventDropdown = () => {
                 className="flex items-center space-x-3 px-3 py-2 rounded-lg text-sm text-gray-300 hover:text-white hover:bg-stone-700/50 transition-colors duration-200"
               >
                 <PartyPopper size={16} className="text-purple-400" />
-                <div className=" text-lg font-medium font-kodeMono">{event.name}</div>
+                <div className=" text-base font-medium font-kodeMono">{event.name}</div>
               </Link>
             ))}
           </div>

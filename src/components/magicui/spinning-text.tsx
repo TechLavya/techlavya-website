@@ -19,8 +19,8 @@ type SpinningTextProps = {
 };
 
 const BASE_TRANSITION = {
-  delay:0.2,
-  duration:0.3,
+  delay: 0.2,
+  duration: 0.3,
   repeat: Infinity,
   ease: "linear",
 };
@@ -43,12 +43,12 @@ const SpinningText = ({
   transition,
   variants,
 }: SpinningTextProps) => {
-  const [radius, setRadius] = useState(16);
+  const [radius, setRadius] = useState(14.5);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
       const updateRadius = () => {
-        setRadius(window.innerWidth < 768 ? 14 : 15);
+        setRadius(window.innerWidth < 450 ? 11.5 : 14.5)
       };
 
       updateRadius(); // Set initial value

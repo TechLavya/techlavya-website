@@ -9,7 +9,11 @@ const config: Config = {
 	],
 	theme: {
 		extend: {
-			fontFamily:{
+			screens: {
+				'xxs': '390px',
+				'xs': '450px'
+			},
+			fontFamily: {
 				digital: ['var(--font-digital)'],
 				kodeMono: ['var(--font-kode-mono)'],
 				burnoAce: ['var(--font-bruno-ace)'],
@@ -154,8 +158,8 @@ const config: Config = {
 				marquee: 'marquee var(--duration) infinite linear',
 				'marquee-vertical': 'marquee-vertical var(--duration) linear infinite'
 			},
-			backgroundImage:{
-				'footer':'url("/footerbg.png")',
+			backgroundImage: {
+				'footer': 'url("/footerbg.png")',
 			}
 		}
 	},
