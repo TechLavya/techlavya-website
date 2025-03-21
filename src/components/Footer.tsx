@@ -1,5 +1,6 @@
 import { Facebook, Github, Instagram, MapPin, Youtube } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 
 const Footer: React.FC = () => {
@@ -30,18 +31,18 @@ const Footer: React.FC = () => {
                          <div className="w-full md:w-1/3 flex flex-col items-center">
                               <h3 className="text-xl font-semibold mb-4">Follow Us</h3>
                               <div className="flex space-x-6">
-                                   <a href="https://www.facebook.com/aikatan.rkmgec" target="_blank" rel="noopener noreferrer">
+                                   <Link href="https://www.facebook.com/aikatan.rkmgec" target="_blank" rel="noopener noreferrer">
                                         <Facebook className="w-7 h-7 text-gray-400 hover:text-yellow-400 transition duration-300" />
-                                   </a>
-                                   <a href="https://www.instagram.com/@RKMGECOFFICIAL" target="_blank" rel="noopener noreferrer">
+                                   </Link>
+                                   <Link href="https://www.instagram.com/techlavya.rkmgec/" target="_blank" rel="noopener noreferrer">
                                         <Instagram className="w-7 h-7 text-gray-400 hover:text-yellow-400 transition duration-300" />
-                                   </a>
-                                   <a href="https://www.youtube.com/@RKMGECOFFICIAL" target="_blank" rel="noopener noreferrer">
+                                   </Link>
+                                   <Link href="https://www.youtube.com/@RKMGECOFFICIAL" target="_blank" rel="noopener noreferrer">
                                         <Youtube className="w-7 h-7 text-gray-400 hover:text-yellow-400 transition duration-300" />
-                                   </a>
-                                   <a href="https://github.com/TechLavya" target="_blank" rel="noopener noreferrer">
+                                   </Link>
+                                   <Link href="https://github.com/TechLavya" target="_blank" rel="noopener noreferrer">
                                         <Github className="w-7 h-7 text-gray-400 hover:text-yellow-400 transition duration-300" />
-                                   </a>
+                                   </Link>
                               </div>
                          </div>
 
@@ -49,9 +50,9 @@ const Footer: React.FC = () => {
                          <div className="w-full md:w-1/3 flex flex-col justify-center max-md:items-center">
                               <h3 className="text-xl font-semibold mb-4">Address</h3>
                               <p className="text-gray-300">Ramkrishna Mahato Government Engineering College, Agharpur, Purulia 723203</p>
-                              <a href="https://www.google.com/maps/place/Ram+Krishna+Mahato+Government+Engin…" target="_blank" rel="noopener noreferrer" className="text-yellow-400 hover:underline flex items-center mt-2">
+                              <Link href="https://www.google.com/maps/place/Ram+Krishna+Mahato+Government+Engin…" target="_blank" rel="noopener noreferrer" className="text-yellow-400 hover:underline flex items-center mt-2">
                                    <MapPin className="w-5 h-5 mr-2" /> View on Map
-                              </a>
+                              </Link>
                          </div>
                     </div>
 
