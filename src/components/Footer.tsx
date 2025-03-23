@@ -23,7 +23,7 @@ const Footer: React.FC = () => {
                                    &quot;Experience the thrill of innovation at the ultimate tech fest! Join us for exciting events and workshops covering everything from coding to design.&quot;
                               </p>
                               <p className="mt-3">
-                                   Email: <a href="mailto:fest@rkmgec.ac.in" className="text-yellow-400 hover:underline">fest@rkmgec.ac.in</a>
+                                   Email: <Link href="mailto:techfest@rkmgec.ac.in" className="text-yellow-400 hover:underline">techfest@rkmgec.ac.in</Link>
                               </p>
                          </div>
 
@@ -31,7 +31,7 @@ const Footer: React.FC = () => {
                          <div className="w-full md:w-1/3 flex flex-col items-center">
                               <h3 className="text-xl font-semibold mb-4">Follow Us</h3>
                               <div className="flex space-x-6">
-                                   <Link href="https://www.facebook.com/aikatan.rkmgec" target="_blank" rel="noopener noreferrer">
+                                   <Link href="https://www.facebook.com/share/16AmVp6gyk/" target="_blank" rel="noopener noreferrer">
                                         <Facebook className="w-7 h-7 text-gray-400 hover:text-yellow-400 transition duration-300" />
                                    </Link>
                                    <Link href="https://www.instagram.com/techlavya.rkmgec/" target="_blank" rel="noopener noreferrer">
