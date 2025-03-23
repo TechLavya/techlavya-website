@@ -73,15 +73,6 @@ export const teamMembers: TeamMember[] = [
     "linkedin": "https://www.linkedin.com/in/aniketshaw00x/"
   },
   {
-    "name": "Ankur Ghoshal",
-    "role": "Budget Head",
-    "image": "https://drive.google.com/uc?export=view&id=1kb3oEJQl7UT3fzVF_D61nQzPsgrb3F-x",
-    "facebook": "https://www.facebook.com/profile.php?id=100011371799852",
-    "instagram": "",
-    "twitter": "",
-    "linkedin": ""
-  },
-  {
     "name": "Suresh Pal",
     "role": "Web Designer Head",
     "image": "https://drive.google.com/uc?export=view&id=1mZGDdEZg6no0RXzHGkXB5pnEwLMCLpib",
@@ -91,6 +82,24 @@ export const teamMembers: TeamMember[] = [
     "linkedin": "https://www.linkedin.com/in/suresh61/"
   },
   {
+    "name": "Ankur Ghoshal",
+    "role": "Budget Head",
+    "image": "https://drive.google.com/uc?export=view&id=1kb3oEJQl7UT3fzVF_D61nQzPsgrb3F-x",
+    "facebook": "https://www.facebook.com/profile.php?id=100011371799852",
+    "instagram": "",
+    "twitter": "",
+    "linkedin": ""
+  },
+  {
+    "name": "Dipmoy Barik",
+    "role": "Budget Co-Head",
+    "image": "https://drive.google.com/uc?export=view&id=1slE4bE-w61P8HGVVEXMK78huKfUxnJXN",
+    "facebook": "https://www.facebook.com/share/1L4BbPDkTy/",
+    "instagram": "https://www.instagram.com/dipmoy369?igsh=MXM1Z3Uxcjd5MGZocw==",
+    "twitter": "",
+    "linkedin": ""
+  },
+  {
     "name": "Manish Hira",
     "role": "Sponsorship Head",
     "image": "https://drive.google.com/uc?export=view&id=1N47iHlx2KEN6-xk4Z2JlZlakF0bV0LMI",
@@ -98,6 +107,15 @@ export const teamMembers: TeamMember[] = [
     "instagram": "https://www.instagram.com/manish_hira01?igsh=dXF0b2htaXlmdHdj",
     "twitter": "",
     "linkedin": "https://www.linkedin.com/in/manish-hira?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+  },
+  {
+    "name": "Sayan De Karmakar ",
+    "role": "Sponsorship Co-Head",
+    "image": "https://drive.google.com/uc?export=view&id=1PWZqSQUSrIJh_jPWaN839OAkjftuySPY",
+    "facebook": "https://www.facebook.com/sayan.dekarmakar.94/about_overview",
+    "instagram": "https://www.instagram.com/sayan2733k/",
+    "twitter": "https://x.com/SayanDK000",
+    "linkedin": "https://www.linkedin.com/in/sayan-de-karmakar-48b296344/"
   },
   {
     "name": "Subhadip Mandal",
