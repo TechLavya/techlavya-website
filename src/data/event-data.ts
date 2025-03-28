@@ -26,7 +26,7 @@ export const TechlavyaEventData: EventDataType[] = [
     location: 'Yet to be announced',
     contact: 'Yet to be announced',
     lastDate: 'Yet to be announced',
-    registrationLink: 'https://forms.gle/ajzqMfXUXeRrPcBG9',
+    registrationLink: '',
     type: 'techlavya'
   },
   {
@@ -39,7 +39,7 @@ export const TechlavyaEventData: EventDataType[] = [
     location: 'Yet to be announced',
     contact: 'Yet to be announced',
     lastDate: 'Yet to be announced',
-    registrationLink: 'https://forms.gle/WxxtrhwMbtq2PpzP9',
+    registrationLink: '',
     type: 'techlavya'
   },
   {
@@ -52,7 +52,7 @@ export const TechlavyaEventData: EventDataType[] = [
     location: 'Yet to be announced',
     contact: 'Yet to be announced',
     lastDate: 'Yet to be announced',
-    registrationLink: 'https://forms.gle/SYxCZjnKkNrSTpNc8',
+    registrationLink: '',
     type: 'techlavya'
   },
   {
@@ -65,7 +65,7 @@ export const TechlavyaEventData: EventDataType[] = [
     location: 'Yet to be announced',
     contact: 'Yet to be announced',
     lastDate: 'Yet to be announced',
-    registrationLink: 'https://forms.gle/bgk1wsUw53SXaXDh8',
+    registrationLink: 'https://unstop.com/o/A9EHUry?lb=cDOdwZXp&utm_medium=Share&utm_source=shortUrl',
     type: 'techlavya'
   },
   {
@@ -78,7 +78,7 @@ export const TechlavyaEventData: EventDataType[] = [
     location: 'Yet to be announced',
     contact: 'Yet to be announced',
     lastDate: 'Yet to be announced',
-    registrationLink: 'https://forms.gle/z8M2QZ2AP8pBQXE96',
+    registrationLink: 'https://unstop.com/o/WULgwDh?lb=cDOdwZXp&utm_medium=Share&utm_source=shortUrl',
     type: 'techlavya'
   },
   {
@@ -91,7 +91,7 @@ export const TechlavyaEventData: EventDataType[] = [
     location: 'Yet to be announced',
     contact: 'Yet to be announced',
     lastDate: 'Yet to be announced',
-    registrationLink: 'https://forms.gle/MKt2wuDs73EE4uHn7',
+    registrationLink: 'https://unstop.com/o/XjsU4T5?lb=cDOdwZXp&utm_medium=Share&utm_source=shortUrl',
     type: 'techlavya'
   },
   {
@@ -104,7 +104,7 @@ export const TechlavyaEventData: EventDataType[] = [
     location: 'Yet to be announced',
     contact: 'Yet to be announced',
     lastDate: 'Yet to be announced',
-    registrationLink: 'https://forms.gle/oTfk15d36X9mZLhu6',
+    registrationLink: '',
     type: 'techlavya'
   },
   {
@@ -117,7 +117,7 @@ export const TechlavyaEventData: EventDataType[] = [
     location: 'Yet to be announced',
     contact: 'Yet to be announced',
     lastDate: 'Yet to be announced',
-    registrationLink: 'https://forms.gle/QLi3z2Z1Abgu1h3G7',
+    registrationLink: 'https://unstop.com/o/QhmyDCc?lb=cDOdwZXp&utm_medium=Share&utm_source=shortUrl',
     type: 'techlavya'
   }
 ]
@@ -134,7 +134,7 @@ export const EsportsEventData: EventDataType[] = [
     location: 'Yet to be announced',
     contact: 'Yet to be announced',
     lastDate: 'Yet to be announced',
-    registrationLink: 'https://forms.gle/AG4SdvVqsBr8GuNH6',
+    registrationLink: '',
     type: 'esport'
   },
   {
@@ -147,7 +147,7 @@ export const EsportsEventData: EventDataType[] = [
     location: 'Yet to be announced',
     contact: 'Yet to be announced',
     lastDate: 'Yet to be announced',
-    registrationLink: 'https://forms.gle/PqyW4Ty3pKFWN8fdA',
+    registrationLink: '',
     type: 'esport'
   },
   {
@@ -160,7 +160,7 @@ export const EsportsEventData: EventDataType[] = [
     location: 'Yet to be announced',
     contact: 'Yet to be announced',
     lastDate: 'Yet to be announced',
-    registrationLink: 'https://forms.gle/yMSyy6n3khNb59Gc8',
+    registrationLink: '',
     type: 'esport'
   },
   {
@@ -173,7 +173,7 @@ export const EsportsEventData: EventDataType[] = [
     location: 'Yet to be announced',
     contact: 'Yet to be announced',
     lastDate: 'Yet to be announced',
-    registrationLink: 'https://forms.gle/2tmTyfAV7dCeVvMA9',
+    registrationLink: '',
     type: 'esport'
   },
   {
@@ -186,7 +186,7 @@ export const EsportsEventData: EventDataType[] = [
     location: 'Yet to be announced',
     contact: 'Yet to be announced',
     lastDate: 'Yet to be announced',
-    registrationLink: 'https://forms.gle/39ZuYHdLjWgg5mGx9',
+    registrationLink: '',
     type: 'esport'
   },
   {
@@ -199,7 +199,7 @@ export const EsportsEventData: EventDataType[] = [
     location: 'Yet to be announced',
     contact: 'Yet to be announced',
     lastDate: 'Yet to be announced',
-    registrationLink: 'https://forms.gle/sxVgXs6AoMLG2a5r9',
+    registrationLink: '',
     type: 'esport'
   },
   {
@@ -212,7 +212,7 @@ export const EsportsEventData: EventDataType[] = [
     location: 'Yet to be announced',
     contact: 'Yet to be announced',
     lastDate: 'Yet to be announced',
-    registrationLink: 'https://forms.gle/z2xAWzFZCcMKWsBF7',
+    registrationLink: '',
     type: 'esport'
   },
   {
@@ -225,7 +225,7 @@ export const EsportsEventData: EventDataType[] = [
     location: 'Yet to be announced',
     contact: 'Yet to be announced',
     lastDate: 'Yet to be announced',
-    registrationLink: 'https://forms.gle/RnixY7wswCxBRDLg6',
+    registrationLink: '',
     type: 'esport'
   },
   {
@@ -238,7 +238,7 @@ export const EsportsEventData: EventDataType[] = [
     location: 'Yet to be announced',
     contact: 'Yet to be announced',
     lastDate: 'Yet to be announced',
-    registrationLink: 'https://forms.gle/VkTbWWGmH7xHeUYA7',
+    registrationLink: '',
     type: 'esport'
   },
   {
@@ -251,7 +251,7 @@ export const EsportsEventData: EventDataType[] = [
     location: 'Yet to be announced',
     contact: 'Yet to be announced',
     lastDate: 'Yet to be announced',
-    registrationLink: 'https://forms.gle/FZ9cPDVkXM6kutV39',
+    registrationLink: '',
     type: 'esport'
   },
 ]
