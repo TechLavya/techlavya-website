@@ -26,7 +26,7 @@ export const TechlavyaEventData: EventDataType[] = [
     location: 'Yet to be announced',
     contact: 'Yet to be announced',
     lastDate: 'Yet to be announced',
-    registrationLink: '',
+    registrationLink: 'https://forms.gle/ajzqMfXUXeRrPcBG9',
     type: 'techlavya'
   },
   {
@@ -39,7 +39,7 @@ export const TechlavyaEventData: EventDataType[] = [
     location: 'Yet to be announced',
     contact: 'Yet to be announced',
     lastDate: 'Yet to be announced',
-    registrationLink: '',
+    registrationLink: 'https://forms.gle/WxxtrhwMbtq2PpzP9',
     type: 'techlavya'
   },
   {
@@ -52,7 +52,7 @@ export const TechlavyaEventData: EventDataType[] = [
     location: 'Yet to be announced',
     contact: 'Yet to be announced',
     lastDate: 'Yet to be announced',
-    registrationLink: '',
+    registrationLink: 'https://forms.gle/SYxCZjnKkNrSTpNc8',
     type: 'techlavya'
   },
   {
@@ -104,7 +104,7 @@ export const TechlavyaEventData: EventDataType[] = [
     location: 'Yet to be announced',
     contact: 'Yet to be announced',
     lastDate: 'Yet to be announced',
-    registrationLink: '',
+    registrationLink: 'https://forms.gle/oTfk15d36X9mZLhu6',
     type: 'techlavya'
   },
   {
@@ -122,7 +122,6 @@ export const TechlavyaEventData: EventDataType[] = [
   }
 ]
 
-
 export const EsportsEventData: EventDataType[] = [
   {
     id: uuidv4(),
@@ -134,7 +133,7 @@ export const EsportsEventData: EventDataType[] = [
     location: 'Yet to be announced',
     contact: 'Yet to be announced',
     lastDate: 'Yet to be announced',
-    registrationLink: '',
+    registrationLink: 'https://forms.gle/AG4SdvVqsBr8GuNH6',
     type: 'esport'
   },
   {
@@ -147,7 +146,7 @@ export const EsportsEventData: EventDataType[] = [
     location: 'Yet to be announced',
     contact: 'Yet to be announced',
     lastDate: 'Yet to be announced',
-    registrationLink: '',
+    registrationLink: 'https://forms.gle/PqyW4Ty3pKFWN8fdA',
     type: 'esport'
   },
   {
@@ -160,7 +159,7 @@ export const EsportsEventData: EventDataType[] = [
     location: 'Yet to be announced',
     contact: 'Yet to be announced',
     lastDate: 'Yet to be announced',
-    registrationLink: '',
+    registrationLink: 'https://forms.gle/yMSyy6n3khNb59Gc8',
     type: 'esport'
   },
   {
@@ -173,7 +172,7 @@ export const EsportsEventData: EventDataType[] = [
     location: 'Yet to be announced',
     contact: 'Yet to be announced',
     lastDate: 'Yet to be announced',
-    registrationLink: '',
+    registrationLink: 'https://forms.gle/2tmTyfAV7dCeVvMA9',
     type: 'esport'
   },
   {
@@ -186,7 +185,7 @@ export const EsportsEventData: EventDataType[] = [
     location: 'Yet to be announced',
     contact: 'Yet to be announced',
     lastDate: 'Yet to be announced',
-    registrationLink: '',
+    registrationLink: 'https://forms.gle/39ZuYHdLjWgg5mGx9',
     type: 'esport'
   },
   {
@@ -199,7 +198,7 @@ export const EsportsEventData: EventDataType[] = [
     location: 'Yet to be announced',
     contact: 'Yet to be announced',
     lastDate: 'Yet to be announced',
-    registrationLink: '',
+    registrationLink: 'https://forms.gle/sxVgXs6AoMLG2a5r9',
     type: 'esport'
   },
   {
@@ -212,7 +211,7 @@ export const EsportsEventData: EventDataType[] = [
     location: 'Yet to be announced',
     contact: 'Yet to be announced',
     lastDate: 'Yet to be announced',
-    registrationLink: '',
+    registrationLink: 'https://forms.gle/z2xAWzFZCcMKWsBF7',
     type: 'esport'
   },
   {
@@ -225,7 +224,7 @@ export const EsportsEventData: EventDataType[] = [
     location: 'Yet to be announced',
     contact: 'Yet to be announced',
     lastDate: 'Yet to be announced',
-    registrationLink: '',
+    registrationLink: 'https://forms.gle/RnixY7wswCxBRDLg6',
     type: 'esport'
   },
   {
@@ -238,7 +237,7 @@ export const EsportsEventData: EventDataType[] = [
     location: 'Yet to be announced',
     contact: 'Yet to be announced',
     lastDate: 'Yet to be announced',
-    registrationLink: '',
+    registrationLink: 'https://forms.gle/VkTbWWGmH7xHeUYA7',
     type: 'esport'
   },
   {
@@ -251,7 +250,7 @@ export const EsportsEventData: EventDataType[] = [
     location: 'Yet to be announced',
     contact: 'Yet to be announced',
     lastDate: 'Yet to be announced',
-    registrationLink: '',
+    registrationLink: 'https://forms.gle/FZ9cPDVkXM6kutV39',
     type: 'esport'
   },
 ]
