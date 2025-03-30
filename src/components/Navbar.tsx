@@ -33,7 +33,7 @@ const Navbar = () => {
 
      return (
           <nav className={cn("fixed rounded-xl left-1/2 -translate-x-1/2 z-50 transition-all duration-500 ease-out w-full bg-transparent py-4 top-0", isScrolled && 'py-0 lg:py-2')}>
-               <div className={cn("max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between transition-all duration-500 ease-out", isScrolled &&'backdrop-blur-smbg-stone-700/10 shadow-2xl shadow-black/80 backdrop-blur-md py-4 lg:py-2 lg:rounded-2xl')}>
+               <div className={cn("max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between transition-all duration-500 ease-out", isScrolled &&'backdrop-blur-smbg-stone-700/10 shadow-2xl shadow-black/80 backdrop-blur-md py-2  lg:rounded-2xl')}>
                     <Image
                          src="/techlavya-2025-logo.png"
                          alt="logo"
