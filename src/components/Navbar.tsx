@@ -1,10 +1,13 @@
+'use client'
+
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Calendar, Home, Images, Landmark, Menu, Users } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import EventDropdown from "./EventDropdown";
 import dynamic from "next/dynamic";
+import { cn } from "@/lib/utils";
 const MobileMenubar = dynamic(() => import('./MobileMenubar'), { ssr: false })
 
 const Navbar = () => {
@@ -17,9 +20,20 @@ const Navbar = () => {
           { icon: <Users size={18} />, text: "Teams", navigateTo: "/teams" },
      ];
 
+     const [isScrolled, setIsScrolled] = useState(false);
+
+     useEffect(() => {
+          const handleScroll = () => {
+               setIsScrolled(window.scrollY > 20);
+          };
+
+          window.addEventListener('scroll', handleScroll);
+          return () => window.removeEventListener('scroll', handleScroll);
+     }, []);
+
      return (
-          <nav className="fixed rounded-xl left-1/2 -translate-x-1/2 z-50 transition-all duration-700 ease-out w-full bg-transparent py-4 top-0">
-               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+          <nav className={cn("fixed rounded-xl left-1/2 -translate-x-1/2 z-50 transition-all duration-500 ease-out w-full bg-transparent py-4 top-0", isScrolled && 'py-0 lg:py-2')}>
+               <div className={cn("max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between transition-all duration-500 ease-out", isScrolled &&'backdrop-blur-smbg-stone-700/10 shadow-2xl shadow-black/80 backdrop-blur-md py-4 lg:py-2 lg:rounded-2xl')}>
                     <Image
                          src="/techlavya-2025-logo.png"
                          alt="logo"
@@ -29,7 +43,7 @@ const Navbar = () => {
 
                     {/* Desktop Navigation */}
                     <div className="hidden lg:flex items-center justify-center flex-grow">
-                         <div className="flex items-center px-2 py-1 rounded-2xl space-x-2 bg-stone-500/10 backdrop-blur-sm">
+                         <div className={cn("flex items-center px-2 py-1 space-x-2 ", !isScrolled && 'bg-stone-500/10 backdrop-blur-sm rounded-2xl')}>
                               {navItems.map((item, index) =>
                                    item.component ? (
                                         <React.Fragment key={index}>{item.component}</React.Fragment>
@@ -44,7 +58,7 @@ const Navbar = () => {
                     <div className="lg:hidden">
                          <Sheet>
                               <SheetTrigger>
-                                   <Menu size={25} className="text-gray-300" />
+                                   <Menu size={28} className="text-gray-300" />
                               </SheetTrigger>
                               <SheetContent className="max-w-[60%] bg-black/60 border-none">
                                    <MobileMenubar />
