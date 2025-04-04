@@ -12,7 +12,7 @@ export const teamMembers: TeamMember[] = [
   {
     "name": "Sayan Chakraborty",
     "role": "President",
-    "image": "https://drive.google.com/uc?export=view&id=1LgWICF_pskRS_xL9m9vNO4uPnQMHny5m",
+    "image": "/team/1.webp",
     "facebook": "https://www.facebook.com/profile.php?id=100053096809515&mibextid=ZbWKwL",
     "instagram": "https://www.instagram.com/stands_to_infinity?igsh=eTd0dnhqMjA0ejht",
     "twitter": "",
@@ -21,7 +21,7 @@ export const teamMembers: TeamMember[] = [
   {
     "name": "Soumen Santra",
     "role": "Vice-President",
-    "image": "https://drive.google.com/uc?export=view&id=1X9o5su0SGES4apYzrktTrUlNQc0-RAsV",
+    "image": "/team/2.webp",
     "facebook": "https://www.facebook.com/share/1AEH913Uv2/",
     "instagram": "",
     "twitter": "https://x.com/Soumen049?t=spFOXk4zEPFaQaDYwTaiuA&s=09",
@@ -30,7 +30,7 @@ export const teamMembers: TeamMember[] = [
   {
     "name": "Rabin Mahato",
     "role": "Convenor",
-    "image": "https://drive.google.com/uc?export=view&id=1MwLrGFuiFddBOSaPE8xAXl7N9v5mlP5v",
+    "image": "/team/3.webp",
     "facebook": "",
     "instagram": "",
     "twitter": "",
@@ -39,7 +39,7 @@ export const teamMembers: TeamMember[] = [
   {
     "name": "Akash Sharma",
     "role": "Vice-Convenor",
-    "image": "https://drive.google.com/uc?export=view&id=1z3QgqL9U3u6Ew9-rsslOpT-X1R1fyxq9",
+    "image": "/team/4.webp",
     "facebook": "https://www.facebook.com/share/1EViXiPAoo/",
     "instagram": "https://www.instagram.com/iamakash_1910?igsh=MWFlN2k3Y3Nna3J0dQ==",
     "twitter": "",
@@ -48,7 +48,7 @@ export const teamMembers: TeamMember[] = [
   {
     "name": "Annesha Dutta",
     "role": "Secretary",
-    "image": "https://drive.google.com/uc?export=view&id=1H0aX3MskWZZy7LDTRCUQ3F7daoMT8DHH",
+    "image": "/team/5.webp",
     "facebook": "https://www.facebook.com/share/166ZzZTyG2/",
     "instagram": "https://www.instagram.com/annesha30_?igsh=NDg4b21hbWJzcjFy",
     "twitter": "",
@@ -57,7 +57,7 @@ export const teamMembers: TeamMember[] = [
   {
     "name": "Supra Mandal",
     "role": "Vice-Secretary",
-    "image": "https://drive.google.com/uc?export=view&id=16gAz_e29nOg5pQFlFSImkPyGnJuu5BRs",
+    "image": "/team/6.webp",
     "facebook": "https://www.facebook.com/share/15rDpiXap5/",
     "instagram": "",
     "twitter": "",
@@ -66,7 +66,7 @@ export const teamMembers: TeamMember[] = [
   {
     "name": "Aniket Shaw",
     "role": "Advisor",
-    "image": "https://drive.google.com/uc?export=view&id=1TotWbcY-OLBSnpegJz98ooUXqOQgIu5j",
+    "image": "/team/7.webp",
     "facebook": "",
     "instagram": "",
     "twitter": "",
@@ -75,7 +75,7 @@ export const teamMembers: TeamMember[] = [
   {
     "name": "Suresh Pal",
     "role": "Web Designer Head",
-    "image": "https://drive.google.com/uc?export=view&id=1mZGDdEZg6no0RXzHGkXB5pnEwLMCLpib",
+    "image": "/team/8.webp",
     "facebook": "https://www.facebook.com/people/Suresh-Pal/pfbid02JY5bhEzEtK5CDn5b4ANRu2SmHZdPyc3BMVy6dVePsLkkeuhyyd6Mw3micG2qH9DRl/?mibextid=2JQ9oc",
     "instagram": "https://www.instagram.com/sureshpal8158/",
     "twitter": "",
@@ -84,7 +84,7 @@ export const teamMembers: TeamMember[] = [
   {
     "name": "Ankur Ghoshal",
     "role": "Budget Head",
-    "image": "https://drive.google.com/uc?export=view&id=1kb3oEJQl7UT3fzVF_D61nQzPsgrb3F-x",
+    "image": "/team/9.webp",
     "facebook": "https://www.facebook.com/profile.php?id=100011371799852",
     "instagram": "",
     "twitter": "",
@@ -93,7 +93,7 @@ export const teamMembers: TeamMember[] = [
   {
     "name": "Dipmoy Barik",
     "role": "Budget Co-Head",
-    "image": "https://drive.google.com/uc?export=view&id=1slE4bE-w61P8HGVVEXMK78huKfUxnJXN",
+    "image": "/team/10.webp",
     "facebook": "https://www.facebook.com/share/1L4BbPDkTy/",
     "instagram": "https://www.instagram.com/dipmoy369?igsh=MXM1Z3Uxcjd5MGZocw==",
     "twitter": "",
@@ -102,7 +102,7 @@ export const teamMembers: TeamMember[] = [
   {
     "name": "Manish Hira",
     "role": "Sponsorship Head",
-    "image": "https://drive.google.com/uc?export=view&id=1N47iHlx2KEN6-xk4Z2JlZlakF0bV0LMI",
+    "image": "/team/11.webp",
     "facebook": "https://www.facebook.com/manish.hira.399?mibextid=9V8EeZkStBqWdiND",
     "instagram": "https://www.instagram.com/manish_hira01?igsh=dXF0b2htaXlmdHdj",
     "twitter": "",
@@ -111,7 +111,7 @@ export const teamMembers: TeamMember[] = [
   {
     "name": "Sayan De Karmakar ",
     "role": "Sponsorship Co-Head",
-    "image": "https://drive.google.com/uc?export=view&id=1PWZqSQUSrIJh_jPWaN839OAkjftuySPY",
+    "image": "/team/12.webp",
     "facebook": "https://www.facebook.com/sayan.dekarmakar.94/about_overview",
     "instagram": "https://www.instagram.com/sayan2733k/",
     "twitter": "https://x.com/SayanDK000",
@@ -120,7 +120,7 @@ export const teamMembers: TeamMember[] = [
   {
     "name": "Subhadip Mandal",
     "role": "Social Media Head",
-    "image": "https://drive.google.com/uc?export=view&id=1tC5BArzoe2nSHDuwDNupozetMcEgJ4Np",
+    "image": "/team/13.webp",
     "facebook": "https://www.facebook.com/share/18hCMdiDyb/",
     "instagram": "https://www.instagram.com/this.is_subhadip/profilecard/?igsh=bHFrdmcxZnN3djJh",
     "twitter": "",
@@ -129,7 +129,7 @@ export const teamMembers: TeamMember[] = [
   {
     "name": "Sourav Sahoo",
     "role": "Decoration Head",
-    "image": "https://drive.google.com/uc?export=view&id=1Q4eoW5ncfaLWDDg6zA2AdSbVWLRe9S4X",
+    "image": "/team/14.webp",
     "facebook": "",
     "instagram": "",
     "twitter": "",
