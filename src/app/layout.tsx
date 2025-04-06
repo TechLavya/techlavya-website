@@ -40,7 +40,26 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   title: "Techlavya",
-  description: "College Fest",
+  description: "Techlavya is the official Tech Fest website of Ramkrishna Mahato Government Engineering College.",
+  keywords: [
+    "techlavya",
+    "rkmgec",
+    "rkmgec tech fest",
+    "tech fest",
+    "techlavya rkmgec",
+  ],
+  metadataBase: new URL("https://techlavya-rkmgec.com/"),
+  openGraph: {
+    title: "Techlavya",
+    type: "website",
+    siteName: "Techlavya",
+    description:
+      "Techlavya is the official Tech Fest website of Ramkrishna Mahato Government Engineering College",
+  },
+  alternates: {
+    canonical: "https://techlavya-rkmgec.com/"
+  },
+  icons: ["/techlavya-logo.png"]
 };
 
 export default function RootLayout({
