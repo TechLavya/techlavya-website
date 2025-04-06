@@ -12,11 +12,12 @@ const Footer: React.FC = () => {
                          <div className="w-full md:w-1/3">
                               <div className='flex max-md:justify-center'>
                                    <Image
-                                        src={'/techlavya-2025-logo.png'}
+                                        src={'/footer-img.png'}
                                         alt='logo'
-                                        width={200}
+                                        width={250}
                                         height={80}
                                         className=' mb-5'
+                                        priority
                                    />
                               </div>
                               <p className="text-gray-300">
