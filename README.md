@@ -8,7 +8,7 @@ Techlavya is the official **Tech Fest website** of **Ramkrishna Mahato Governmen
 
 ## 🎨 Preview
 
-![alt landing section](image.png)
+![landing section](image.png)
 
 ## 📌 Features
 - Interactive landing page with event details
