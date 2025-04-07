@@ -12,7 +12,7 @@ export const timelineData: TimelineEntry[] = [
   {
     title: "Day 1",
     events: [
-      { title: "Hackvengers (9am-9pm)", type: "tech" },
+      { title: "0-Gravity (10am-1pm)", type: "tech" },
       { title: "CadBuilder (10am-1pm)", type: "tech" },
       { title: "Chess (2pm-3pm)", type: "esports" },
       { title: "Asphalt (4pm-6pm)", type: "esports" },
@@ -33,7 +33,7 @@ export const timelineData: TimelineEntry[] = [
   {
     title: "Day 3",
     events: [
-      { title: "0-Gravity (10am-1pm)", type: "tech" },
+      { title: "Hackvengers (9am-9pm)", type: "tech" },
       { title: "CircuitDesign (1pm-4pm)", type: "tech" },
       { title: "eFootball (5pm-9pm)", type: "esports" },
       { title: "Rubik'sCube (2pm-3pm)", type: "esports" },
