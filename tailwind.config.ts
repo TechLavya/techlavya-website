@@ -59,7 +59,10 @@ const config: Config = {
 					'3': 'hsl(var(--chart-3))',
 					'4': 'hsl(var(--chart-4))',
 					'5': 'hsl(var(--chart-5))'
-				}
+				},
+				"custom-gold-1": "#6d3416",
+				"custom-gold-2": "#7b603c",
+				"custom-gold-3": "#593b19",
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -152,11 +155,21 @@ const config: Config = {
 						bottom: '50%',
 						right: '25%'
 					}
+				},
+				"accordion-down": {
+					from: { height: "0" },
+					to: { height: "var(--radix-accordion-content-height)" }
+				},
+				"accordion-up": {
+					from: { height: "var(--radix-accordion-content-height)" },
+					to: { height: "0" }
 				}
 			},
 			animation: {
 				marquee: 'marquee var(--duration) infinite linear',
-				'marquee-vertical': 'marquee-vertical var(--duration) linear infinite'
+				'marquee-vertical': 'marquee-vertical var(--duration) linear infinite',
+				"accordion-down": "accordion-down 0.2s ease-out",
+				"accordion-up": "accordion-up 0.2s ease-out"
 			},
 			backgroundImage: {
 				'footer': 'url("/footerbg.png")',

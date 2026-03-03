@@ -30,23 +30,5 @@ export const timelineData: TimelineEntry[] = [
       { title: "Brainbuster (5pm-7pm)", type: "tech" },
     ],
   },
-  {
-    title: "Day 3",
-    events: [
-      { title: "Hackvengers (9am-9pm)", type: "tech" },
-      { title: "CircuitDesign (1pm-4pm)", type: "tech" },
-      { title: "eFootball (5pm-9pm)", type: "esports" },
-      { title: "Rubik'sCube (2pm-3pm)", type: "esports" },
-      { title: "Valorant(PC) (4pm-6pm)", type: "esports" },
-    ],
-  },
-  {
-    title: "Day 4",
-    events: [
-      { title: "Roborush (11am-4pm)", type: "tech" },
-      { title: "TypingTest (12pm-2pm)", type: "tech" },
-      { title: "ClashofClans (2pm-4pm)", type: "esports" },
-      { title: "MiniMilitia (4pm-6pm)", type: "esports" },
-    ],
-  },
+
 ];

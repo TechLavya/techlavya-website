@@ -1,5 +1,4 @@
-import Footer from "@/components/Footer";
-import Navbar from "@/components/Navbar";
+import ClientLayout from "@/components/ClientLayout";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { Kode_Mono, Bruno_Ace, Orbitron } from "next/font/google";
@@ -72,9 +71,7 @@ export default function RootLayout({
       <body
         className={`${digitalFont.variable} ${kodeMonoFont.variable} ${brunoAceFont.variable} ${orbitronFont.variable} ${geistSans.variable} ${geistMono.variable} antialiased w-full`}
       >
-        <Navbar />
-        {children}
-        <Footer />
+        <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
   );
