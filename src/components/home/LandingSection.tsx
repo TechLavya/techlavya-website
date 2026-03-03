@@ -1,42 +1,52 @@
-import dynamic from 'next/dynamic'
-import { Suspense } from 'react'
-import LandingImage from '../LandingImage'
-import CountdownTimer from '../CountdownTimer'
-const SpinningText = dynamic(() => import('@/components/magicui/spinning-text'), {
-  ssr: false
-})
-
+import CountdownTimer from '../CountdownTimer';
 const LandingSection = () => {
   return (
-    <div className="relative h-screen w-full landing-bg">
-      {/* Dark overlay */}
-      <div className="absolute inset-0 bg-black/60"></div>
-
-      <div className="h-full max-w-screen-xl mx-auto flex flex-col justify-center items-center px-4 pt-20 pb-4 relative z-10">
-        <div className="relative flex justify-center items-center pt-14 pb-16 md:pb-12">
-          <LandingImage />
-          <Suspense fallback={null}>
-            <SpinningText className="absolute text-white font-bold">
-              TECHLAVYA • TECH FEST • RKMGEC • TECHLAVYA • TECH FEST • RKMGEC •
-            </SpinningText>
-          </Suspense>
+    <div className="relative h-screen w-full pt-32">
+      {/* Keeping your existing background z-index logic */}
+      
+      <div className="relative z-10 flex flex-col items-center justify-center h-full text-white px-6">
+        
+        {/* TOP BADGE: Added for a "Space Agency" feel */}
+        <div className="mb-4 animate-pulse">
+          <span className="text-[10px] md:text-xs tracking-[0.5em] uppercase font-mono text-amber-600 border-b border-amber-900/50 pb-1">
+            System Status: Ignition Ready
+          </span>
         </div>
 
-        <div>
-          <h1 className=" text-2xl xxs:text-3xl sm:text-4xl md:text-5xl  text-center font-bold font-Orbitron mb-3 text-transparent bg-clip-text bg-gradient-to-r from-rose-500 to-violet-500">
-            #Tech Meets Culture
+        <div className="text-center">
+          {/* MAIN TITLE: Using a more aggressive brownish-gold gradient */}
+          <h1 className="text-6xl md:text-9xl font-black font-Orbitron mb-2 tracking-tighter leading-none">
+            <span className="block text-transparent" style={{ WebkitTextStroke: '1px #634226' }}>
+              TECHLAVYA
+            </span>
+            <span className="block text-2xl md:text-5xl tracking-[0.3em] font-light text-amber-50/90 mt-2">
+              IGNITE <span className="font-mono opacity-50">2026</span>
+            </span>
           </h1>
-          <p className="text-center text-sm sm:text-xl font-burnoAce text-white">
-            Get ready to experience a world of <br />
-            <span className="text-green-500">Creativity</span>, <span className="text-orange-500">Innovation</span>, and <span className="text-violet-500">Entertainment</span> ❤️‍🔥
-          </p>
-          <div className="flex flex-col items-center gap-4 mt-6">
-            <CountdownTimer />
+
+          {/* TAGLINE: Structured like a technical readout */}
+          <div className="mt-8 mb-12 flex flex-col items-center">
+            <div className="h-[1px] w-12 bg-amber-700 mb-4"></div>
+            <p className="text-sm md:text-lg font-mono tracking-[0.25em] text-amber-200/70 uppercase max-w-2xl">
+              Where <span className="text-white font-bold">Innovation</span> 
+              <span className="mx-3 text-amber-800">//</span> 
+              Meets <span className="text-white font-bold">Imagination</span>
+            </p>
+            <div className="h-[1px] w-12 bg-amber-700 mt-4"></div>
           </div>
         </div>
+
+        {/* Your Timer remains here */}
+        <div className="transform scale-110 md:scale-125">
+           <CountdownTimer />
+        </div>
+
+        {/* DECORATIVE CORNERS: Adds to the "HUD" / Spacecraft UI vibe */}
+        <div className="absolute top-10 left-10 w-20 h-20 border-t-2 border-l-2 border-amber-900/30 hidden md:block" />
+        <div className="absolute bottom-10 right-10 w-20 h-20 border-b-2 border-r-2 border-amber-900/30 hidden md:block" />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default LandingSection
+export default LandingSection;
