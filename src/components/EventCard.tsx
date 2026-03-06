@@ -12,19 +12,20 @@ type Props = {
   eventId: string;
   duration: number;
   eventData: EventDataType;
+  flippedCardId: string | null;
+  setFlippedCardId: React.Dispatch<React.SetStateAction<string | null>>;
 };
 
-const EventCard: React.FC<Props> = ({ eventId, duration, eventData }) => {
+const EventCard: React.FC<Props> = ({ eventId, duration, eventData, flippedCardId, setFlippedCardId }) => {
   const { image, registrationLink, title } = eventData;
   const [isHovered, setIsHovered] = useState(false);
-  const [isActive, setIsActive] = useState(false);
 
   // Advanced Mouse Tracking for "Spotlight" and Tilt
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const { left, top, width, height } = e.currentTarget.getBoundingClientRect();
+    const { left, top } = e.currentTarget.getBoundingClientRect();
     mouseX.set(e.clientX - left);
     mouseY.set(e.clientY - top);
   };
@@ -46,7 +47,7 @@ const EventCard: React.FC<Props> = ({ eventId, duration, eventData }) => {
       viewport={{ once: true }}
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => { setIsHovered(false); setIsActive(false); }}
+      onMouseLeave={() => { setIsHovered(false); }}
       className="group relative w-full max-w-[340px] h-[450px] mx-auto cursor-none"
     >
       {/* Custom Tech Cursor */}
@@ -97,69 +98,62 @@ const EventCard: React.FC<Props> = ({ eventId, duration, eventData }) => {
           {/* Content Overlay */}
           <div className="absolute inset-0 z-40 flex flex-col justify-end p-8">
             <AnimatePresence>
-              {!isActive ? (
+              {flippedCardId !== eventId ? (
                 <motion.div
-                  key="front"
-                  exit={{ opacity: 0, y: 20 }}
-                  className="space-y-4"
+                  initial={{ y: 20, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  exit={{ y: -20, opacity: 0 }}
+                  transition={{ duration: 0.3, ease: "circOut" }}
+                  className="w-full"
                 >
-                  <h3 className="text-3xl font-black text-white leading-none tracking-tighter">
-                    {title.split(" ").map((word, i) => (
-                      <span key={i} className="block">{word}</span>
-                    ))}
-                  </h3>
-
-                  <button
-                    onClick={() => setIsActive(true)}
-                    className="flex items-center gap-4 group/btn"
+                  <h2 className="text-2xl font-bold text-white font-orbitron tracking-wider leading-tight">{title}</h2>
+                  <p className="text-sm text-cyan-200/70 font-kodeMono mt-1 mb-4">REG_ID: {eventId}</p>
+                  <Button
+                    onClick={() => setFlippedCardId(eventId)}
+                    className="w-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 hover:bg-cyan-500/20 backdrop-blur-md"
                   >
-                    <div className="w-12 h-12 rounded-full border border-cyan-500 flex items-center justify-center group-hover/btn:bg-cyan-500 transition-all duration-500">
-                      <Zap className="w-5 h-5 text-cyan-400 group-hover/btn:text-black" />
-                    </div>
-                    <span className="font-kodeMono text-xs text-white/50 tracking-widest group-hover/btn:text-cyan-400">ACCESS_CORE</span>
-                  </button>
+                    <Terminal className="w-4 h-4 mr-2" />
+                    View Details
+                  </Button>
                 </motion.div>
               ) : (
                 <motion.div
-                  key="back"
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  className="h-full flex flex-col justify-center space-y-6 pt-12"
+                  initial={{ y: 20, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  exit={{ y: -20, opacity: 0 }}
+                  transition={{ duration: 0.3, ease: "circOut" }}
+                  className="w-full"
                 >
-                  <div className="space-y-2">
-                    <div className="flex items-center gap-2 text-cyan-400">
-                      <Terminal className="w-4 h-4" />
-                      <span className="text-[10px] font-kodeMono">ENCRYPTED_DATA_STREAM</span>
+                  <div className="flex justify-between items-start mb-4">
+                    <div>
+                      <h3 className="text-lg font-bold text-white font-orbitron">MISSION_BRIEF</h3>
+                      <p className="text-xs text-cyan-200/70 font-kodeMono">OBJECTIVE: {title}</p>
                     </div>
-                    <p className="text-sm text-white/70 font-light leading-relaxed">
-                      Initialize secure handshake for <span className="text-cyan-400 font-bold">{title}</span>.
-                      Slots are allocated via neural-priority.
+                    <button onClick={() => setFlippedCardId(null)} className="text-white/50 hover:text-white transition-colors">
+                      <Zap className="w-5 h-5" />
+                    </button>
+                  </div>
+
+                  <div className="space-y-3 text-sm text-white/80 font-sans mb-6">
+                    <p className="flex items-center gap-2">
+                      <ShieldCheck className="w-4 h-4 text-cyan-400" />
+                      <span>Status: <span className="font-bold text-green-400">Active</span></span>
+                    </p>
+                    <p className="flex items-center gap-2">
+                      <Zap className="w-4 h-4 text-cyan-400" />
+                      <span>Prize Pool: <span className="font-bold text-amber-400">₹{eventData.prize.toLocaleString()}</span></span>
                     </p>
                   </div>
 
-                  <div className="grid grid-cols-2 gap-3">
-                    <div className="p-3 border border-white/5 bg-white/5 rounded-xl">
-                      <ShieldCheck className="w-4 h-4 text-emerald-400 mb-1" />
-                      <span className="block text-[8px] text-white/30 uppercase">Validation</span>
-                      <span className="text-[10px] text-white font-kodeMono">VERIFIED</span>
-                    </div>
-                    <div className="p-3 border border-white/5 bg-white/5 rounded-xl">
-                      <Share2 className="w-4 h-4 text-cyan-400 mb-1" />
-                      <span className="block text-[8px] text-white/30 uppercase">Protocol</span>
-                      <span className="text-[10px] text-white font-kodeMono">P2P_LINK</span>
-                    </div>
-                  </div>
-
-                  <div className="space-y-3">
-                    <Button asChild className="w-full bg-cyan-600 hover:bg-cyan-500 text-black font-bold rounded-xl h-12 shadow-[0_0_20px_rgba(6,182,212,0.4)] transition-all">
-                      <Link href={registrationLink || "#"}>INITIALIZE UPLINK</Link>
+                  <div className="flex gap-2">
+                    <Link href={registrationLink} target="_blank" className="flex-1">
+                      <Button className="w-full bg-cyan-500 text-black hover:bg-cyan-400 font-bold">
+                        Register Now
+                      </Button>
+                    </Link>
+                    <Button variant="outline" size="icon" className="border-white/20 bg-white/10 hover:bg-white/20">
+                      <Share2 className="w-4 h-4" />
                     </Button>
-                    <button
-                      onClick={() => setIsActive(false)}
-                      className="w-full text-center text-[10px] font-kodeMono text-white/30 hover:text-white uppercase tracking-tighter"
-                    >
-                      ← ABORT_CONNECTION
-                    </button>
                   </div>
                 </motion.div>
               )}
