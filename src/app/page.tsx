@@ -4,28 +4,12 @@ import LandingSection from '@/components/home/LandingSection'
 import SponsorSection from '@/components/home/SponsorSection'
 import TechlavyaEventSection from '@/components/home/TechlavyaEventSection'
 import TimelineSection from '@/components/home/TimelineSection'
-import Galaxy from '@/components/Galaxy'
 import TshirtSection from '@/components/home/TshirtSection'
 
 const Home = () => {
   return (
     <div className="relative">
-      <div className="absolute inset-0 -z-10">
-        <Galaxy
-          starSpeed={0.2}
-          density={4.5}
-          hueShift={125}
-          speed={1}
-          glowIntensity={0.3}
-          saturation={0.85}
-          mouseRepulsion
-          repulsionStrength={2}
-          twinkleIntensity={0.35}
-          rotationSpeed={0.05}
-          transparent
-        />
-      </div>
-      <div className="absolute inset-0 -z-10 bg-black/60 pointer-events-none"></div>
+      <div className="absolute inset-0 -z-10 bg-black/40 pointer-events-none"></div>
       <LandingSection />
       <TimelineSection />
       <TechlavyaEventSection />

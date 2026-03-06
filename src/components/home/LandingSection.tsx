@@ -16,7 +16,7 @@ const LandingSection = () => {
         <div className="text-center">
           {/* MAIN TITLE: Using a more aggressive brownish-gold gradient */}
           <h1 className="text-6xl md:text-9xl font-black font-Orbitron mb-2 tracking-tighter leading-none">
-            <span className="block text-transparent" style={{ WebkitTextStroke: '1px #634226' }}>
+            <span className="block text-amber-500">
               TECHLAVYA
             </span>
             <span className="block text-2xl md:text-5xl tracking-[0.3em] font-light text-amber-50/90 mt-2">
@@ -28,8 +28,8 @@ const LandingSection = () => {
           <div className="mt-8 mb-12 flex flex-col items-center">
             <div className="h-[1px] w-12 bg-amber-700 mb-4"></div>
             <p className="text-sm md:text-lg font-mono tracking-[0.25em] text-amber-200/70 uppercase max-w-2xl">
-              Where <span className="text-white font-bold">Innovation</span> 
-              <span className="mx-3 text-amber-800">//</span> 
+              Where <span className="text-white font-bold">Innovation</span>
+              <span className="mx-3 text-amber-800">{"//"}</span>
               Meets <span className="text-white font-bold">Imagination</span>
             </p>
             <div className="h-[1px] w-12 bg-amber-700 mt-4"></div>
