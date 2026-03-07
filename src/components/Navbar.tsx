@@ -1,7 +1,7 @@
 'use client'
 
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Calendar, Home, Images, Landmark, Menu, Users, Radio, Compass } from 'lucide-react';
+import { Calendar, Home, Images, Landmark, Menu, Users, Radio, Compass, Mail } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
@@ -23,6 +23,7 @@ const Navbar = () => {
           { icon: <Images size={18} />, text: "Gallery", navigateTo: "/#gallery" },
           { icon: <Landmark size={18} />, text: "Sponsors", navigateTo: "/#sponsors" },
           { icon: <Users size={18} />, text: "Crew", navigateTo: "/teams" },
+          { icon: <Mail size={18} />, text: "Contact", navigateTo: "/contact" },
      ];
 
      return (
