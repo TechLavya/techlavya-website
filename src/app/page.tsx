@@ -11,7 +11,7 @@ const Home = () => {
   return (
     <div className="relative">
       <div className="absolute inset-0 -z-10">
-        <Galaxy
+        {/* <Galaxy
           starSpeed={0.2}
           density={4.5}
           hueShift={125}
@@ -23,7 +23,7 @@ const Home = () => {
           twinkleIntensity={0.35}
           rotationSpeed={0.05}
           transparent
-        />
+        /> */}
       </div>
       <div className="absolute inset-0 -z-10 bg-black/60 pointer-events-none"></div>
       <LandingSection />
