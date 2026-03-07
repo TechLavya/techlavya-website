@@ -24,7 +24,7 @@ const Footer: React.FC = () => {
                             />
                         </div>
                         <p className="text-stone-300 leading-relaxed">
-                            "Experience the thrill of innovation at the ultimate tech fest! Join us for exciting events and workshops covering everything from coding to design."
+                            &quot;Experience the thrill of innovation at the ultimate tech fest! Join us for exciting events and workshops covering everything from coding to design.&quot;
                         </p>
                         <p className="mt-4 font-semibold">
                             Email: <Link href="mailto:techfest@rkmgec.ac.in" className="text-orange-400 hover:text-yellow-400 transition-colors">techfest@rkmgec.ac.in</Link>
