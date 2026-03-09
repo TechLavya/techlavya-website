@@ -68,7 +68,7 @@ const ContactForm = () => {
           className="from-amber-500 to-amber-400 mb-4"
         />
         <p className="text-center text-amber-200/70 text-sm sm:text-base mb-12">
-          Have questions about TECHLAVYA? We'd love to hear from you!
+          Have questions about TECHLAVYA? We&apos;d love to hear from you!
         </p>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
@@ -131,7 +131,7 @@ const ContactForm = () => {
                 <div>
                   <h4 className="text-amber-50 font-semibold mb-1">Response Time</h4>
                   <p className="text-amber-200/70 text-sm sm:text-base">
-                    We'll respond within 24-48 hours
+                    We&apos;ll respond within 24-48 hours
                   </p>
                 </div>
               </div>
@@ -196,11 +196,14 @@ const ContactForm = () => {
 
               {/* Subject */}
               <div className="mb-6">
-                <label className="block text-amber-50 font-semibold text-sm mb-2">
+                <label htmlFor="subject" className="block text-amber-50 font-semibold text-sm mb-2">
                   Subject *
                 </label>
                 <select
+                  id="subject"
                   name="subject"
+                  aria-label="Subject"
+                  title="Subject"
                   value={formData.subject}
                   onChange={handleChange}
                   required

@@ -108,7 +108,7 @@ const FAQSection = () => {
         {/* Contact CTA */}
         <div className="mt-12 p-6 sm:p-8 rounded-lg border border-amber-700/40 bg-gradient-to-r from-amber-950/40 to-black/40 text-center">
           <p className="text-amber-50 mb-4 text-sm sm:text-base">
-            Didn't find your answer?
+            Didn&apos;t find your answer?
           </p>
           <a
             href="#contact"

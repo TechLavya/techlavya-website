@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import React, { useMemo, useState } from "react";
 import { EventDetailsModal } from "./EventDetailsModal";
@@ -24,61 +24,61 @@ interface CalendarViewProps {
 const FESTIVAL_DATES = [
   { date: 29, month: 3, label: "DAY 0" }, // April 29
   { date: 30, month: 3, label: "DAY 1" }, // April 30
-  { date: 1, month: 4, label: "DAY 2" },  // May 1
-  { date: 2, month: 4, label: "DAY 3" },  // May 2
+  { date: 1, month: 4, label: "DAY 2" }, // May 1
+  { date: 2, month: 4, label: "DAY 3" }, // May 2
 ];
 
-const ICONS = ["⚡", "🔌", "🛸", "🌌", "💻", "🔬", "📡", "🎯", "⚙️", "🚀", "🔋", "📡", "🛰️", "🧲", "⚛️"];
-
-const getRandomIcon = (date: number) => {
-  return ICONS[date % ICONS.length];
-};
-
-export const CalendarView: React.FC<CalendarViewProps> = ({ month, year, events, allEvents = events }) => {
+export const CalendarView: React.FC<CalendarViewProps> = ({
+  month,
+  year,
+  events,
+  allEvents = events,
+}) => {
   const [selectedDate, setSelectedDate] = useState<number | null>(null);
   const [selectedMonth, setSelectedMonth] = useState<number | null>(null);
-  
+
   const firstDay = new Date(year, month, 1).getDay();
   const daysInMonth = new Date(year, month + 1, 0).getDate();
-  
-  const monthNames = [
-    "January", "February", "March", "April", "May", "June",
-    "July", "August", "September", "October", "November", "December"
-  ];
 
   const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
   const getEventForDate = (date: number, monthVal: number) => {
-    return events.find(event => event.date === date && event.month === monthVal);
+    return events.find(
+      (event) => event.date === date && event.month === monthVal,
+    );
   };
 
   const isFestivalDate = (date: number, monthVal: number) => {
-    return FESTIVAL_DATES.some(fd => fd.date === date && fd.month === monthVal);
+    return FESTIVAL_DATES.some(
+      (fd) => fd.date === date && fd.month === monthVal,
+    );
   };
 
   const getFestivalLabel = (date: number, monthVal: number) => {
-    const festival = FESTIVAL_DATES.find(fd => fd.date === date && fd.month === monthVal);
+    const festival = FESTIVAL_DATES.find(
+      (fd) => fd.date === date && fd.month === monthVal,
+    );
     return festival?.label || "";
   };
 
   // Unique brownish-gold shades for each box based on date
   const getCellBg = (date: number) => {
     const palette = [
-      "bg-[#3d2b1a]/70",  // dark coffee
-      "bg-[#4a3520]/70",  // espresso
-      "bg-[#5c3d1e]/60",  // dark bronze
-      "bg-[#4d3620]/65",  // walnut
-      "bg-[#3e2c15]/70",  // dark oak
-      "bg-[#5a4020]/60",  // brown sugar
-      "bg-[#3b2a16]/70",  // cocoa
-      "bg-[#52381c]/65",  // saddle brown
-      "bg-[#614a28]/55",  // caramel
-      "bg-[#4f3a22]/65",  // chestnut
-      "bg-[#3b2815]/70",  // dark mocha
-      "bg-[#584020]/60",  // toffee
-      "bg-[#4d3318]/65",  // mahogany
-      "bg-[#6a4e2a]/55",  // bronze
-      "bg-[#553c1f]/60",  // hazelnut
+      "bg-[#3d2b1a]/70", // dark coffee
+      "bg-[#4a3520]/70", // espresso
+      "bg-[#5c3d1e]/60", // dark bronze
+      "bg-[#4d3620]/65", // walnut
+      "bg-[#3e2c15]/70", // dark oak
+      "bg-[#5a4020]/60", // brown sugar
+      "bg-[#3b2a16]/70", // cocoa
+      "bg-[#52381c]/65", // saddle brown
+      "bg-[#614a28]/55", // caramel
+      "bg-[#4f3a22]/65", // chestnut
+      "bg-[#3b2815]/70", // dark mocha
+      "bg-[#584020]/60", // toffee
+      "bg-[#4d3318]/65", // mahogany
+      "bg-[#6a4e2a]/55", // bronze
+      "bg-[#553c1f]/60", // hazelnut
     ];
     return palette[date % palette.length];
   };
@@ -183,62 +183,74 @@ export const CalendarView: React.FC<CalendarViewProps> = ({ month, year, events,
                     />
                   ))}
                 </div>
-                <div className="grid grid-cols-7 h-full" style={{ gridTemplateRows: `repeat(${numRows}, 1fr)` }}>
-            {calendarDays.map((dayObj, index) => {
-              const day = dayObj?.date;
-              const dayMonth = dayObj?.month;
-              const event = day && dayMonth !== undefined ? getEventForDate(day, dayMonth) : null;
-              const isFestival = day && dayMonth !== undefined ? isFestivalDate(day, dayMonth) : false;
-              const hasEvent = !!event;
-
-              return (
                 <div
-                  key={index}
-                  onClick={() => {
-                    if (isFestival && day && dayMonth !== undefined) {
-                      setSelectedDate(day);
-                      setSelectedMonth(dayMonth);
-                    }
-                  }}
-                  className={`flex items-center justify-center border text-center font-bold transition-all duration-300 w-full h-full ${
-                    day === null
-                      ? "bg-[#1e1710]/50 border-amber-900/20"
-                      : isFestival
-                      ? "bg-gradient-to-br from-amber-600/30 via-yellow-500/20 to-amber-700/25 border-2 border-amber-400/70 cursor-pointer hover:shadow-[0_0_20px_rgba(200,160,40,0.4)] hover:scale-[1.04] group relative overflow-hidden shadow-[0_0_12px_rgba(200,160,40,0.15)] ring-1 ring-amber-400/30"
-                      : hasEvent
-                      ? `${getEventColor(event?.type || 'tech')} cursor-pointer hover:shadow-md hover:shadow-amber-800/20 hover:scale-[1.02]`
-                      : `${getCellBg(day || 0)} ${getCellBorder(day || 0)}`
-                  }`}
+                  className="grid grid-cols-7 h-full"
+                  style={{ gridTemplateRows: `repeat(${numRows}, 1fr)` }}
                 >
-                  {isFestival && (
-                    <>
-                      <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/10 via-amber-500/5 to-transparent"></div>
-                      <div className="absolute inset-0 bg-gradient-to-br from-amber-400/15 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    </>
-                  )}
-                  {day && (
-                    <div className="w-full h-full flex flex-col items-center justify-center p-1 relative z-10 gap-1">
-                      <span
-                        className={`text-xl md:text-2xl font-bold font-digital tracking-wider leading-none ${
-                          isFestival ? "text-amber-200 drop-shadow-[0_0_8px_rgba(245,200,60,0.5)]" : hasEvent ? "text-amber-400/80" : "text-amber-500/60"
+                  {calendarDays.map((dayObj, index) => {
+                    const day = dayObj?.date;
+                    const dayMonth = dayObj?.month;
+                    const event =
+                      day && dayMonth !== undefined
+                        ? getEventForDate(day, dayMonth)
+                        : null;
+                    const isFestival =
+                      day && dayMonth !== undefined
+                        ? isFestivalDate(day, dayMonth)
+                        : false;
+                    const hasEvent = !!event;
+
+                    return (
+                      <div
+                        key={index}
+                        onClick={() => {
+                          if (isFestival && day && dayMonth !== undefined) {
+                            setSelectedDate(day);
+                            setSelectedMonth(dayMonth);
+                          }
+                        }}
+                        className={`flex items-center justify-center border text-center font-bold transition-all duration-300 w-full h-full ${
+                          day === null
+                            ? "bg-[#1e1710]/50 border-amber-900/20"
+                            : isFestival
+                              ? "bg-gradient-to-br from-amber-600/30 via-yellow-500/20 to-amber-700/25 border-2 border-amber-400/70 cursor-pointer hover:shadow-[0_0_20px_rgba(200,160,40,0.4)] hover:scale-[1.04] group relative overflow-hidden shadow-[0_0_12px_rgba(200,160,40,0.15)] ring-1 ring-amber-400/30"
+                              : hasEvent
+                                ? `${getEventColor(event?.type || "tech")} cursor-pointer hover:shadow-md hover:shadow-amber-800/20 hover:scale-[1.02]`
+                                : `${getCellBg(day || 0)} ${getCellBorder(day || 0)}`
                         }`}
                       >
-                        {String(day).padStart(2, '0')}
-                      </span>
-                      {isFestival && dayMonth !== undefined && (
-                        <span className="text-[10px] md:text-xs bg-gradient-to-r from-amber-400 to-yellow-500 text-black px-2 py-0.5 rounded-sm border border-amber-300 font-bold text-center font-digital leading-tight whitespace-nowrap shadow-[0_0_10px_rgba(245,200,60,0.4)]">
-                          {getFestivalLabel(day, dayMonth)}
-                        </span>
-                      )}
-                    </div>
-                  )}
-                </div>
-              );
-            })}
+                        {isFestival && (
+                          <>
+                            <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/10 via-amber-500/5 to-transparent"></div>
+                            <div className="absolute inset-0 bg-gradient-to-br from-amber-400/15 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                          </>
+                        )}
+                        {day && (
+                          <div className="w-full h-full flex flex-col items-center justify-center p-1 relative z-10 gap-1">
+                            <span
+                              className={`text-xl md:text-2xl font-bold font-digital tracking-wider leading-none ${
+                                isFestival
+                                  ? "text-amber-200 drop-shadow-[0_0_8px_rgba(245,200,60,0.5)]"
+                                  : hasEvent
+                                    ? "text-amber-400/80"
+                                    : "text-amber-500/60"
+                              }`}
+                            >
+                              {String(day).padStart(2, "0")}
+                            </span>
+                            {isFestival && dayMonth !== undefined && (
+                              <span className="text-[10px] md:text-xs bg-gradient-to-r from-amber-400 to-yellow-500 text-black px-2 py-0.5 rounded-sm border border-amber-300 font-bold text-center font-digital leading-tight whitespace-nowrap shadow-[0_0_10px_rgba(245,200,60,0.4)]">
+                                {getFestivalLabel(day, dayMonth)}
+                              </span>
+                            )}
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       </div>
