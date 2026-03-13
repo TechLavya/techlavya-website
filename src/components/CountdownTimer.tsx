@@ -1,22 +1,25 @@
-"use client"
+"use client";
 
-import { useEffect, useState } from "react"
-import { countdownTargetDate } from "@/data/countDown"
-import { AnimatePresence, motion } from "framer-motion"
+import { useEffect, useState } from "react";
+import { countdownTargetDate } from "@/data/countDown";
+import { AnimatePresence, motion } from "framer-motion";
 
 const CountdownTimer: React.FC = () => {
   const [timeLeft, setTimeLeft] = useState({
-    days: 0, hours: 0, minutes: 0, seconds: 0,
-  })
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  });
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      const now = new Date()
-      const difference = countdownTargetDate.getTime() - now.getTime()
+      const now = new Date();
+      const difference = countdownTargetDate.getTime() - now.getTime();
 
       if (difference <= 0) {
-        clearInterval(intervalId)
-        return
+        clearInterval(intervalId);
+        return;
       }
 
       setTimeLeft({
@@ -24,23 +27,53 @@ const CountdownTimer: React.FC = () => {
         hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
         minutes: Math.floor((difference / 1000 / 60) % 60),
         seconds: Math.floor((difference / 1000) % 60),
-      })
-    }, 1000)
+      });
+    }, 1000);
 
-    return () => clearInterval(intervalId)
-  }, [])
+    return () => clearInterval(intervalId);
+  }, []);
 
   return (
-    <div className="flex flex-wrap justify-center gap-4 md:gap-8 p-6 bg-black/20 backdrop-blur-sm rounded-3xl border border-white/5">
-      <TimeUnit label="DAYS" value={timeLeft.days} glowColor="shadow-custom-gold-1/50" borderColor="border-custom-gold-1/30" />
-      <TimeUnit label="HOURS" value={timeLeft.hours} glowColor="shadow-custom-gold-2/50" borderColor="border-custom-gold-2/30" />
-      <TimeUnit label="MINS" value={timeLeft.minutes} glowColor="shadow-custom-gold-3/50" borderColor="border-custom-gold-3/30" />
-      <TimeUnit label="SECS" value={timeLeft.seconds} glowColor="shadow-custom-gold-2/50" borderColor="border-custom-gold-2/30" />
+    <div className="flex flex-wrap justify-center gap-4 md:gap-8  ">
+      <TimeUnit
+        label="DAYS"
+        value={timeLeft.days}
+        glowColor="shadow-custom-gold-1/50"
+        borderColor="border-custom-gold-1/30"
+      />
+      <TimeUnit
+        label="HOURS"
+        value={timeLeft.hours}
+        glowColor="shadow-custom-gold-2/50"
+        borderColor="border-custom-gold-2/30"
+      />
+      <TimeUnit
+        label="MINS"
+        value={timeLeft.minutes}
+        glowColor="shadow-custom-gold-3/50"
+        borderColor="border-custom-gold-3/30"
+      />
+      <TimeUnit
+        label="SECS"
+        value={timeLeft.seconds}
+        glowColor="shadow-custom-gold-2/50"
+        borderColor="border-custom-gold-2/30"
+      />
     </div>
-  )
-}
+  );
+};
 
-const TimeUnit = ({ label, value, glowColor, borderColor }: { label: string; value: number; glowColor: string; borderColor: string }) => {
+const TimeUnit = ({
+  label,
+  value,
+  glowColor,
+  borderColor,
+}: {
+  label: string;
+  value: number;
+  glowColor: string;
+  borderColor: string;
+}) => {
   return (
     <div className="flex flex-col items-center group">
       {/* Label with "Glitch" feel */}
@@ -48,8 +81,9 @@ const TimeUnit = ({ label, value, glowColor, borderColor }: { label: string; val
         {label}
       </span>
 
-      <div className={`relative w-20 h-24 md:w-28 md:h-32 flex items-center justify-center bg-[#0a0a0a] border-2 ${borderColor} rounded-xl overflow-hidden shadow-2xl ${glowColor}`}>
-
+      <div
+        className={`relative w-20 h-24 md:w-28 md:h-32 flex items-center justify-center bg-[#0a0a0a] border-2 ${borderColor} rounded-xl overflow-hidden shadow-2xl ${glowColor}`}
+      >
         {/* Decorative Circuit Lines */}
         <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent" />
         <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent" />
@@ -74,7 +108,7 @@ const TimeUnit = ({ label, value, glowColor, borderColor }: { label: string; val
         <div className="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent opacity-50" />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default CountdownTimer
+export default CountdownTimer;

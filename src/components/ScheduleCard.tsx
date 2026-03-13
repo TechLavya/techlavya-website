@@ -7,7 +7,7 @@ interface CalendarEvent {
   date: number;
   month: number;
   title: string;
-  type: "tech" | "esports" | "cultural";
+  type: "tech" | "esports" | "holiday";
   startTime?: string;
   endTime?: string;
   description?: string;

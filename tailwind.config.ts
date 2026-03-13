@@ -17,10 +17,15 @@ const config: Config = {
 				digital: ['var(--font-digital)'],
 				kodeMono: ['var(--font-kode-mono)'],
 				burnoAce: ['var(--font-bruno-ace)'],
-				Orbitron: ['var(--font-orbitron)'],
+				orbitron: ['var(--font-orbitron)'],
+				spaceGrotesk: ['var(--font-space-grotesk)'],
+				sora: ['var(--font-sora)'],
+				inter: ['var(--font-inter)'],
+				poppins: ['var(--font-poppins)'],
 			},
 			colors: {
 				background: 'hsl(var(--background))',
+				secondaryBg: 'hsl(var(--secondary-bg))',
 				foreground: 'hsl(var(--foreground))',
 				card: {
 					DEFAULT: 'hsl(var(--card))',
@@ -45,6 +50,10 @@ const config: Config = {
 				accent: {
 					DEFAULT: 'hsl(var(--accent))',
 					foreground: 'hsl(var(--accent-foreground))'
+				},
+				highlight: {
+					DEFAULT: 'hsl(var(--highlight))',
+					foreground: 'hsl(var(--highlight-foreground))'
 				},
 				destructive: {
 					DEFAULT: 'hsl(var(--destructive))',
