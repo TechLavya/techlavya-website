@@ -1,7 +1,7 @@
 import ClientLayout from "@/components/ClientLayout";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import { Kode_Mono, Bruno_Ace, Orbitron } from "next/font/google";
+import { Kode_Mono, Bruno_Ace, Orbitron, Space_Grotesk, Sora, Inter, Poppins } from "next/font/google";
 import "./globals.css";
 
 const digitalFont = localFont({
@@ -25,35 +25,43 @@ const orbitronFont = Orbitron({
   variable: "--font-orbitron",
 });
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-space-grotesk",
 });
 
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+const sora = Sora({
+  subsets: ["latin"],
+  variable: "--font-sora",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+});
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  variable: "--font-poppins",
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
   title: "Techlavya",
-  description: "Techlavya is the official Tech Fest website of Ramkrishna Mahato Government Engineering College.",
+  description: "Techlavya is the official premium tech festival of Ramkrishna Mahato Government Engineering College.",
   keywords: [
     "techlavya",
     "rkmgec",
-    "rkmgec tech fest",
     "tech fest",
-    "techlavya rkmgec",
+    "luxury tech",
+    "awwwards",
   ],
   metadataBase: new URL("https://techlavya-rkmgec.com/"),
   openGraph: {
     title: "Techlavya",
     type: "website",
     siteName: "Techlavya",
-    description:
-      "Techlavya is the official Tech Fest website of Ramkrishna Mahato Government Engineering College",
+    description: "Premium Tech Festival Experience",
   },
   alternates: {
     canonical: "https://techlavya-rkmgec.com/"
@@ -69,7 +77,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${digitalFont.variable} ${kodeMonoFont.variable} ${brunoAceFont.variable} ${orbitronFont.variable} ${geistSans.variable} ${geistMono.variable} antialiased w-full`}
+        className={`${digitalFont.variable} ${kodeMonoFont.variable} ${brunoAceFont.variable} ${orbitronFont.variable} ${spaceGrotesk.variable} ${sora.variable} ${inter.variable} ${poppins.variable} antialiased w-full text-foreground bg-background font-inter`}
       >
         <ClientLayout>{children}</ClientLayout>
       </body>

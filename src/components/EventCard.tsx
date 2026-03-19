@@ -30,13 +30,13 @@ const EventCard: React.FC<Props> = ({ eventId, duration, eventData, flippedCardI
     mouseY.set(e.clientY - top);
   };
 
-  const rotateX = useSpring(useTransform(mouseY, [0, 420], [10, -10]), { stiffness: 100, damping: 30 });
-  const rotateY = useSpring(useTransform(mouseX, [0, 340], [-10, 10]), { stiffness: 100, damping: 30 });
+  const rotateX = useSpring(useTransform(mouseY, [0, 420], [8, -8]), { stiffness: 80, damping: 20 });
+  const rotateY = useSpring(useTransform(mouseX, [0, 340], [-8, 8]), { stiffness: 80, damping: 20 });
 
   // Spotlight gradient following the mouse
   const background = useTransform(
     [mouseX, mouseY],
-    ([x, y]) => `radial-gradient(600px circle at ${x}px ${y}px, rgba(6, 182, 212, 0.15), transparent 80%)`
+    ([x, y]) => `radial-gradient(400px circle at ${x}px ${y}px, rgba(213, 206, 163, 0.12), transparent 80%)`
   );
 
   return (
@@ -44,54 +44,47 @@ const EventCard: React.FC<Props> = ({ eventId, duration, eventData, flippedCardI
       initial={{ y: 50, opacity: 0 }}
       whileInView={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, delay: duration / 20, ease: [0.16, 1, 0.3, 1] }}
-      viewport={{ once: true }}
+      viewport={{ once: true, margin: "-100px" }}
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => { setIsHovered(false); }}
-      className="group relative w-full max-w-[340px] h-[450px] mx-auto cursor-none"
+      onMouseLeave={() => setIsHovered(false)}
+      className="group relative w-full max-w-[340px] h-[450px] mx-auto hover-target"
     >
-      {/* Custom Tech Cursor */}
-      <motion.div
-        className="fixed top-0 left-0 w-8 h-8 border border-cyan-500 rounded-full z-[100] pointer-events-none hidden md:flex items-center justify-center"
-        style={{ x: mouseX, y: mouseY, translateX: "-50%", translateY: "-50%" }}
-      >
-        <div className="w-1 h-1 bg-cyan-400 rounded-full animate-ping" />
-      </motion.div>
-
       <motion.div
         style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
-        className="relative w-full h-full rounded-3xl border border-white/10 bg-[#050507] p-[1px] overflow-hidden"
+        className="relative w-full h-full rounded-3xl border border-accent/20 bg-secondary-bg p-[1px] overflow-hidden shadow-[0_15px_30px_rgba(0,0,0,0.6)]"
       >
         {/* Dynamic Spotlight Layer */}
         <motion.div className="absolute inset-0 z-10 pointer-events-none" style={{ background }} />
 
         {/* The Main Visual Container */}
-        <div className="relative w-full h-full rounded-[23px] overflow-hidden bg-[#0a0a0c]">
+        <div className="relative w-full h-full rounded-[23px] overflow-hidden bg-background">
 
           {/* Background Image with Kinetic Zoom */}
           <motion.div
-            animate={{ scale: isHovered ? 1.1 : 1, filter: isHovered ? "blur(4px) brightness(0.4)" : "blur(0px) brightness(0.7)" }}
+            animate={{ scale: isHovered ? 1.05 : 1, filter: isHovered ? "blur(3px) brightness(0.6)" : "blur(0px) brightness(0.85)" }}
+            transition={{ duration: 0.4 }}
             className="absolute inset-0"
           >
             <Image src={image} alt={title} fill className="object-cover" />
           </motion.div>
 
           {/* Decorative Corner Brackets */}
-          <div className="absolute inset-4 border border-white/5 pointer-events-none z-20">
-            <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-cyan-500" />
-            <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-white/20" />
-            <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-white/20" />
-            <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-cyan-500" />
+          <div className="absolute inset-4 border border-accent/10 pointer-events-none z-20">
+            <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-primary" />
+            <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-accent/30" />
+            <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-accent/30" />
+            <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-primary" />
           </div>
 
           {/* Floating UI Elements */}
-          <div className="absolute top-8 left-8 z-30">
+          <div className="absolute top-6 left-6 z-30">
             <motion.div
-              animate={{ opacity: isHovered ? 1 : 0, x: isHovered ? 0 : -20 }}
-              className="flex items-center gap-2 px-3 py-1 bg-cyan-500/10 border border-cyan-500/20 rounded-full backdrop-blur-md"
+              animate={{ opacity: isHovered ? 1 : 0, x: isHovered ? 0 : -10 }}
+              className="flex items-center gap-2 px-3 py-1 bg-background/50 border border-primary/30 rounded-full backdrop-blur-md"
             >
-              <Target className="w-3 h-3 text-cyan-400" />
-              <span className="text-[10px] font-kodeMono text-cyan-400 tracking-[0.2em]">LOCKED_ON</span>
+              <Target className="w-3 h-3 text-primary animate-pulse" />
+              <span className="text-[10px] font-kodeMono text-primary tracking-[0.2em]">TARGET_LOCKED</span>
             </motion.div>
           </div>
 
@@ -106,14 +99,14 @@ const EventCard: React.FC<Props> = ({ eventId, duration, eventData, flippedCardI
                   transition={{ duration: 0.3, ease: "circOut" }}
                   className="w-full"
                 >
-                  <h2 className="text-2xl font-bold text-white font-orbitron tracking-wider leading-tight">{title}</h2>
-                  <p className="text-sm text-cyan-200/70 font-kodeMono mt-1 mb-4">REG_ID: {eventId}</p>
+                  <h2 className="text-2xl font-bold text-highlight font-orbitron tracking-wider leading-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">{title}</h2>
+                  <p className="text-xs text-accent/70 font-kodeMono mt-2 mb-4 tracking-widest">REG_ID: {eventId}</p>
                   <Button
                     onClick={() => setFlippedCardId(eventId)}
-                    className="w-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 hover:bg-cyan-500/20 backdrop-blur-md"
+                    className="w-full bg-primary/10 border border-primary/40 text-primary hover:bg-primary/20 backdrop-blur-md font-spaceGrotesk tracking-[0.2em] transition-all hover:shadow-[0_0_15px_rgba(184,92,56,0.5)]"
                   >
                     <Terminal className="w-4 h-4 mr-2" />
-                    View Details
+                    Enter Protocol
                   </Button>
                 </motion.div>
               ) : (
@@ -122,36 +115,36 @@ const EventCard: React.FC<Props> = ({ eventId, duration, eventData, flippedCardI
                   animate={{ y: 0, opacity: 1 }}
                   exit={{ y: -20, opacity: 0 }}
                   transition={{ duration: 0.3, ease: "circOut" }}
-                  className="w-full"
+                  className="w-full bg-background/80 absolute inset-0 p-8 backdrop-blur-xl flex flex-col justify-center border-t border-accent/20"
                 >
-                  <div className="flex justify-between items-start mb-4">
+                  <div className="flex justify-between items-start mb-6">
                     <div>
-                      <h3 className="text-lg font-bold text-white font-orbitron">MISSION_BRIEF</h3>
-                      <p className="text-xs text-cyan-200/70 font-kodeMono">OBJECTIVE: {title}</p>
+                      <h3 className="text-xl font-bold text-highlight font-orbitron">MISSION_BRIEF</h3>
+                      <p className="text-[10px] uppercase tracking-widest text-accent/70 font-kodeMono mt-1">OBJ: {title}</p>
                     </div>
-                    <button onClick={() => setFlippedCardId(null)} className="text-white/50 hover:text-white transition-colors">
+                    <button onClick={() => setFlippedCardId(null)} className="text-muted-foreground hover:text-highlight transition-colors p-1">
                       <Zap className="w-5 h-5" />
                     </button>
                   </div>
 
-                  <div className="space-y-3 text-sm text-white/80 font-sans mb-6">
-                    <p className="flex items-center gap-2">
-                      <ShieldCheck className="w-4 h-4 text-cyan-400" />
-                      <span>Status: <span className="font-bold text-green-400">Active</span></span>
+                  <div className="space-y-4 text-sm text-foreground font-inter mb-8">
+                    <p className="flex items-center gap-3">
+                      <ShieldCheck className="w-5 h-5 text-primary" />
+                      <span className="font-light tracking-wide">Status: <span className="font-bold text-green-500">Active</span></span>
                     </p>
-                    <p className="flex items-center gap-2">
-                      <Zap className="w-4 h-4 text-cyan-400" />
-                      <span>Prize Pool: <span className="font-bold text-amber-400">₹{eventData.prize.toLocaleString()}</span></span>
+                    <p className="flex items-center gap-3">
+                      <Zap className="w-5 h-5 text-accent" />
+                      <span className="font-light tracking-wide">Prize Pool: <span className="font-bold text-accent">₹{eventData.prize.toLocaleString()}</span></span>
                     </p>
                   </div>
 
-                  <div className="flex gap-2">
+                  <div className="flex gap-3">
                     <Link href={registrationLink} target="_blank" className="flex-1">
-                      <Button className="w-full bg-cyan-500 text-black hover:bg-cyan-400 font-bold">
+                      <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-spaceGrotesk tracking-widest shadow-[0_0_20px_rgba(184,92,56,0.3)]">
                         Register Now
                       </Button>
                     </Link>
-                    <Button variant="outline" size="icon" className="border-white/20 bg-white/10 hover:bg-white/20">
+                    <Button variant="outline" size="icon" className="border-accent/30 bg-secondary-bg hover:bg-accent/20 hover:text-accent">
                       <Share2 className="w-4 h-4" />
                     </Button>
                   </div>
@@ -162,8 +155,8 @@ const EventCard: React.FC<Props> = ({ eventId, duration, eventData, flippedCardI
 
           {/* Background Decorative "Code" */}
           <div className="absolute top-0 right-4 h-full pointer-events-none opacity-20 z-10">
-            <p className="[writing-mode:vertical-rl] text-[8px] font-kodeMono text-cyan-500 tracking-[1em] uppercase">
-              system.integrity.check() // status: stable // priority: high // node: {eventId.slice(0, 8)}
+            <p className="[writing-mode:vertical-rl] text-[8px] font-kodeMono text-accent/50 tracking-[1em] uppercase">
+              system.integrity.check() // status: stable // node: {eventId.slice(0, 8)}
             </p>
           </div>
         </div>

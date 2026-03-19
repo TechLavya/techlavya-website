@@ -11,7 +11,7 @@ const EsportsEventSection: React.FC = () => {
   const [flippedCardId, setFlippedCardId] = useState<string | null>(null);
 
   return (
-    <Container id="esports" title="Esport Events" titleClassName="from-[#ec008c] to-[#fc6767]">
+    <Container id="esports" title="Esport Events" titleClassName="from-primary to-accent">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 justify-items-center mb-10">
         {EsportsEventData.map((event, index) => (
           <EventCard

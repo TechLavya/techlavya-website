@@ -11,7 +11,7 @@ const TechlavyaEventSection: React.FC = () => {
      const [flippedCardId, setFlippedCardId] = useState<string | null>(null);
 
      return (
-          <Container id="techlavya" title="Techlavya Events" titleClassName="from-[#D4145A] to-[#FBB03B]">
+          <Container id="techlavya" title="Techlavya Events" titleClassName="from-accent to-highlight">
                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 justify-items-center mb-10">
                     {TechlavyaEventData.map((event, index) => (
                          <EventCard

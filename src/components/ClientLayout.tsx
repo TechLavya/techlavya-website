@@ -20,9 +20,9 @@ export default function ClientLayout({
         <Loader finishLoading={() => setLoading(false)} />
       ) : (
         <>
-          <div style={{ position: "fixed", top: 0, left: 0, width: "100%", height: "100%", pointerEvents: "none", zIndex: 9999 }}>
-            <SplashCursor />
-          </div>
+          {/* <div style={{ position: "fixed", top: 0, left: 0, width: "100%", height: "100%", pointerEvents: "none", zIndex: 9999 }}> */}
+          <SplashCursor />
+          {/* </div> */}
           <Navbar />
           {children}
           <Footer />
