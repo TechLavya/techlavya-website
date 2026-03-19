@@ -7,112 +7,119 @@ interface LoaderProps {
   finishLoading: () => void;
 }
 
-const AbstractLoader = ({ finishLoading }: LoaderProps) => {
+const OrbitalLoader = ({ finishLoading }: LoaderProps) => {
   const [progress, setProgress] = useState(0);
   const [isExiting, setIsExiting] = useState(false);
 
   useEffect(() => {
-    // Total duration ~2 seconds to keep it snappy.
+    // Smooth 2-second progression
     const interval = setInterval(() => {
       setProgress((prev) => {
         if (prev >= 100) {
           clearInterval(interval);
-          setTimeout(() => setIsExiting(true), 200);
-          setTimeout(finishLoading, 1000);
+          setTimeout(() => setIsExiting(true), 400); // Slight pause at 100%
+          setTimeout(finishLoading, 1200); // Wait for exit animation
           return 100;
         }
         return prev + 1;
       });
-    }, 15);
+    }, 20);
     return () => clearInterval(interval);
   }, [finishLoading]);
 
   // Prevent scrolling while loading
   useEffect(() => {
     document.body.style.overflow = "hidden";
-    return () => { document.body.style.overflow = "auto"; };
+    return () => {
+      document.body.style.overflow = "auto";
+    };
   }, []);
 
   return (
     <AnimatePresence>
       {!isExiting && (
         <motion.div
-          exit={{ opacity: 0, scale: 1.1, filter: "blur(20px)" }}
+          exit={{ opacity: 0, scale: 1.1, filter: "blur(15px)" }}
           transition={{ duration: 0.8, ease: "easeInOut" }}
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-background overflow-hidden select-none"
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-[#1b120c] overflow-hidden select-none font-sans"
         >
-          {/* Abstract Geometric Grid */}
-          <div className="absolute inset-0 pointer-events-none opacity-[0.03]"
-            style={{
-              backgroundImage: 'linear-gradient(var(--highlight) 1px, transparent 1px), linear-gradient(90deg, var(--highlight) 1px, transparent 1px)',
-              backgroundSize: '40px 40px',
-              perspective: '1000px'
-            }}
-          >
-            <motion.div 
-               animate={{ rotateX: [60, 60], translateY: [0, 40] }} 
-               transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
-               className="w-full h-full origin-top"
-               style={{ 
-                 backgroundImage: 'inherit', backgroundSize: 'inherit' 
-               }}
-            />
-          </div>
+          {/* Warm Brown Background Glow */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-amber-900/25 via-[#1b120c] to-[#120b07]" />
 
-          {/* Rotating Tech Mesh */}
+          {/* Central Animated Mechanics */}
           <div className="relative flex items-center justify-center">
+            
+            {/* Outer Copper Ring (Slow, Clockwise) */}
             <motion.div
               animate={{ rotate: 360 }}
-              transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-              className="absolute w-64 h-64 border-[1px] border-accent/20 rounded-full"
+              transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
+              className="absolute w-[320px] h-[320px] rounded-full border border-amber-900/40"
+              style={{ borderTopColor: "#b45309", borderRightColor: "transparent" }}
             />
+
+            {/* Middle Brass Ring (Medium, Counter-Clockwise) */}
             <motion.div
-              animate={{ rotate: -360, scale: [1, 1.05, 1] }}
-              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute w-44 h-44 border-[2px] border-dashed border-primary/40 rounded-full"
+              animate={{ rotate: -360 }}
+              transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+              className="absolute w-[250px] h-[250px] rounded-full border border-amber-900/50"
+              style={{ borderBottomColor: "#d97706", borderLeftColor: "transparent" }}
             />
-            
-            {/* Energy Core */}
+
+            {/* Inner Bronze Dashed Ring (Pulsing) */}
             <motion.div
-              animate={{ 
-                scale: [0.95, 1.05, 0.95],
+              animate={{ rotate: 360, scale: [1, 1.05, 1] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute w-[190px] h-[190px] rounded-full border-[2px] border-dashed border-orange-700/40"
+            />
+
+            {/* Glowing Core */}
+            <motion.div
+              animate={{
                 boxShadow: [
-                  "0 0 20px rgba(213,206,163,0.1)",
-                  "0 0 40px rgba(213,206,163,0.3)",
-                  "0 0 20px rgba(213,206,163,0.1)"
-                ]
+                  "0 0 20px rgba(217, 119, 6, 0.15)",
+                  "0 0 60px rgba(180, 83, 9, 0.5)",
+                  "0 0 20px rgba(217, 119, 6, 0.15)",
+                ],
               }}
               transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-              className="relative w-24 h-24 bg-secondary-bg/80 backdrop-blur-md flex items-center justify-center border border-accent/30 rotate-45"
+              className="relative w-36 h-36 bg-[#22160f]/90 backdrop-blur-xl rounded-full flex items-center justify-center border border-amber-500/40"
             >
-              <div className="absolute inset-0 border border-primary/20 rotate-12" />
-              <div className="absolute inset-0 border border-highlight/20 -rotate-12" />
-              <div className="-rotate-45 text-highlight font-orbitron text-2xl font-bold tracking-widest z-10">
-                {progress}%
+              {/* Inner Core Border Accent */}
+              <div className="absolute inset-2 border border-orange-600/40 rounded-full" />
+              
+              {/* Percentage Text */}
+              <div className="text-amber-300 text-4xl font-bold tracking-wider z-10 drop-shadow-[0_0_10px_rgba(217,119,6,0.8)]">
+                {progress}
+                <span className="text-orange-500 text-2xl ml-1">%</span>
               </div>
             </motion.div>
           </div>
 
-          <div className="absolute bottom-20 flex flex-col items-center gap-3">
-            <motion.div 
+          {/* Bottom Loading Bar and Status */}
+          <div className="absolute bottom-24 flex flex-col items-center gap-4 w-full max-w-sm px-8">
+            <motion.div
               animate={{ opacity: [0.4, 1, 0.4] }}
               transition={{ duration: 1.5, repeat: Infinity }}
-              className="text-accent text-xs font-kodeMono uppercase tracking-[0.3em]"
+              className="text-amber-600/80 text-xs uppercase tracking-[0.4em] font-semibold"
             >
-              Initializing Core
+              Calibrating Core
             </motion.div>
-            <div className="w-56 h-[1px] bg-border relative overflow-hidden">
-               <motion.div 
-                 initial={{ width: 0 }}
-                 animate={{ width: `${progress}%` }}
-                 className="absolute inset-y-0 left-0 bg-primary shadow-[0_0_10px_var(--primary)]"
-               />
+            
+            {/* Progress Track */}
+            <div className="w-full h-[2px] bg-slate-800 relative overflow-hidden rounded-full">
+              {/* Progress Fill (Gradient from Brown to Blue) */}
+              <motion.div
+                initial={{ width: 0 }}
+                animate={{ width: `${progress}%` }}
+                className="absolute inset-y-0 left-0 bg-gradient-to-r from-amber-900 via-orange-700 to-amber-400 shadow-[0_0_12px_rgba(180,83,9,0.85)]"
+              />
             </div>
           </div>
+          
         </motion.div>
       )}
     </AnimatePresence>
   );
 };
 
-export default AbstractLoader;
+export default OrbitalLoader;
