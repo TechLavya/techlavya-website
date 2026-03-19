@@ -87,7 +87,7 @@ const LandingSection = () => {
           className="flex flex-col sm:flex-row gap-5 items-center justify-center w-full"
         >
           <Link
-            href="/#events"
+            href="/#techlavya"
             className="group relative px-10 py-4 bg-white text-black font-orbitron text-xs tracking-[0.2em] uppercase transition-all duration-300 hover:bg-primary hover:text-white rounded-full overflow-hidden"
           >
             <span className="relative z-10">Explore Events</span>

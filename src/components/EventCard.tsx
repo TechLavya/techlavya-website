@@ -8,16 +8,12 @@ import React, { useState, useRef } from "react";
 import { Button } from "./ui/button";
 import {
   ShieldCheck,
-  Share2,
   Cpu,
   ChevronRight,
   X,
   CalendarClock,
-  MapPin,
-  Phone,
   Trophy,
   Clock3,
-  Check,
 } from "lucide-react";
 
 type Props = {
@@ -30,7 +26,6 @@ type Props = {
 
 const EventCard: React.FC<Props> = ({
   eventId,
-  duration,
   eventData,
   flippedCardId,
   setFlippedCardId,
@@ -42,13 +37,10 @@ const EventCard: React.FC<Props> = ({
     prize,
     prizePool,
     time,
-    location,
-    contact,
     lastDate,
     type,
   } = eventData;
   const [isHovered, setIsHovered] = useState(false);
-  const [isLinkCopied, setIsLinkCopied] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
 
   const isFlipped = flippedCardId === eventId;
@@ -90,25 +82,6 @@ const EventCard: React.FC<Props> = ({
 
   const showValue = (value: string) => {
     return value.toLowerCase() === "yet to be announced" ? "TBA" : value;
-  };
-
-  const handleShare = async () => {
-    try {
-      if (navigator.share) {
-        await navigator.share({
-          title: `TechLavya | ${title}`,
-          text: `Register for ${title}`,
-          url: registrationLink,
-        });
-        return;
-      }
-
-      await navigator.clipboard.writeText(registrationLink);
-      setIsLinkCopied(true);
-      setTimeout(() => setIsLinkCopied(false), 1800);
-    } catch {
-      // No-op: user cancelled share or browser restricted clipboard.
-    }
   };
 
   return (
