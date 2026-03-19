@@ -1,7 +1,6 @@
 "use client";
 
 import Image from 'next/image'
-import { Button } from '@/components/ui/button'
 import { Zap, ShieldCheck, Box, ChevronRight } from 'lucide-react'
 import { motion, useMotionValue, useTransform } from 'framer-motion'
 import React from 'react'
