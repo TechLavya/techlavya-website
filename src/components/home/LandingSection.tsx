@@ -2,59 +2,13 @@
 
 import {
   motion,
-  useSpring,
-  useMotionValue,
 } from "framer-motion";
-import { useEffect } from "react";
 import CountdownTimer from "../CountdownTimer";
 import Link from "next/link";
 
 const LandingSection = () => {
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-
-  // Smooth mouse tracking for the spotlight effect
-  const springConfig = { damping: 25, stiffness: 150 };
-  const smoothX = useSpring(mouseX, springConfig);
-  const smoothY = useSpring(mouseY, springConfig);
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      const { clientX, clientY } = e;
-      mouseX.set(clientX);
-      mouseY.set(clientY);
-    };
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, [mouseX, mouseY]);
-
   return (
-    <div className="relative min-h-screen w-full flex items-center justify-center pt-28 pb-16 overflow-hidden bg-[#030303]">
-      {/* --- PREMIUM BACKGROUND LAYER --- */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        {/* Dynamic Spotlight */}
-        <motion.div
-          className="absolute inset-0 z-0 opacity-30"
-          style={{
-            background: `radial-gradient(600px circle at ${smoothX}px ${smoothY}px, var(--primary-glow), transparent 40%)`,
-          }}
-        />
-
-        {/* Ambient Orbs */}
-        <div className="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] bg-primary/10 rounded-full blur-[120px] animate-pulse" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] bg-accent/5 rounded-full blur-[120px]" />
-
-        {/* Refined Grid with Mask */}
-        <div
-          className="absolute inset-0 opacity-[0.15]"
-          style={{
-            backgroundImage: `radial-gradient(circle at 2px 2px, rgba(255,255,255,0.05) 1px, transparent 0)`,
-            backgroundSize: "32px 32px",
-            maskImage:
-              "radial-gradient(ellipse at center, black, transparent 80%)",
-          }}
-        />
-      </div>
+    <div className="relative min-h-screen w-full flex items-center justify-center pt-28 pb-16 overflow-hidden">
 
       <div className="relative z-10 container mx-auto px-4 flex flex-col items-center justify-center text-center">
         {/* Status Badge */}
@@ -148,16 +102,7 @@ const LandingSection = () => {
           </Link>
         </motion.div>
       </div>
-
-      {/* Side Decorative Elements (Premium aesthetic) */}
-      <div className="absolute left-10 bottom-10 hidden xl:block">
-        <div className="flex flex-col gap-2">
-          <div className="h-[1px] w-24 bg-gradient-to-r from-primary to-transparent" />
-          <span className="text-[9px] font-kodeMono text-muted-foreground uppercase tracking-widest">
-            EST. 2026 / TECH SYMPOSIUM
-          </span>
-        </div>
-      </div>
+     
     </div>
   );
 };

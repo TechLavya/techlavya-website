@@ -27,15 +27,7 @@ const TshirtSection = () => {
     }
 
     return (
-        <section className="relative py-24 bg-background overflow-hidden font-sans">
-            {/* Animated Circuit Background */}
-            <svg className="absolute inset-0 w-full h-full opacity-[0.03] pointer-events-none" xmlns="http://www.w3.org/2000/svg">
-                <pattern id="circuit" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
-                    <path d="M0 50 H30 L40 40 H60 L70 50 H100" fill="none" stroke="var(--primary)" strokeWidth="0.5" />
-                    <circle cx="40" cy="40" r="1.5" fill="var(--primary)" />
-                </pattern>
-                <rect width="100%" height="100%" fill="url(#circuit)" />
-            </svg>
+        <section className="relative py-24 overflow-hidden font-sans">
 
             <div className="container mx-auto px-6 relative z-10 max-w-6xl">
                 <div className="flex flex-col lg:flex-row rounded-[2rem] md:rounded-[3rem] border border-accent/20 overflow-hidden bg-secondary-bg/40 backdrop-blur-xl shadow-[0_20px_60px_rgba(0,0,0,0.8)]">

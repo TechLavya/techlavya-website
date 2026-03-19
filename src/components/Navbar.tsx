@@ -1,7 +1,7 @@
 'use client'
 
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Calendar, Home, Images, Landmark, Menu, Users, Radio, Compass, Mail } from 'lucide-react';
+import { Calendar, Home, Images, Landmark, Menu, Users, Compass, Mail } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
@@ -28,18 +28,25 @@ const Navbar = () => {
 
      return (
           <nav className={cn(
-               "fixed top-0 left-1/2 -translate-x-1/2 z-50 w-full transition-all duration-500 ease-in-out px-4 py-6",
-               isScrolled ? "max-w-5xl mt-2" : "max-w-full mt-0 pt-8"
+               "fixed top-0 left-1/2 -translate-x-1/2 z-50 w-full transition-all duration-500 ease-in-out px-4",
+               isScrolled ? "max-w-6xl mt-2 py-3" : "max-w-full mt-0 pt-8 pb-6"
           )}>
                {/* Main Bar Container */}
                <div className={cn(
-                    "relative flex items-center justify-between px-6 py-3 transition-all duration-500",
+                    "relative flex items-center px-6 transition-all duration-500",
                     "bg-secondary-bg/40 backdrop-blur-xl border border-accent/20 shadow-[0_10px_40px_rgba(0,0,0,0.5)]",
-                    isScrolled ? "rounded-2xl" : "rounded-none border-x-0 border-t-0 bg-transparent shadow-none"
+                    isScrolled ? "rounded-2xl py-2" : "rounded-none border-x-0 border-t-0 bg-transparent shadow-none py-3"
                )}>
 
                     {/* 1. BRANDING: The Logo with a Copper Underline */}
-                    <div className="flex flex-col items-start group">
+                    <div
+                         className={cn(
+                              "flex flex-col items-start group transition-all duration-300 xl:origin-left",
+                              isScrolled
+                                   ? "xl:opacity-0 xl:pointer-events-none xl:-translate-y-2 xl:scale-95"
+                                   : "xl:opacity-100 xl:translate-y-0 xl:scale-100"
+                         )}
+                    >
                          <Link href="/#home" className="hover-target">
                               <Image
                                    src="/techlavya-2025-logo.png"
@@ -54,7 +61,7 @@ const Navbar = () => {
                     </div>
 
                     {/* 2. NAVIGATION: The Central Hub */}
-                    <div className="hidden lg:flex items-center space-x-1">
+                    <div className="hidden xl:flex items-center space-x-1 absolute left-1/2 -translate-x-1/2">
                          {navItems.map((item, index) => (
                               <Link
                                    key={index}
@@ -81,15 +88,8 @@ const Navbar = () => {
                          ))}
                     </div>
 
-                    {/* 3. SYSTEM STATUS: Right Side UI */}
-                    <div className="hidden lg:flex items-center space-x-4">
-                         <div className="w-10 h-10 rounded-full border border-primary/30 flex items-center justify-center bg-secondary-bg/50 group cursor-pointer hover:border-primary transition-all hover-target shadow-[0_0_15px_rgba(184,92,56,0.1)] hover:shadow-[0_0_20px_rgba(184,92,56,0.4)]">
-                              <Radio className="text-primary animate-pulse group-hover:scale-110 group-hover:text-highlight transition-colors" size={18} />
-                         </div>
-                    </div>
-
                     {/* MOBILE TOGGLE */}
-                    <div className="lg:hidden">
+                    <div className="ml-auto xl:hidden">
                          <Sheet>
                               <SheetTrigger className="p-2 text-primary hover:bg-primary/10 rounded-lg transition-colors">
                                    <Menu size={28} />
@@ -106,11 +106,6 @@ const Navbar = () => {
                               </SheetContent>
                          </Sheet>
                     </div>
-               </div>
-
-               {/* DECORATIVE CORNER: Aesthetic flair */}
-               <div className="absolute top-2 right-4 text-[9px] font-kodeMono text-accent/30 rotate-90 origin-right hidden lg:block tracking-[0.2em]">
-                    TECHLAVYA_S_N_202X
                </div>
           </nav>
      );

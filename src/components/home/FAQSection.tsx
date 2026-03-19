@@ -23,9 +23,7 @@ const FAQSection = () => {
   };
 
   return (
-    <section id="faq" className="relative w-full py-24 px-4 sm:px-6 lg:px-8 bg-background">
-      {/* Background glow effect */}
-      <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-background to-background pointer-events-none" />
+    <section id="faq" className="relative w-full py-24 px-4 sm:px-6 lg:px-8">
 
       <div className="relative z-10 max-w-4xl mx-auto">
         {/* Title */}
