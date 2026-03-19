@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { FAQData } from '@/data/faq';
 import Title from '../Title';
-import { ChevronDown, Plus, Minus } from 'lucide-react';
+import {  Plus, Minus } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const FAQSection = () => {

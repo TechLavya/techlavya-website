@@ -2,12 +2,10 @@
 
 import {
   motion,
-  useScroll,
-  useTransform,
   useSpring,
   useMotionValue,
 } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import CountdownTimer from "../CountdownTimer";
 import Link from "next/link";
 

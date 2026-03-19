@@ -23,7 +23,7 @@ export const TechlavyaEventData: EventDataType[] = [
     image: '/events/tech-event/Hackvengers_Web_Picsay_Riyan.webp',
     buttonText: 'Tap in Register',
     prizePool: 'Yet to be announced',
-    prize: 0,
+    prize: 1000,
     time: 'Yet to be announced',
     location: 'Yet to be announced',
     contact: 'Yet to be announced',
