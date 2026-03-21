@@ -34,7 +34,7 @@ const CountdownTimer: React.FC = () => {
   }, []);
 
   return (
-    <div className="flex flex-wrap justify-center gap-4 md:gap-8  ">
+    <div className="flex flex-wrap justify-center gap-3 sm:gap-4 md:gap-8 px-2">
       <TimeUnit
         label="DAYS"
         value={timeLeft.days}
@@ -77,12 +77,12 @@ const TimeUnit = ({
   return (
     <div className="flex flex-col items-center group">
       {/* Label with "Glitch" feel */}
-      <span className="text-[10px] md:text-xs font-bold tracking-[0.2em] text-gray-500 mb-3 group-hover:text-white transition-colors">
+      <span className="text-[9px] sm:text-[10px] md:text-xs font-bold tracking-[0.18em] text-gray-500 mb-2.5 sm:mb-3 group-hover:text-white transition-colors">
         {label}
       </span>
 
       <div
-        className={`relative w-20 h-24 md:w-28 md:h-32 flex items-center justify-center bg-[#0a0a0a] border-2 ${borderColor} rounded-xl overflow-hidden shadow-2xl ${glowColor}`}
+        className={`relative w-16 h-20 sm:w-20 sm:h-24 md:w-28 md:h-32 flex items-center justify-center bg-[#0a0a0a] border-2 ${borderColor} rounded-xl overflow-hidden shadow-2xl ${glowColor}`}
       >
         {/* Decorative Circuit Lines */}
         <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent" />
@@ -98,7 +98,7 @@ const TimeUnit = ({
             animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
             exit={{ y: -20, opacity: 0, filter: "blur(5px)" }}
             transition={{ duration: 0.3, ease: "circOut" }}
-            className="text-4xl md:text-6xl font-mono font-black text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]"
+            className="text-3xl sm:text-4xl md:text-6xl font-mono font-black text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]"
           >
             {value.toString().padStart(2, "0")}
           </motion.span>

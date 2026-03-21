@@ -187,6 +187,8 @@ export default function Galaxy({
   rotationSpeed = 0.1,
   autoCenterRepulsion = 0,
   transparent = true,
+  renderScale = 1,
+  maxFPS = 60,
   ...rest
 }) {
   const ctnDom = useRef(null);
@@ -213,10 +215,15 @@ export default function Galaxy({
     }
 
     let program;
+    let isVisible = !document.hidden;
+    const safeRenderScale = Math.min(Math.max(renderScale, 0.4), 1);
+    const frameInterval = 1000 / Math.max(1, maxFPS);
+    let lastFrameTime = 0;
 
     function resize() {
-      const scale = 1;
-      renderer.setSize(ctn.offsetWidth * scale, ctn.offsetHeight * scale);
+      const width = Math.max(1, Math.floor(ctn.offsetWidth * safeRenderScale));
+      const height = Math.max(1, Math.floor(ctn.offsetHeight * safeRenderScale));
+      renderer.setSize(width, height);
       if (program) {
         program.uniforms.uResolution.value = new Color(
           gl.canvas.width,
@@ -225,7 +232,13 @@ export default function Galaxy({
         );
       }
     }
+
+    function handleVisibilityChange() {
+      isVisible = !document.hidden;
+    }
+
     window.addEventListener('resize', resize, false);
+    document.addEventListener('visibilitychange', handleVisibilityChange);
     resize();
 
     const geometry = new Triangle(gl);
@@ -263,6 +276,10 @@ export default function Galaxy({
 
     function update(t) {
       animateId = requestAnimationFrame(update);
+      if (!isVisible) return;
+      if (t - lastFrameTime < frameInterval) return;
+      lastFrameTime = t;
+
       if (!disableAnimation) {
         program.uniforms.uTime.value = t * 0.001;
         program.uniforms.uStarSpeed.value = (t * 0.001 * starSpeed) / 10.0;
@@ -303,6 +320,7 @@ export default function Galaxy({
     return () => {
       cancelAnimationFrame(animateId);
       window.removeEventListener('resize', resize);
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
       if (mouseInteraction) {
         ctn.removeEventListener('mousemove', handleMouseMove);
         ctn.removeEventListener('mouseleave', handleMouseLeave);
@@ -326,7 +344,9 @@ export default function Galaxy({
     rotationSpeed,
     repulsionStrength,
     autoCenterRepulsion,
-    transparent
+    transparent,
+    renderScale,
+    maxFPS
   ]);
 
   return <div ref={ctnDom} className="galaxy-container" {...rest} />;

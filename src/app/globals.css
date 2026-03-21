@@ -22,6 +22,20 @@ body {
   overflow-x: hidden;
 }
 
+@media (prefers-reduced-motion: reduce), (pointer: coarse) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  body {
+    background-attachment: scroll;
+  }
+
+  body::before {
+    display: none;
+  }
+}
+
 /* Subtle particle or noise effect for the background */
 body::before {
   content: "";
@@ -95,8 +109,8 @@ body::before {
 
 .glass-morphism {
   background: rgba(60, 42, 33, 0.4);
-  backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
   border: 1px solid rgba(213, 206, 163, 0.1);
 }
 

@@ -4,25 +4,20 @@ import { EventDataType } from "@/data/event-data";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Button } from "./ui/button";
 import {
   ShieldCheck,
-  Share2,
   Cpu,
   ChevronRight,
   X,
   CalendarClock,
-  MapPin,
-  Phone,
   Trophy,
   Clock3,
-  Check,
 } from "lucide-react";
 
 type Props = {
   eventId: string;
-  duration: number;
   eventData: EventDataType;
   flippedCardId: string | null;
   setFlippedCardId: React.Dispatch<React.SetStateAction<string | null>>;
@@ -30,7 +25,6 @@ type Props = {
 
 const EventCard: React.FC<Props> = ({
   eventId,
-  duration,
   eventData,
   flippedCardId,
   setFlippedCardId,
@@ -42,13 +36,11 @@ const EventCard: React.FC<Props> = ({
     prize,
     prizePool,
     time,
-    location,
-    contact,
     lastDate,
     type,
   } = eventData;
   const [isHovered, setIsHovered] = useState(false);
-  const [isLinkCopied, setIsLinkCopied] = useState(false);
+  const [enableTilt, setEnableTilt] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
 
   const isFlipped = flippedCardId === eventId;
@@ -71,7 +63,16 @@ const EventCard: React.FC<Props> = ({
     ["-12deg", "12deg"],
   );
 
+  useEffect(() => {
+    const reducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+    const coarsePointer = window.matchMedia("(pointer: coarse)").matches;
+    setEnableTilt(!reducedMotion && !coarsePointer);
+  }, []);
+
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!enableTilt) return;
     if (!cardRef.current) return;
     const rect = cardRef.current.getBoundingClientRect();
 
@@ -92,33 +93,14 @@ const EventCard: React.FC<Props> = ({
     return value.toLowerCase() === "yet to be announced" ? "TBA" : value;
   };
 
-  const handleShare = async () => {
-    try {
-      if (navigator.share) {
-        await navigator.share({
-          title: `TechLavya | ${title}`,
-          text: `Register for ${title}`,
-          url: registrationLink,
-        });
-        return;
-      }
-
-      await navigator.clipboard.writeText(registrationLink);
-      setIsLinkCopied(true);
-      setTimeout(() => setIsLinkCopied(false), 1800);
-    } catch {
-      // No-op: user cancelled share or browser restricted clipboard.
-    }
-  };
-
   return (
     <motion.div
       ref={cardRef}
-      onMouseMove={handleMouseMove}
+      onMouseMove={enableTilt ? handleMouseMove : undefined}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={handleMouseLeave}
       style={{ perspective: "1400px" }}
-      className="relative w-full max-w-[360px] h-[480px] mx-auto"
+      className="relative w-full max-w-[360px] aspect-[3/4] mx-auto"
     >
       {/* 3D ROTATION CONTAINER */}
       <motion.div
@@ -129,8 +111,8 @@ const EventCard: React.FC<Props> = ({
       >
         <motion.div
           style={{
-            rotateX: tiltRotateX,
-            rotateY: tiltRotateY,
+            rotateX: enableTilt ? tiltRotateX : "0deg",
+            rotateY: enableTilt ? tiltRotateY : "0deg",
             transformStyle: "preserve-3d",
           }}
           className="relative w-full h-full"
@@ -158,21 +140,21 @@ const EventCard: React.FC<Props> = ({
               <div className="absolute inset-0 bg-gradient-to-t from-[#1a120b] via-transparent to-transparent" />
 
               {/* Content */}
-              <div className="absolute bottom-0 p-8 space-y-4">
+              <div className="absolute bottom-0 left-0 right-0 p-8 w-full flex flex-col justify-end gap-3">
                 <p className="text-amber-400 text-xs tracking-[0.3em] uppercase font-mono">
                   Event Brief
                 </p>
 
-                <h2 className="text-3xl font-black text-white leading-tight">
+                <h2 className="text-3xl font-black text-white leading-tight mb-2">
                   {title}
                 </h2>
 
                 <Button
                   onClick={() => setFlippedCardId(eventId)}
-                  className="w-full h-16 rounded-2xl bg-[#f6c20a] hover:bg-[#ffcf1f] text-black text-lg font-extrabold tracking-[0.08em] shadow-[0_14px_32px_rgba(246,194,10,0.28)] hover:scale-[1.02] transition"
+                  className="w-full h-12 flex items-center justify-center rounded-xl bg-[#f6c20a] hover:bg-[#ffcf1f] text-black text-sm font-extrabold tracking-[0.1em] uppercase shadow-[0_10px_20px_rgba(246,194,10,0.2)] hover:scale-[1.02] transition"
                 >
                   REGISTER NOW
-                  <ChevronRight className="ml-2 w-5 h-5" />
+                  <ChevronRight className="ml-1 w-4 h-4" />
                 </Button>
               </div>
             </div>
@@ -188,13 +170,13 @@ const EventCard: React.FC<Props> = ({
               <div className="relative flex justify-between items-start">
                 <div className="flex items-center gap-3">
                   <div className="h-10 w-10 rounded-xl bg-amber-500/20 flex items-center justify-center border border-amber-500/30">
-                    <Cpu className="text-amber-400" />
+                    <Cpu className="text-amber-400 w-5 h-5" />
                   </div>
                   <div>
-                    <p className="text-[10px] tracking-[0.25em] uppercase text-white/40">
+                    <p className="text-[10px] tracking-[0.25em] uppercase text-white/40 font-mono">
                       Intel
                     </p>
-                    <p className="text-xs text-amber-300 font-semibold uppercase">
+                    <p className="text-xs text-amber-300 font-semibold uppercase tracking-wider">
                       {type}
                     </p>
                   </div>
@@ -202,20 +184,22 @@ const EventCard: React.FC<Props> = ({
 
                 <button
                   onClick={() => setFlippedCardId(null)}
-                  className="p-1 rounded-md hover:bg-white/10 transition"
+                  aria-label="Close event details"
+                  title="Close"
+                  className="p-1.5 rounded-lg hover:bg-white/10 transition"
                 >
-                  <X className="text-white/60" />
+                  <X className="text-white/60 w-5 h-5" />
                 </button>
               </div>
 
-              <div className="relative border border-amber-200/10 rounded-2xl bg-black/20 p-3 space-y-1.5">
-                <p className="text-[10px] tracking-[0.3em] uppercase text-amber-300/80">
+              <div className="relative border border-amber-200/10 rounded-2xl bg-black/40 p-3 space-y-1.5 backdrop-blur-sm">
+                <p className="text-[10px] tracking-[0.3em] uppercase text-amber-300/80 font-mono">
                   Deck Summary
                 </p>
                 <h3 className="text-lg leading-tight font-bold text-white">
                   {title}
                 </h3>
-                <p className="text-xs text-white/55">
+                <p className="text-xs text-white/55 leading-relaxed">
                   Complete details are available. Use register to secure your
                   slot.
                 </p>
@@ -224,31 +208,34 @@ const EventCard: React.FC<Props> = ({
               {/* Info */}
               <div className="relative flex-1 min-h-0 flex flex-col gap-3">
                 <div className="min-h-0 space-y-3 overflow-y-auto pr-1">
-                  <div className="border border-white/10 rounded-2xl p-3 bg-white/[0.03]">
-                    <h3 className="text-white/40 text-[10px] tracking-widest uppercase mb-2">
+                  <div className="border border-white/10 rounded-2xl p-3 bg-white/[0.02]">
+                    <h3 className="text-white/40 text-[10px] tracking-widest uppercase mb-2 font-mono">
                       Specifications
                     </h3>
 
-                    <div className="space-y-1.5 text-sm">
-                      <div className="flex justify-between">
-                        <span className="text-white/60 flex items-center gap-2">
-                          <Trophy size={14} /> Prize
+                    <div className="space-y-2 text-sm">
+                      <div className="flex justify-between items-center">
+                        <span className="text-white/60 flex items-center gap-2 text-xs">
+                          <Trophy size={14} className="text-amber-400/70" />{" "}
+                          Prize
                         </span>
-                        <span className="text-amber-400 font-bold">
+                        <span className="text-amber-400 font-bold tracking-wide">
                           ₹{prize.toLocaleString()}
                         </span>
                       </div>
 
-                      <div className="flex justify-between">
-                        <span className="text-white/60">Status</span>
-                        <span className="text-green-400 flex items-center gap-1">
+                      <div className="flex justify-between items-center">
+                        <span className="text-white/60 text-xs">Status</span>
+                        <span className="text-green-400 flex items-center gap-1 text-xs font-medium">
                           <ShieldCheck size={14} /> Verified
                         </span>
                       </div>
 
-                      <div className="flex justify-between">
-                        <span className="text-white/60">Prize Pool</span>
-                        <span className="text-white/80 max-w-[55%] text-right truncate">
+                      <div className="flex justify-between items-center">
+                        <span className="text-white/60 text-xs">
+                          Prize Pool
+                        </span>
+                        <span className="text-white/80 max-w-[55%] text-right truncate text-xs font-medium">
                           {showValue(prizePool)}
                         </span>
                       </div>
@@ -256,34 +243,33 @@ const EventCard: React.FC<Props> = ({
                   </div>
 
                   <div className="grid grid-cols-2 gap-2 text-xs">
-                    <div className="rounded-xl border border-white/10 bg-white/[0.03] p-2.5">
-                      <p className="text-white/45 mb-1 flex items-center gap-1">
+                    <div className="rounded-xl border border-white/10 bg-white/[0.02] p-2.5">
+                      <p className="text-white/45 mb-1 flex items-center gap-1.5 text-[10px] uppercase tracking-wider">
                         <CalendarClock size={12} /> Last Date
                       </p>
-                      <p className="text-white/90 truncate">
+                      <p className="text-white/90 truncate font-medium">
                         {showValue(lastDate)}
                       </p>
                     </div>
-                    <div className="rounded-xl border border-white/10 bg-white/[0.03] p-2.5">
-                      <p className="text-white/45 mb-1 flex items-center gap-1">
+                    <div className="rounded-xl border border-white/10 bg-white/[0.02] p-2.5">
+                      <p className="text-white/45 mb-1 flex items-center gap-1.5 text-[10px] uppercase tracking-wider">
                         <Clock3 size={12} /> Time
                       </p>
-                      <p className="text-white/90 truncate">
+                      <p className="text-white/90 truncate font-medium">
                         {showValue(time)}
                       </p>
                     </div>
                   </div>
-
-                  <div className="grid grid-cols-2 gap-2 text-xs"></div>
                 </div>
 
-                <div className="grid mt-auto">
+                {/* Bottom Action Area */}
+                <div className="mt-auto pt-2">
                   <Link
                     href={registrationLink}
                     target="_blank"
-                    className="col-span-4"
+                    className="block w-full"
                   >
-                    <Button className="w-full py-6 rounded-xl bg-gradient-to-r from-amber-500 to-yellow-400 text-black font-bold hover:scale-[1.03] transition">
+                    <Button className="w-full h-12 flex items-center justify-center rounded-xl bg-gradient-to-r from-amber-500 to-yellow-400 text-black text-sm tracking-[0.1em] font-extrabold uppercase shadow-[0_10px_20px_rgba(246,194,10,0.2)] hover:scale-[1.02] transition">
                       REGISTER
                     </Button>
                   </Link>

@@ -10,7 +10,7 @@ const GallerySection: React.FC = () => {
           - span-2 rows and columns create a "Bento Box" feel 
           - aspect-square keeps things consistent but varied
       */}
-               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 auto-rows-[220px] mb-16 px-4 md:px-0">
+               <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6 auto-rows-[250px] md:auto-rows-[220px] mb-16 px-4 md:px-0">
                     {galleryImages.map((img, index) => {
                          // Creative Logic: Make every 3rd or 6th item larger for visual rhythm
                          const isLarge = index === 0 || index === 6;
@@ -19,8 +19,7 @@ const GallerySection: React.FC = () => {
                          return (
                               <div
                                    key={index}
-                                   className={`group relative overflow-hidden rounded-[24px] bg-secondary-bg/30 shadow-[0_10px_30px_rgba(0,0,0,0.5)] transition-all duration-700 hover:shadow-[0_15px_40px_rgba(213,206,163,0.15)] hover:-translate-y-2 border border-accent/10 hover:border-accent/40 hover:z-10 ${isLarge ? "md:col-span-2 md:row-span-2" : isTall ? "md:row-span-2" : ""
-                                        }`}
+                                   className={`group relative overflow-hidden rounded-[24px] bg-secondary-bg/30 shadow-[0_10px_30px_rgba(0,0,0,0.5)] transition-all duration-700 hover:shadow-[0_15px_40px_rgba(213,206,163,0.15)] hover:-translate-y-2 border border-accent/10 hover:border-accent/40 hover:z-10 ${isLarge ? "md:col-span-2 md:row-span-2" : ""} ${isTall ? "md:row-span-2" : ""}`}
                               >
                                    {/* Decorative Tech Corners */}
                                    <div className="absolute top-0 left-0 w-8 h-8 border-t border-l border-primary/0 group-hover:border-primary/50 transition-colors duration-500 z-20 pointer-events-none rounded-tl-[24px]" />
