@@ -46,10 +46,10 @@ const TeamCard: React.FC<TeamCardProps> = ({ name, role, image, instagram, twitt
 
                {/* Social Links */}
                <div className="flex justify-center gap-4 relative z-10 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-                    {instagram && <SocialIcon href={instagram} Icon={Instagram} color="var(--accent)" />}
-                    {twitter && <SocialIcon href={twitter} Icon={Twitter} color="var(--accent)" />}
-                    {facebook && <SocialIcon href={facebook} Icon={Facebook} color="var(--accent)" />}
-                    {linkedin && <SocialIcon href={linkedin} Icon={Linkedin} color="var(--accent)" />}
+                    {instagram && <SocialIcon href={instagram} Icon={Instagram} />}
+                    {twitter && <SocialIcon href={twitter} Icon={Twitter} />}
+                    {facebook && <SocialIcon href={facebook} Icon={Facebook} />}
+                    {linkedin && <SocialIcon href={linkedin} Icon={Linkedin} />}
                </div>
           </div>
      );
@@ -57,7 +57,7 @@ const TeamCard: React.FC<TeamCardProps> = ({ name, role, image, instagram, twitt
 
 export default TeamCard;
 
-const SocialIcon: React.FC<{ href: string; Icon: React.ElementType; color: string }> = ({ href, Icon, color }) => (
+const SocialIcon: React.FC<{ href: string; Icon: React.ElementType }> = ({ href, Icon }) => (
      <Link href={href} target="_blank" rel="noopener noreferrer" className="group/icon p-2 rounded-full border border-accent/10 bg-background/50 hover:bg-primary/20 hover:border-primary/50 transition-all duration-300">
           <Icon className="w-4 h-4 text-muted-foreground group-hover/icon:text-primary transition-colors duration-300" style={{ color: 'currentColor' }} />
      </Link>
