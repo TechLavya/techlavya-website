@@ -1,5 +1,6 @@
 import React from "react";
 import Title from "../Title";
+import { timelineData } from "@/data/timelineData";
 
 const TimelineSection: React.FC = () => {
   const events = timelineData[0]?.events || [];
