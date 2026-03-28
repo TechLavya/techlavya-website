@@ -2,6 +2,9 @@ import React from "react";
 import Title from "../Title";
 
 const TimelineSection: React.FC = () => {
+  const events = timelineData[0]?.events || [];
+  // const calendarEvents = events.filter(event => event.type !== "holiday");
+
   return (
     <div id="schedule" className="w-full max-w-7xl mx-auto px-4 md:px-8 lg:px-12">
       {/* Headline centered between counter and calendar */}

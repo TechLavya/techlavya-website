@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import Loader from "@/components/Loader";
-// import SplashCursor from "@/components/SplashCursor";
+import SplashCursor from "@/components/SplashCursor";
 import BackgroundMusic from "@/components/BackgroundMusic";
 import Galaxy from "@/components/Galaxy";
 
@@ -61,9 +61,7 @@ export default function ClientLayout({
         <Loader finishLoading={() => setLoading(false)} />
       ) : (
         <div className="relative z-10">
-          {/* <div style={{ position: "fixed", top: 0, left: 0, width: "100%", height: "100%", pointerEvents: "none", zIndex: 9999 }}> */}
-          {/* <SplashCursor /> */}
-          {/* </div> */}
+          <SplashCursor />
           <Navbar />
           {children}
           <Footer />

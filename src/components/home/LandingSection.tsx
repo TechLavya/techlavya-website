@@ -84,8 +84,8 @@ const LandingSection = () => {
           className="flex flex-col sm:flex-row gap-5 items-center justify-center w-full"
         >
           <Link
-            href="#events"
-            className="group relative w-full sm:w-auto text-center px-8 sm:px-10 py-3.5 sm:py-4 bg-white text-black font-orbitron text-[10px] sm:text-xs tracking-[0.14em] sm:tracking-[0.2em] uppercase transition-all duration-300 hover:bg-primary hover:text-white rounded-full overflow-hidden"
+            href="/#techlavya"
+            className="group relative px-10 py-4 bg-white text-black font-orbitron text-xs tracking-[0.2em] uppercase transition-all duration-300 hover:bg-primary hover:text-white rounded-full overflow-hidden"
           >
             <span className="relative z-10">Explore Events</span>
             <motion.div className="absolute inset-0 bg-primary translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
