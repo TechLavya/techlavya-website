@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Title from './Title';
 import { Mail, Phone, MapPin, Send, Clock } from 'lucide-react';
+import './ContactForm.css';
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -35,7 +36,7 @@ const ContactForm = () => {
       formBody.append('subject', formData.subject);
       formBody.append('message', formData.message);
 
-      const response = await fetch('https://formsubmit.co/ajax/techlavya@rkmgec.edu.in', {
+      const response = await fetch('https://formsubmit.co/ajax/techfest@rkmgec.ac.in', {
         method: 'POST',
         body: formBody,
       });
@@ -84,8 +85,8 @@ const ContactForm = () => {
                 </div>
                 <div className="flex flex-col justify-center pt-1">
                   <h4 className="text-accent/60 font-kodeMono text-[10px] tracking-[0.2em] mb-1 uppercase">Comm_Link</h4>
-                  <a href="mailto:techlavya@rkmgec.edu.in" className="text-foreground font-inter hover:text-highlight transition-colors text-sm sm:text-base tracking-wide">
-                    techlavya@rkmgec.edu.in
+                  <a href="mailto:techfest@rkmgec.ac.in" className="text-foreground font-inter hover:text-highlight transition-colors text-sm sm:text-base tracking-wide">
+                    techfest@rkmgec.ac.in
                   </a>
                 </div>
               </div>
@@ -220,8 +221,7 @@ const ContactForm = () => {
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    className="w-full px-5 py-3 rounded-xl bg-background border border-accent/20 text-foreground focus:border-primary focus:bg-primary/5 focus:outline-none focus:ring-4 focus:ring-primary/10 transition-all font-inter appearance-none"
-                    style={{ backgroundImage: 'linear-gradient(45deg, transparent 50%, var(--accent) 50%), linear-gradient(135deg, var(--accent) 50%, transparent 50%)', backgroundPosition: 'calc(100% - 20px) calc(1em + 2px), calc(100% - 15px) calc(1em + 2px)', backgroundSize: '5px 5px, 5px 5px', backgroundRepeat: 'no-repeat' }}
+                    className="contact-form-select w-full px-5 py-3 rounded-xl bg-background border border-accent/20 text-foreground focus:border-primary focus:bg-primary/5 focus:outline-none focus:ring-4 focus:ring-primary/10 transition-all font-inter appearance-none"
                   >
                     <option value="" disabled>Select Protocol...</option>
                     <option value="Registration">Event Registration</option>
