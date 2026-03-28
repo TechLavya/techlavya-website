@@ -32,10 +32,9 @@ interface MobileTimelineEntry {
 }
 
 const FESTIVAL_DATES = [
-  { date: 29, month: 3, label: "PHASE 0" },
-  { date: 30, month: 3, label: "PHASE 1" },
-  { date: 1, month: 4, label: "PHASE 2" },
-  { date: 2, month: 4, label: "PHASE 3" },
+  { date: 13, month: 4, label: "DAY 1" },
+  { date: 14, month: 4, label: "DAY 2" },
+  { date: 15, month: 4, label: "DAY 3" },
 ];
 
 export const CalendarView: React.FC<CalendarViewProps> = ({
@@ -78,14 +77,12 @@ export const CalendarView: React.FC<CalendarViewProps> = ({
       });
     });
 
-    // 2. Attach non-holiday events only to phase dates
+    // 2. Attach all scheduled events to configured festival days
     events.forEach((e) => {
       const key = `${e.date}-${e.month}`;
       const existing = combinedMap.get(key);
       if (existing) {
-        if (e.type !== "holiday") {
-          existing.events.push(e);
-        }
+        existing.events.push(e);
       }
     });
 
@@ -198,7 +195,7 @@ export const CalendarView: React.FC<CalendarViewProps> = ({
           {/* =========================================
               MOBILE VIEW: CLEAN SEPARATED TIMELINE
              ========================================= */}
-          <div className="md:hidden relative w-[calc(100%+1rem)] -ml-2">
+          <div className="md:hidden">
             <motion.div
               initial="hidden"
               animate="show"
@@ -206,101 +203,88 @@ export const CalendarView: React.FC<CalendarViewProps> = ({
                 hidden: { opacity: 0 },
                 show: { opacity: 1, transition: { staggerChildren: 0.08 } },
               }}
-              className="relative pl-7 sm:pl-9" // Gives space for the left timeline while keeping cards wider
+              className="space-y-4"
             >
-              {/* Central Glowing Line (Positioned cleanly outside the cards) */}
-              <div className="absolute left-[8px] sm:left-[12px] top-4 bottom-4 w-[2px] bg-gradient-to-b from-primary via-primary/30 to-transparent rounded-full" />
-              
-              <div className="space-y-7">
-                {mobileTimelineEntries.map((entry) => {
-                  const isFestival = entry.isFestivalDay;
-                  const activeBorderClass = isFestival
-                    ? "border-primary/50 bg-primary/5"
-                    : "border-white/10 bg-white/[0.02]";
-                  const dateMeta = formatMobileDate(entry);
+              {mobileTimelineEntries.map((entry) => {
+                const isFestival = entry.isFestivalDay;
+                const activeBorderClass = isFestival
+                  ? "border-primary/45 bg-primary/5"
+                  : "border-white/10 bg-white/[0.02]";
+                const dateMeta = formatMobileDate(entry);
 
-                  return (
-                    <motion.div
-                      variants={{
-                        hidden: { opacity: 0, x: -10 },
-                        show: { opacity: 1, x: 0 },
-                      }}
-                      key={`${entry.date}-${entry.month}`}
-                      className="relative w-full group"
-                    >
-                      {/* Independent Timeline Dot */}
-                      <div className={`absolute -left-[34px] sm:-left-[38px] top-5 w-5 h-5 rounded-full border-[3px] border-[#020202] z-10 transition-transform group-active:scale-90 ${isFestival ? 'bg-primary shadow-[0_0_12px_var(--primary)]' : 'bg-white/40'}`} />
-
-                      {/* The Data Card (Compressed & Clean) */}
-                      <div className={`rounded-2xl border backdrop-blur-md shadow-lg p-5 sm:p-6 transition-all duration-300 ${activeBorderClass}`}>
-                        
-                        {/* Card Header */}
-                        <div className="flex items-start justify-between gap-3 mb-4 border-b border-white/5 pb-3">
-                          <div className="flex flex-col gap-1">
-                            {isFestival && entry.labels.length > 0 ? (
-                              <div className="flex flex-wrap gap-1.5">
-                                {entry.labels.map((label) => (
-                                  <span key={label} className="text-[11px] sm:text-xs font-kodeMono uppercase tracking-[0.2em] font-bold text-primary">
-                                    {label}
-                                  </span>
-                                ))}
-                              </div>
-                            ) : (
-                              <span className="text-[11px] sm:text-xs font-kodeMono uppercase tracking-[0.2em] font-semibold text-white/50">
-                                Schedule
-                              </span>
-                            )}
-                          </div>
-
-                          {/* Date Badge */}
-                          <div className="flex items-center gap-1.5 text-[11px] font-kodeMono tracking-[0.05em] text-white/80 shrink-0 bg-black/50 px-2.5 py-1.5 rounded-md border border-white/10">
-                            <span className="font-bold">{dateMeta.weekday}</span>
-                            <span className="text-white/40">|</span>
-                            <span>{dateMeta.monthDay}</span>
-                          </div>
-                        </div>
-
-                        {/* Event Slots */}
-                        {entry.events.length > 0 ? (
-                          <div className="space-y-3">
-                            {entry.events.map((event, eventIdx) => {
-                              const eStyles = getEventStyles(event.type);
-
-                              return (
-                                <div
-                                  key={`${entry.date}-${entry.month}-${event.title}-${eventIdx}`}
-                                  className="w-full flex flex-col text-left rounded-xl border border-white/5 bg-black/40 p-3.5"
-                                >
-                                  <div className="flex items-start justify-between gap-3 w-full">
-                                    <p className={`text-[15px] sm:text-base font-spaceGrotesk font-semibold leading-snug ${eStyles.color}`}>
-                                      {event.title}
-                                    </p>
-                                    <span className={`mt-2 w-2 h-2 shrink-0 rounded-full ${eStyles.dot}`} />
-                                  </div>
-
-                                  {(event.startTime || event.venue) && (
-                                    <div className="mt-2.5 flex flex-wrap items-center gap-2 text-[10px] sm:text-[11px] font-kodeMono uppercase tracking-wider text-white/55">
-                                      {event.startTime && <span className="bg-white/5 px-2 py-1 rounded">{event.startTime}</span>}
-                                      {event.venue && <span className="bg-white/5 px-2 py-1 rounded truncate max-w-[170px]">{event.venue}</span>}
-                                    </div>
-                                  )}
-                                </div>
-                              );
-                            })}
-                          </div>
+                return (
+                  <motion.article
+                    variants={{
+                      hidden: { opacity: 0, y: 10 },
+                      show: { opacity: 1, y: 0 },
+                    }}
+                    key={`${entry.date}-${entry.month}`}
+                    className={`rounded-xl border backdrop-blur-md shadow-lg overflow-hidden ${activeBorderClass}`}
+                  >
+                    <header className="flex items-center justify-between gap-3 px-4 py-3 border-b border-white/10 bg-black/35">
+                      <div className="flex items-center gap-2 flex-wrap">
+                        {isFestival && entry.labels.length > 0 ? (
+                          entry.labels.map((label) => (
+                            <span key={label} className="text-[10px] font-kodeMono uppercase tracking-[0.18em] font-bold text-primary bg-primary/10 border border-primary/35 px-2 py-1 rounded-md">
+                              {label}
+                            </span>
+                          ))
                         ) : (
-                          <div className="py-3 flex items-center gap-2.5 text-white/30">
-                            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 12h14M12 5l7 7-7 7" />
-                            </svg>
-                            <p className="text-sm font-spaceGrotesk italic">No events mapped</p>
-                          </div>
+                          <span className="text-[10px] font-kodeMono uppercase tracking-[0.18em] font-semibold text-white/55">
+                            Schedule
+                          </span>
                         )}
                       </div>
-                    </motion.div>
-                  );
-                })}
-              </div>
+
+                      <div className="flex items-center gap-1.5 text-[10px] font-kodeMono tracking-[0.05em] text-white/85 shrink-0 bg-black/45 px-2 py-1 rounded-md border border-white/15">
+                        <span className="font-bold">{dateMeta.weekday}</span>
+                        <span className="text-white/40">|</span>
+                        <span>{dateMeta.monthDay}</span>
+                      </div>
+                    </header>
+
+                    {entry.events.length > 0 ? (
+                      <div className="divide-y divide-white/5">
+                        {entry.events.map((event, eventIdx) => {
+                          const eStyles = getEventStyles(event.type);
+                          return (
+                            <div
+                              key={`${entry.date}-${entry.month}-${event.title}-${eventIdx}`}
+                              className="px-4 py-3.5"
+                            >
+                              <div className="flex items-start justify-between gap-2">
+                                <p className={`text-sm font-spaceGrotesk font-semibold leading-snug ${eStyles.color}`}>
+                                  {event.title}
+                                </p>
+                                <span className={`mt-1.5 w-2 h-2 shrink-0 rounded-full ${eStyles.dot}`} />
+                              </div>
+
+                              {(event.startTime || event.endTime || event.venue) && (
+                                <div className="mt-2 flex flex-wrap gap-2 text-[10px] font-kodeMono uppercase tracking-[0.08em] text-white/60">
+                                  {(event.startTime || event.endTime) && (
+                                    <span className="bg-white/5 border border-white/10 px-2 py-1 rounded-md">
+                                      {event.startTime || "TBA"}{event.endTime ? ` - ${event.endTime}` : ""}
+                                    </span>
+                                  )}
+                                  {event.venue && (
+                                    <span className="bg-white/5 border border-white/10 px-2 py-1 rounded-md truncate max-w-[180px]">
+                                      {event.venue}
+                                    </span>
+                                  )}
+                                </div>
+                              )}
+                            </div>
+                          );
+                        })}
+                      </div>
+                    ) : (
+                      <div className="px-4 py-3 text-sm text-white/40 italic">
+                        No events mapped
+                      </div>
+                    )}
+                  </motion.article>
+                );
+              })}
             </motion.div>
           </div>
           

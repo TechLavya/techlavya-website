@@ -1,6 +1,11 @@
 "use client";
 
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 import {
   Calendar,
   Home,
@@ -127,16 +132,17 @@ const Navbar = () => {
             >
               <div className="flex flex-col space-y-8 mt-12 px-6">
                 {navItems.map((item, index) => (
-                  <Link
-                    key={index}
-                    href={item.navigateTo}
-                    className="flex items-center space-x-4 text-xl font-orbitron text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    {item.icon}
-                    <span className="tracking-widest uppercase">
-                      {item.text}
-                    </span>
-                  </Link>
+                  <SheetClose asChild key={index}>
+                    <Link
+                      href={item.navigateTo}
+                      className="flex items-center space-x-4 text-xl font-orbitron text-muted-foreground hover:text-primary transition-colors"
+                    >
+                      {item.icon}
+                      <span className="tracking-widest uppercase">
+                        {item.text}
+                      </span>
+                    </Link>
+                  </SheetClose>
                 ))}
               </div>
             </SheetContent>

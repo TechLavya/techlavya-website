@@ -28,7 +28,7 @@ export const TechlavyaEventData: EventDataType[] = [
     location: 'Yet to be announced',
     contact: 'Yet to be announced',
     lastDate: 'Yet to be announced',
-    registrationLink: 'https://forms.gle/ajzqMfXUXeRrPcBG9',
+    registrationLink: 'https://unstop.com/hackathons/hack-vengers-techlavya-ignite-2026-ramkrishna-mahato-government-engineering-college-purulia-1645547',
     type: 'techlavya'
   },
   {
@@ -42,7 +42,7 @@ export const TechlavyaEventData: EventDataType[] = [
     location: 'Yet to be announced',
     contact: 'Yet to be announced',
     lastDate: 'Yet to be announced',
-    registrationLink: 'https://forms.gle/WxxtrhwMbtq2PpzP9',
+    registrationLink: 'https://unstop.com/competitions/gravity-algogems-techlavya-ignite-2026-ramkrishna-mahato-government-engineering-college-purulia-1647291',
     type: 'techlavya'
   },
   {
@@ -56,7 +56,7 @@ export const TechlavyaEventData: EventDataType[] = [
     location: 'Yet to be announced',
     contact: 'Yet to be announced',
     lastDate: 'Yet to be announced',
-    registrationLink: 'https://forms.gle/SYxCZjnKkNrSTpNc8',
+    registrationLink: 'https://unstop.com/competitions/cad-builder-techlavya-ignite-2026-ramkrishna-mahato-government-engineering-college-purulia-1645388',
     type: 'techlavya'
   },
   {
@@ -70,7 +70,7 @@ export const TechlavyaEventData: EventDataType[] = [
     location: 'Yet to be announced',
     contact: 'Yet to be announced',
     lastDate: 'Yet to be announced',
-    registrationLink: 'https://unstop.com/o/A9EHUry?lb=cDOdwZXp&utm_medium=Share&utm_source=shortUrl',
+    registrationLink: 'https://unstop.com/competitions/robo-rush-techlavya-ignite-2026-ramkrishna-mahato-government-engineering-college-purulia-1645405',
     type: 'techlavya'
   },
   {
@@ -84,7 +84,7 @@ export const TechlavyaEventData: EventDataType[] = [
     location: 'Yet to be announced',
     contact: 'Yet to be announced',
     lastDate: 'Yet to be announced',
-    registrationLink: 'https://unstop.com/o/WULgwDh?lb=cDOdwZXp&utm_medium=Share&utm_source=shortUrl',
+    registrationLink: 'https://unstop.com/competitions/acadexpo-techlavya-ignite-2026-ramkrishna-mahato-government-engineering-college-purulia-1645493',
     type: 'techlavya'
   },
   {
@@ -98,7 +98,7 @@ export const TechlavyaEventData: EventDataType[] = [
     location: 'Yet to be announced',
     contact: 'Yet to be announced',
     lastDate: 'Yet to be announced',
-    registrationLink: 'https://unstop.com/o/XjsU4T5?lb=cDOdwZXp&utm_medium=Share&utm_source=shortUrl',
+    registrationLink: 'https://unstop.com/competitions/circuit-design-techlavya-ignite-2026-ramkrishna-mahato-government-engineering-college-purulia-1645509',
     type: 'techlavya'
   },
   {
@@ -112,7 +112,7 @@ export const TechlavyaEventData: EventDataType[] = [
     location: 'Yet to be announced',
     contact: 'Yet to be announced',
     lastDate: 'Yet to be announced',
-    registrationLink: 'https://forms.gle/oTfk15d36X9mZLhu6',
+    registrationLink: 'https://unstop.com/competitions/brain-buster-techlavya-ignite-2026-ramkrishna-mahato-government-engineering-college-purulia-1645515',
     type: 'techlavya'
   },
   {
@@ -126,7 +126,21 @@ export const TechlavyaEventData: EventDataType[] = [
     location: 'Yet to be announced',
     contact: 'Yet to be announced',
     lastDate: 'Yet to be announced',
-    registrationLink: 'https://unstop.com/o/QhmyDCc?lb=cDOdwZXp&utm_medium=Share&utm_source=shortUrl',
+    registrationLink: 'https://unstop.com/competitions/typing-test-techlavya-ignite-2026-ramkrishna-mahato-government-engineering-college-purulia-1645525',
+    type: 'techlavya'
+  },
+  {
+    id: uuidv4(),
+    title: 'TREASURE HUNT',
+    image: '/events/tech-event/Treasure_Hunt_Web_Picsay_Riyan.webp',
+    buttonText: 'Tap in Register',
+    prizePool: 'Yet to be announced',
+    prize: 0,
+    time: 'Yet to be announced',
+    location: 'Yet to be announced',
+    contact: 'Yet to be announced',
+    lastDate: 'Yet to be announced',
+    registrationLink: 'https://unstop.com/competitions/treasure-hunt-techlavya-ignite-2026-ramkrishna-mahato-government-engineering-college-purulia-1646050',
     type: 'techlavya'
   }
 ]
@@ -143,7 +157,7 @@ export const EsportsEventData: EventDataType[] = [
     location: 'Yet to be announced',
     contact: 'Yet to be announced',
     lastDate: 'Yet to be announced',
-    registrationLink: 'https://forms.gle/AG4SdvVqsBr8GuNH6',
+    registrationLink: 'https://unstop.com/events/free-fire-max-techlavya-ignite-2026-ramkrishna-mahato-government-engineering-college-purulia-1646065',
     type: 'esport'
   },
   {
@@ -157,7 +171,7 @@ export const EsportsEventData: EventDataType[] = [
     location: 'Yet to be announced',
     contact: 'Yet to be announced',
     lastDate: 'Yet to be announced',
-    registrationLink: 'https://forms.gle/PqyW4Ty3pKFWN8fdA',
+    registrationLink: 'https://unstop.com/p/bgmi-crimson-circle-conquest-rkmgec-2k26-techlavya-ignite-2026-ramkrishna-mahato-government-engineering-college-puruli-1647307',
     type: 'esport'
   },
   {
@@ -171,7 +185,7 @@ export const EsportsEventData: EventDataType[] = [
     location: 'Yet to be announced',
     contact: 'Yet to be announced',
     lastDate: 'Yet to be announced',
-    registrationLink: 'https://forms.gle/yMSyy6n3khNb59Gc8',
+    registrationLink: 'https://unstop.com/events/e-football-mobile-techlavya-ignite-2026-ramkrishna-mahato-government-engineering-college-purulia-1646072',
     type: 'esport'
   },
   {
@@ -185,7 +199,7 @@ export const EsportsEventData: EventDataType[] = [
     location: 'Yet to be announced',
     contact: 'Yet to be announced',
     lastDate: 'Yet to be announced',
-    registrationLink: 'https://forms.gle/2tmTyfAV7dCeVvMA9',
+    registrationLink: 'https://unstop.com/events/mini-militia-techlavya-ignite-2026-ramkrishna-mahato-government-engineering-college-purulia-1646080',
     type: 'esport'
   },
   {
@@ -199,7 +213,7 @@ export const EsportsEventData: EventDataType[] = [
     location: 'Yet to be announced',
     contact: 'Yet to be announced',
     lastDate: 'Yet to be announced',
-    registrationLink: 'https://forms.gle/39ZuYHdLjWgg5mGx9',
+    registrationLink: 'https://unstop.com/events/valorant-pc-techlavya-ignite-2026-ramkrishna-mahato-government-engineering-college-purulia-1646083',
     type: 'esport'
   },
   {
@@ -213,7 +227,7 @@ export const EsportsEventData: EventDataType[] = [
     location: 'Yet to be announced',
     contact: 'Yet to be announced',
     lastDate: 'Yet to be announced',
-    registrationLink: 'https://forms.gle/sxVgXs6AoMLG2a5r9',
+    registrationLink: 'https://unstop.com/events/fifa-pc-edition-techlavya-ignite-2026-ramkrishna-mahato-government-engineering-college-purulia-1647262',
     type: 'esport'
   },
   {
@@ -227,7 +241,7 @@ export const EsportsEventData: EventDataType[] = [
     location: 'Yet to be announced',
     contact: 'Yet to be announced',
     lastDate: 'Yet to be announced',
-    registrationLink: 'https://forms.gle/z2xAWzFZCcMKWsBF7',
+    registrationLink: 'https://unstop.com/events/asphalt-9-legends-techlavya-ignite-2026-ramkrishna-mahato-government-engineering-college-purulia-1646090',
     type: 'esport'
   },
   {
@@ -241,7 +255,7 @@ export const EsportsEventData: EventDataType[] = [
     location: 'Yet to be announced',
     contact: 'Yet to be announced',
     lastDate: 'Yet to be announced',
-    registrationLink: 'https://forms.gle/RnixY7wswCxBRDLg6',
+    registrationLink: 'https://unstop.com/competitions/clash-of-clans-techlavya-ignite-2026-ramkrishna-mahato-government-engineering-college-purulia-1646093',
     type: 'esport'
   },
   {
@@ -255,7 +269,7 @@ export const EsportsEventData: EventDataType[] = [
     location: 'Yet to be announced',
     contact: 'Yet to be announced',
     lastDate: 'Yet to be announced',
-    registrationLink: 'https://forms.gle/VkTbWWGmH7xHeUYA7',
+    registrationLink: 'https://unstop.com/events/chess-techlavya-ignite-2026-ramkrishna-mahato-government-engineering-college-purulia-1646096',
     type: 'esport'
   },
   {
@@ -269,9 +283,23 @@ export const EsportsEventData: EventDataType[] = [
     location: 'Yet to be announced',
     contact: 'Yet to be announced',
     lastDate: 'Yet to be announced',
-    registrationLink: 'https://forms.gle/FZ9cPDVkXM6kutV39',
+    registrationLink: 'https://unstop.com/events/rubik-rumble-techlavya-ignite-2026-ramkrishna-mahato-government-engineering-college-purulia-1646097',
     type: 'esport'
   },
+  {
+    id: uuidv4(),
+    title: "Line Follow Robot",
+    image: '/events/esports-event/Line_Follow_Robot_Web_Picsay_Riyan.webp',
+    buttonText: 'Tap in Register',
+    prizePool: 'Yet to be announced',
+    prize: 0,
+    time: 'Yet to be announced',
+    location: 'Yet to be announced',
+    contact: 'Yet to be announced',
+    lastDate: 'Yet to be announced',
+    registrationLink: 'https://unstop.com/competitions/line-follower-robot-techlavya-ignite-2026-ramkrishna-mahato-government-engineering-college-purulia-1646042',
+    type: 'esport'
+  }
 ]
 
 
