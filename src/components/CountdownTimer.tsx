@@ -94,9 +94,9 @@ const TimeUnit = ({
         <AnimatePresence mode="popLayout">
           <motion.span
             key={value}
-            initial={{ y: 20, opacity: 0, filter: "blur(5px)" }}
-            animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
-            exit={{ y: -20, opacity: 0, filter: "blur(5px)" }}
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: -20, opacity: 0 }}
             transition={{ duration: 0.3, ease: "circOut" }}
             className="text-3xl sm:text-4xl md:text-6xl font-mono font-black text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]"
           >
