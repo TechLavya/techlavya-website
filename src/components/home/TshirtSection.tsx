@@ -1,6 +1,5 @@
 "use client";
 
-import Image from 'next/image'
 import { Zap, ShieldCheck, Box, ChevronRight } from 'lucide-react'
 import { motion, useMotionValue, useTransform } from 'framer-motion'
 import React, { useEffect, useState } from 'react'
@@ -9,7 +8,7 @@ const TshirtSection = () => {
     const x = useMotionValue(0)
     const y = useMotionValue(0)
     const [enableTilt, setEnableTilt] = useState(false)
-    
+
     // Slight 3D rotation based on mouse position
     const rotateX = useTransform(y, [-100, 100], [10, -10])
     const rotateY = useTransform(x, [-100, 100], [-10, 10])
@@ -64,7 +63,7 @@ const TshirtSection = () => {
                     {/* LEFT: The "Spec" Sidebar (Vertical Info) */}
                     <div className="w-full lg:w-1/4 bg-background/50 border-b lg:border-b-0 lg:border-r border-accent/10 p-6 md:p-8 flex flex-col justify-between order-2 lg:order-1">
                         <div className="space-y-8">
-                            <motion.div 
+                            <motion.div
                                 initial={{ scale: 0.9, opacity: 0 }}
                                 whileInView={{ scale: 1, opacity: 1 }}
                                 transition={{ duration: 0.5 }}
@@ -78,13 +77,13 @@ const TshirtSection = () => {
                                 <p className="text-foreground font-orbitron text-lg font-bold tracking-widest">Premium Gear</p>
                             </div>
                             <div className="space-y-4">
-                                <motion.div 
+                                <motion.div
                                     whileHover={{ x: 5 }}
                                     className="flex items-center gap-3 text-muted-foreground text-sm font-spaceGrotesk tracking-wide"
                                 >
                                     <ShieldCheck className="w-5 h-5 text-accent" /> Custom Fit
                                 </motion.div>
-                                <motion.div 
+                                <motion.div
                                     whileHover={{ x: 5 }}
                                     className="flex items-center gap-3 text-muted-foreground text-sm font-spaceGrotesk tracking-wide"
                                 >
@@ -99,14 +98,14 @@ const TshirtSection = () => {
                     </div>
 
                     {/* CENTER: The Visual Hero */}
-                    <div 
+                    <div
                         className="w-full lg:w-1/2 relative group p-6 md:p-8 lg:p-12 flex items-center justify-center bg-gradient-to-b from-primary/5 to-transparent min-h-[300px] md:min-h-[400px] order-1 lg:order-2"
                         onMouseMove={enableTilt ? handleMouseMove : undefined}
                         onMouseLeave={handleMouseLeave}
                     >
                         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-accent/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
 
-                        <motion.div 
+                        <motion.div
                             style={{ rotateX: enableTilt ? rotateX : 0, rotateY: enableTilt ? rotateY : 0, transformStyle: "preserve-3d" }}
                             className="relative w-full h-full flex items-center justify-center"
                         >
@@ -120,15 +119,15 @@ const TshirtSection = () => {
                             <motion.div
                                 animate={{ y: [-10, 10, -10] }}
                                 transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                                className="relative z-10 rounded-2xl border border-accent/25 bg-black/40 backdrop-blur-sm px-8 py-10 md:px-12 md:py-14 text-center shadow-[0_0_40px_rgba(213,206,163,0.12)]"
+                                style={{ transform: "translateZ(50px)" }}
                             >
-                                <Image
-                                    src="/tshirt.jpeg"
-                                    alt="Techlavya Premium T-Shirt"
-                                    width={400}
-                                    height={400}
-                                    className="relative z-10 drop-shadow-[0_0_20px_rgba(213,206,163,0.15)] group-hover:drop-shadow-[0_0_40px_rgba(213,206,163,0.3)] transition-all duration-500 object-contain max-h-[280px] md:max-h-[400px]"
-                                    style={{ transform: "translateZ(50px)" }}
-                                />
+                                <p className="text-[10px] md:text-xs font-kodeMono tracking-[0.3em] uppercase text-accent/70 mb-3">
+                                    Techlavya T-Shirt
+                                </p>
+                                <h3 className="text-3xl md:text-5xl font-bold font-orbitron text-transparent bg-clip-text bg-gradient-to-r from-accent to-primary tracking-wider">
+                                    Coming Soon
+                                </h3>
                             </motion.div>
                         </motion.div>
                     </div>
@@ -150,7 +149,7 @@ const TshirtSection = () => {
                                 <span className="text-accent/40 line-through text-[10px] md:text-xs font-kodeMono">TBA</span>
                             </div>
 
-                            <motion.button 
+                            <motion.button
                                 whileHover={{ scale: 1.02 }}
                                 whileTap={{ scale: 0.95 }}
                                 className="w-full h-12 md:h-14 bg-primary/10 hover:bg-primary/20 border border-primary text-primary font-kodeMono font-bold text-[10px] md:text-xs tracking-widest uppercase transition-all flex items-center justify-center gap-2 group shadow-[0_0_15px_rgba(184,92,56,0.15)] hover:shadow-[0_0_25px_rgba(184,92,56,0.3)] backdrop-blur-sm"

@@ -20,7 +20,7 @@ export const TechlavyaEventData: EventDataType[] = [
   {
     id: uuidv4(),
     title: 'HACKATHON',
-    image: '/events/tech-event/Hackvengers_Web_Picsay_Riyan.webp',
+    image: '/events/tech-event/Hackvengers_Web_Picsay_Riyan.png',
     buttonText: 'Tap in Register',
     prizePool: 'Yet to be announced',
     prize: 1000,

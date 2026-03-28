@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import Loader from "@/components/Loader";
-import MobileWelcomeScreen from "@/components/MobileWelcomeScreen";
 // import SplashCursor from "@/components/SplashCursor";
 import BackgroundMusic from "@/components/BackgroundMusic";
 import Galaxy from "@/components/Galaxy";
@@ -15,7 +14,6 @@ export default function ClientLayout({
   children: React.ReactNode;
 }) {
   const [loading, setLoading] = useState(true);
-  const [splashScreenDone, setSplashScreenDone] = useState(false);
   const [lowPerformanceMode, setLowPerformanceMode] = useState(false);
 
   useEffect(() => {
@@ -39,9 +37,6 @@ export default function ClientLayout({
 
   return (
     <div className="relative min-h-screen">
-      {/* Mobile Splash Screen - Shows First */}
-      <MobileWelcomeScreen onDismiss={() => setSplashScreenDone(true)} />
-
       <div className="pointer-events-none fixed inset-0 -z-20">
         <Galaxy
           mouseRepulsion={!lowPerformanceMode}
@@ -62,8 +57,7 @@ export default function ClientLayout({
       </div>
       <div className="pointer-events-none fixed inset-0 -z-10 bg-black/45" />
 
-      {/* Show Loader only after splash screen is done */}
-      {!splashScreenDone || loading ? (
+      {loading ? (
         <Loader finishLoading={() => setLoading(false)} />
       ) : (
         <div className="relative z-10">
