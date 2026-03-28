@@ -40,6 +40,7 @@ const EventCard: React.FC<Props> = ({
     type,
   } = eventData;
   const [isHovered, setIsHovered] = useState(false);
+  const [enableTilt, setEnableTilt] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
 
   const isFlipped = flippedCardId === eventId;
