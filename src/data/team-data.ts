@@ -19,13 +19,13 @@ export const teamMembers: TeamMember[] = [
     "linkedin": "https://www.linkedin.com/in/soumensantra?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
   },
   {
-    "name": "Soumen Santra",
+    "name": "Sk Shahriar",
     "role": "Vice-President",
     "image": "/team/2.jpg",
-    "facebook": "https://www.facebook.com/share/1AEH913Uv2/",
+    "facebook": "",
     "instagram": "",
-    "twitter": "https://x.com/Soumen049?t=spFOXk4zEPFaQaDYwTaiuA&s=09",
-    "linkedin": "https://www.linkedin.com/in/soumensantra"
+    "twitter": "",
+    "linkedin": "https://www.linkedin.com/in/sk-shahriar-a49720319/"
   },
   {
     "name": "Supratim Haldar",
@@ -82,13 +82,13 @@ export const teamMembers: TeamMember[] = [
     "linkedin": "https://www.linkedin.com/in/kuntal-majee"
   },
   {
-    "name": "Nilanjan Sau",
+    "name": "Debojyoti Saha",
     "role": "Web Designer Co-Head",
-    "image": "/team/9.jpg",
+    "image": "/team/9.jpeg",
     "facebook": "",
-    "instagram": "",
+    "instagram": "https://www.instagram.com/__dj_saha_07__/",
     "twitter": "",
-    "linkedin": ""
+    "linkedin": "https://www.linkedin.com/in/debojyoti-saha-a976842b0/"
   },
   {
     "name": "Kunal Biswas",

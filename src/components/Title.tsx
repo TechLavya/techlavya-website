@@ -20,27 +20,21 @@ const Title: React.FC<Props> = ({ title, className }) => {
                }}
                viewport={{ once: true }}
                className={cn(
-                    'relative z-10 text-[28px] xs:text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tighter uppercase text-center mb-10 md:mb-16',
-                    // Using Orbitron for that tech/sci-fi feel
-                    'font-Orbitron',
-                    // Brownish/Copper Gradient
-                    'text-transparent bg-clip-text bg-gradient-to-b from-[#D2B48C] via-[#8B4513] to-[#4b2c20]',
-                    // Industrial Text Shadow for depth
-                    'drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]',
+                    'relative z-10 text-center mb-10 md:mb-16 from-accent to-primary',
                     className
                )}
           >
-               {/* Subtle "Glow" behind the text to make the brown pop against dark backgrounds */}
-               <span className="absolute inset-0 -z-10 bg-gradient-to-r from-transparent via-amber-900/20 to-transparent blur-2xl opacity-50" />
+               <span className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-r from-transparent via-primary/10 to-transparent blur-2xl opacity-70" />
 
-               {title}
+               <span className="block text-4xl md:text-5xl lg:text-6xl font-bold font-orbitron tracking-wider text-transparent bg-clip-text bg-gradient-to-r drop-shadow-[0_6px_20px_rgba(0,0,0,0.6)]">
+                    {title}
+               </span>
 
-               {/* Underline Decorative Element */}
                <motion.div
                     initial={{ width: 0 }}
-                    whileInView={{ width: '100px' }}
-                    transition={{ delay: 0.6, duration: 1 }}
-                    className="h-[2px] bg-[#8B4513] mx-auto mt-2 opacity-60 shadow-[0_0_8px_#8B4513]"
+                    whileInView={{ width: '72px' }}
+                    transition={{ delay: 0.35, duration: 0.8 }}
+                    className="h-1 rounded-full bg-gradient-to-r from-accent to-primary mx-auto mt-3"
                />
           </motion.h1>
      )

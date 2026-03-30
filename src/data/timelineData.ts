@@ -24,7 +24,7 @@ export const timelineData: TimelineEntry[] = [
       { date: 13, month: 4, title: "AutoCAD (ME, CE)", startTime: "11:00", endTime: "14:00", type: "tech", description: "AutoCAD design challenge for Mechanical and Civil branches.", venue: "Mech/Civil Lab" },
       { date: 13, month: 4, title: "Circuit Design", startTime: "14:00", endTime: "17:00", type: "tech", description: "Circuit design and implementation round.", venue: "Electronics Lab" },
       { date: 13, month: 4, title: "Line Follower Robot", startTime: "17:00", endTime: "18:30", type: "tech", description: "Autonomous robot line tracking competition.", venue: "Robotics Lab" },
-      { date: 13, month: 4, title: "Mobile Combat Arena", startTime: "17:00", endTime: "18:30", type: "esports", description: "Mobile gaming battle arena.", venue: "Esports Arena" },
+      { date: 13, month: 4, title: "BGMI", startTime: "17:00", endTime: "18:30", type: "esports", description: "Mobile gaming battle arena.", venue: "Esports Arena" },
       { date: 13, month: 4, title: "Free Fire", startTime: "17:00", endTime: "18:30", type: "esports", description: "Free Fire tournament matches.", venue: "Esports Arena" },
       { date: 13, month: 4, title: "Tech Quiz", startTime: "18:30", endTime: "19:30", type: "tech", description: "Technical quiz competition.", venue: "Seminar Hall A" },
       { date: 13, month: 4, title: "Rubik's Cube", startTime: "19:30", endTime: "20:30", type: "esports", description: "Speed cubing challenge.", venue: "Seminar Hall B" },
