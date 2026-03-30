@@ -81,7 +81,7 @@ const Navbar = () => {
         >
           <Link href="/#home" className="hover-target">
             <Image
-              src="/techlavya-2025-logo.png"
+              src="/techlavya-2026-logo.png"
               alt="logo"
               width={140}
               height={45}
