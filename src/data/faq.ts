@@ -27,53 +27,31 @@ export const FAQData: FAQType[] = [
   {
     id: '4',
     category: 'Registration',
-    question: 'Is registration free?',
-    answer: 'Most events are free to participate. Some premium workshops may have a nominal fee. Check individual event details for registration costs.'
-  },
-  {
-    id: '5',
-    category: 'Registration',
     question: 'Can I register for multiple events?',
     answer: 'Yes! You can participate in multiple events. Make sure to check the event schedules to avoid time conflicts.'
   },
+  
   {
-    id: '6',
-    category: 'Events',
-    question: 'What events are available at TECHLAVYA?',
-    answer: 'We offer a wide range of events including Hackathon, Coding competitions, CAD designing, Esports tournaments, and various workshops. Check our website for the complete list.'
-  },
-  {
-    id: '7',
+    id: '5',
     category: 'Events',
     question: 'Do I need prior experience to participate?',
     answer: 'Events are designed for different skill levels. Whether you are a beginner or an expert, there is something for everyone. Check event details for specific requirements.'
   },
   {
-    id: '8',
+    id: '6',
     category: 'Prizes',
     question: 'What are the prizes?',
     answer: 'We offer exciting prizes including cash rewards, certificates, and merchandise. Prize details vary by event. Prize pool information will be updated soon.'
   },
+  
   {
-    id: '9',
-    category: 'Prizes',
-    question: 'How are winners decided?',
-    answer: 'Winners are selected by qualified judges based on criteria like innovation, execution, technical depth, and presentation. Judgment will be transparent and fair.'
-  },
-  {
-    id: '10',
-    category: 'Teams',
-    question: 'Can I participate as a team?',
-    answer: 'Yes! Most events allow team participation. Team size and composition varies by event. Check individual event rules for team specifications.'
-  },
-  {
-    id: '11',
+    id: '7',
     category: 'General',
     question: 'Can non-college students participate?',
     answer: 'Currently, TECHLAVYA is primarily for RKMGEC students. However, some events may be open to outside participants. Contact the organizers for more details.'
   },
   {
-    id: '12',
+    id: '8',
     category: 'Support',
     question: 'How can I contact the organizers?',
     answer: 'You can reach out through our website contact form or follow our social media handles for updates. Organizers will respond to your queries promptly.'

@@ -4,154 +4,122 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 interface LoaderProps {
-    finishLoading: () => void;
+  finishLoading: () => void;
 }
 
-const Loader = ({ finishLoading }: LoaderProps) => {
-    const [progress, setProgress] = useState(0);
-    const [isExiting, setIsExiting] = useState(false);
-    const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+const OrbitalLoader = ({ finishLoading }: LoaderProps) => {
+  const [progress, setProgress] = useState(0);
+  const [isExiting, setIsExiting] = useState(false);
 
-    // Interactive Parallax
-    useEffect(() => {
-        const handleMouseMove = (e: MouseEvent) => {
-            setMousePos({
-                x: (e.clientX / window.innerWidth - 0.5) * 20,
-                y: (e.clientY / window.innerHeight - 0.5) * 20,
-            });
-        };
-        window.addEventListener("mousemove", handleMouseMove);
-        return () => window.removeEventListener("mousemove", handleMouseMove);
-    }, []);
+  useEffect(() => {
+    // Smooth 2-second progression
+    const interval = setInterval(() => {
+      setProgress((prev) => {
+        if (prev >= 100) {
+          clearInterval(interval);
+          setTimeout(() => setIsExiting(true), 400); // Slight pause at 100%
+          setTimeout(finishLoading, 1200); // Wait for exit animation
+          return 100;
+        }
+        return prev + 1;
+      });
+    }, 20);
+    return () => clearInterval(interval);
+  }, [finishLoading]);
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setProgress((prev) => {
-                if (prev >= 100) {
-                    clearInterval(interval);
-                    setTimeout(() => setIsExiting(true), 1000);
-                    setTimeout(finishLoading, 2000);
-                    return 100;
-                }
-                return prev + Math.floor(Math.random() * 7) + 1;
-            });
-        }, 80);
-        return () => clearInterval(interval);
-    }, [finishLoading]);
+  // Prevent scrolling while loading
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, []);
 
-    return (
-        <AnimatePresence>
-            {!isExiting && (
-                <motion.div
-                    exit={{
-                        scale: 2,
-                        opacity: 0,
-                        filter: "brightness(5) blur(50px)",
-                    }}
-                    transition={{ duration: 1.5, ease: [0.19, 1, 0.22, 1] }}
-                    className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-[#080705] overflow-hidden select-none"
-                >
-                    {/* 1. DYNAMIC NEBULA BACKGROUND */}
-                    <div className="absolute inset-0 opacity-30">
-                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,#452a07_0%,transparent_50%)]" />
-                        <motion.div
-                            animate={{
-                                scale: [1, 1.2, 1],
-                                opacity: [0.3, 0.5, 0.3]
-                            }}
-                            transition={{ duration: 8, repeat: Infinity }}
-                            className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/asfalt-dark.png')] opacity-20"
-                        />
-                    </div>
+  return (
+    <AnimatePresence>
+      {!isExiting && (
+        <motion.div
+          exit={{ opacity: 0, scale: 1.1, filter: "blur(15px)" }}
+          transition={{ duration: 0.8, ease: "easeInOut" }}
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-[#1b120c] overflow-hidden select-none font-sans"
+        >
+          {/* Warm Brown Background Glow */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-amber-900/25 via-[#1b120c] to-[#120b07]" />
 
-                    {/* 2. THE CORE (Interactive Tilt) */}
-                    <motion.div
-                        style={{
-                            rotateX: -mousePos.y,
-                            rotateY: mousePos.x,
-                            perspective: "1000px"
-                        }}
-                        className="relative flex items-center justify-center transition-transform duration-200 ease-out"
-                    >
-                        {/* Accretion Disk Rings */}
-                        {[...Array(4)].map((_, i) => (
-                            <motion.div
-                                key={i}
-                                animate={{ rotate: i % 2 === 0 ? 360 : -360 }}
-                                transition={{ duration: 20 / (i + 1), repeat: Infinity, ease: "linear" }}
-                                className="absolute border border-[#d97706]/20 rounded-[40%] blur-[0.5px]"
-                                style={{
-                                    width: 200 + i * 60,
-                                    height: 200 + i * 60,
-                                    borderWidth: '1px',
-                                    borderTopColor: i === 3 ? '#d97706' : 'transparent',
-                                }}
-                            />
-                        ))}
+          {/* Central Animated Mechanics */}
+          <div className="relative flex items-center justify-center">
+            
+            {/* Outer Copper Ring (Slow, Clockwise) */}
+            <motion.div
+              animate={{ rotate: 360 }}
+              transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
+              className="absolute w-[320px] h-[320px] rounded-full border border-amber-900/40"
+              style={{ borderTopColor: "#b45309", borderRightColor: "transparent" }}
+            />
 
-                        {/* The Central Singularity */}
-                        <div className="relative w-32 h-32 rounded-full bg-black shadow-[0_0_60px_rgba(217,119,6,0.4)] flex items-center justify-center border border-[#8b5e1a]/40">
-                            {/* Internal Pulsing Light */}
-                            <motion.div
-                                animate={{ scale: [0.8, 1.1, 0.8], opacity: [0.5, 1, 0.5] }}
-                                transition={{ duration: 2, repeat: Infinity }}
-                                className="absolute inset-2 rounded-full bg-[#d97706]/10 blur-xl"
-                            />
-                            <span className="text-2xl font-black text-[#d97706] drop-shadow-[0_0_10px_#d97706]">
-                                {progress}%
-                            </span>
-                        </div>
+            {/* Middle Brass Ring (Medium, Counter-Clockwise) */}
+            <motion.div
+              animate={{ rotate: -360 }}
+              transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+              className="absolute w-[250px] h-[250px] rounded-full border border-amber-900/50"
+              style={{ borderBottomColor: "#d97706", borderLeftColor: "transparent" }}
+            />
 
-                        {/* "Floating" Crisp UI Markers */}
-                        <div className="absolute -top-32 -left-32 text-[#8b5e1a] font-mono text-[8px] tracking-widest opacity-60">
-                            REC_DATA: 00{progress} <br />
-                            SIGNAL_STRENGTH: NOMINAL
-                        </div>
-                    </motion.div>
+            {/* Inner Bronze Dashed Ring (Pulsing) */}
+            <motion.div
+              animate={{ rotate: 360, scale: [1, 1.05, 1] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute w-[190px] h-[190px] rounded-full border-[2px] border-dashed border-orange-700/40"
+            />
 
-                    {/* 3. THE "OSCILLOSCOPE" WAVEFORM (Bottom) */}
-                    <div className="absolute bottom-20 w-full px-20">
-                        <div className="flex justify-between items-end mb-4 font-mono">
-                            <div className="text-[#8b5e1a] text-[10px] uppercase">Frequency Analysis</div>
-                            <div className="text-[#d97706] text-[8px] animate-pulse">● LIVE_FEED</div>
-                        </div>
-                        <div className="h-12 w-full flex items-center justify-center gap-[2px]">
-                            {[...Array(40)].map((_, i) => (
-                                <motion.div
-                                    key={i}
-                                    animate={{
-                                        height: [10, Math.random() * 40 + 10, 10],
-                                        backgroundColor: progress > (i * 2.5) ? "#d97706" : "#2a1e12"
-                                    }}
-                                    transition={{ duration: 0.5, repeat: Infinity, delay: i * 0.05 }}
-                                    className="w-[3px] rounded-full shadow-[0_0_5px_#d97706]/20"
-                                />
-                            ))}
-                        </div>
-                    </div>
+            {/* Glowing Core */}
+            <motion.div
+              animate={{
+                boxShadow: [
+                  "0 0 20px rgba(217, 119, 6, 0.15)",
+                  "0 0 60px rgba(180, 83, 9, 0.5)",
+                  "0 0 20px rgba(217, 119, 6, 0.15)",
+                ],
+              }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+              className="relative w-36 h-36 bg-[#22160f]/90 backdrop-blur-xl rounded-full flex items-center justify-center border border-amber-500/40"
+            >
+              {/* Inner Core Border Accent */}
+              <div className="absolute inset-2 border border-orange-600/40 rounded-full" />
+              
+              {/* Percentage Text */}
+              <div className="text-amber-300 text-4xl font-bold tracking-wider z-10 drop-shadow-[0_0_10px_rgba(217,119,6,0.8)]">
+                {progress}
+                <span className="text-orange-500 text-2xl ml-1">%</span>
+              </div>
+            </motion.div>
+          </div>
 
-                    {/* 4. CRITICAL ERROR GLITCH (Horror Elements) */}
-                    <motion.div
-                        animate={{
-                            x: [0, -2, 2, 0],
-                            opacity: [0, 0.1, 0]
-                        }}
-                        transition={{ duration: 0.1, repeat: Infinity, repeatDelay: 4 }}
-                        className="absolute inset-0 bg-[#d97706]/5 pointer-events-none"
-                    />
-
-                    <div className="absolute top-10 right-10 flex flex-col items-end opacity-40 font-mono text-[9px] text-[#8b5e1a]">
-                        <span>VOID_LATENCY: 4ms</span>
-                        <span>CORE_TEMP: STABLE</span>
-                    </div>
-
-                    {/* Grain & Scanline Overlay */}
-                    <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.05] pointer-events-none mix-blend-overlay" />
-                    <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.1)_50%)] bg-[length:100%_4px] pointer-events-none" />
-                </motion.div>
-            )}
-        </AnimatePresence>
-    );
+          {/* Bottom Loading Bar and Status */}
+          <div className="absolute bottom-24 flex flex-col items-center gap-4 w-full max-w-sm px-8">
+            <motion.div
+              animate={{ opacity: [0.4, 1, 0.4] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+              className="text-amber-600/80 text-xs uppercase tracking-[0.4em] font-semibold"
+            >
+              Calibrating Core
+            </motion.div>
+            
+            {/* Progress Track */}
+            <div className="w-full h-[2px] bg-slate-800 relative overflow-hidden rounded-full">
+              {/* Progress Fill (Gradient from Brown to Blue) */}
+              <motion.div
+                initial={{ width: 0 }}
+                animate={{ width: `${progress}%` }}
+                className="absolute inset-y-0 left-0 bg-gradient-to-r from-amber-900 via-orange-700 to-amber-400 shadow-[0_0_12px_rgba(180,83,9,0.85)]"
+              />
+            </div>
+          </div>
+          
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
 };
 
-export default Loader;
+export default OrbitalLoader;

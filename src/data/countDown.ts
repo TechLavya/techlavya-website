@@ -1,3 +1,3 @@
 // This file simply exports the target date you want to count down to.
-// Example: May 1, 2025, 12:00:00 UTC
-export const countdownTargetDate = new Date("2026-04-29T12:00:00Z");
+// Event start: May 13, 2026, 09:00 AM IST
+export const countdownTargetDate = new Date("2026-05-13T09:00:00+05:30");

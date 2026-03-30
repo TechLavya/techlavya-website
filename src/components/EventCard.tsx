@@ -1,172 +1,283 @@
 "use client";
 
 import { EventDataType } from "@/data/event-data";
-import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Button } from "./ui/button";
-import { Terminal, ShieldCheck, Zap, Share2, Target } from "lucide-react";
+import {
+  ShieldCheck,
+  Cpu,
+  ChevronRight,
+  X,
+  CalendarClock,
+  Trophy,
+  Clock3,
+} from "lucide-react";
 
 type Props = {
   eventId: string;
-  duration: number;
   eventData: EventDataType;
   flippedCardId: string | null;
   setFlippedCardId: React.Dispatch<React.SetStateAction<string | null>>;
 };
 
-const EventCard: React.FC<Props> = ({ eventId, duration, eventData, flippedCardId, setFlippedCardId }) => {
-  const { image, registrationLink, title } = eventData;
+const EventCard: React.FC<Props> = ({
+  eventId,
+  eventData,
+  flippedCardId,
+  setFlippedCardId,
+}) => {
+  const {
+    image,
+    registrationLink,
+    title,
+    prize,
+    prizePool,
+    time,
+    lastDate,
+    type,
+  } = eventData;
   const [isHovered, setIsHovered] = useState(false);
+  const [enableTilt, setEnableTilt] = useState(false);
+  const cardRef = useRef<HTMLDivElement>(null);
 
-  // Advanced Mouse Tracking for "Spotlight" and Tilt
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
+  const isFlipped = flippedCardId === eventId;
+
+  // Mouse tilt
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+
+  const mouseXSpring = useSpring(x, { stiffness: 150, damping: 15 });
+  const mouseYSpring = useSpring(y, { stiffness: 150, damping: 15 });
+
+  const tiltRotateX = useTransform(
+    mouseYSpring,
+    [-0.5, 0.5],
+    ["12deg", "-12deg"],
+  );
+  const tiltRotateY = useTransform(
+    mouseXSpring,
+    [-0.5, 0.5],
+    ["-12deg", "12deg"],
+  );
+
+  useEffect(() => {
+    const reducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+    const coarsePointer = window.matchMedia("(pointer: coarse)").matches;
+    setEnableTilt(!reducedMotion && !coarsePointer);
+  }, []);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const { left, top } = e.currentTarget.getBoundingClientRect();
-    mouseX.set(e.clientX - left);
-    mouseY.set(e.clientY - top);
+    if (!enableTilt) return;
+    if (!cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+
+    const xPct = (e.clientX - rect.left) / rect.width - 0.5;
+    const yPct = (e.clientY - rect.top) / rect.height - 0.5;
+
+    x.set(xPct);
+    y.set(yPct);
   };
 
-  const rotateX = useSpring(useTransform(mouseY, [0, 420], [10, -10]), { stiffness: 100, damping: 30 });
-  const rotateY = useSpring(useTransform(mouseX, [0, 340], [-10, 10]), { stiffness: 100, damping: 30 });
+  const handleMouseLeave = () => {
+    x.set(0);
+    y.set(0);
+    setIsHovered(false);
+  };
 
-  // Spotlight gradient following the mouse
-  const background = useTransform(
-    [mouseX, mouseY],
-    ([x, y]) => `radial-gradient(600px circle at ${x}px ${y}px, rgba(6, 182, 212, 0.15), transparent 80%)`
-  );
+  const showValue = (value: string) => {
+    return value.toLowerCase() === "yet to be announced" ? "TBA" : value;
+  };
 
   return (
     <motion.div
-      initial={{ y: 50, opacity: 0 }}
-      whileInView={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.8, delay: duration / 20, ease: [0.16, 1, 0.3, 1] }}
-      viewport={{ once: true }}
-      onMouseMove={handleMouseMove}
+      ref={cardRef}
+      onMouseMove={enableTilt ? handleMouseMove : undefined}
       onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => { setIsHovered(false); }}
-      className="group relative w-full max-w-[340px] h-[450px] mx-auto cursor-none"
+      onMouseLeave={handleMouseLeave}
+      style={{ perspective: "1400px" }}
+      className="relative w-full max-w-[360px] aspect-[3/4] mx-auto"
     >
-      {/* Custom Tech Cursor */}
+      {/* 3D ROTATION CONTAINER */}
       <motion.div
-        className="fixed top-0 left-0 w-8 h-8 border border-cyan-500 rounded-full z-[100] pointer-events-none hidden md:flex items-center justify-center"
-        style={{ x: mouseX, y: mouseY, translateX: "-50%", translateY: "-50%" }}
+        animate={{ rotateY: isFlipped ? 180 : 0 }}
+        transition={{ duration: 0.8, ease: "easeInOut" }}
+        style={{ transformStyle: "preserve-3d" }}
+        className="relative w-full h-full"
       >
-        <div className="w-1 h-1 bg-cyan-400 rounded-full animate-ping" />
-      </motion.div>
+        <motion.div
+          style={{
+            rotateX: enableTilt ? tiltRotateX : "0deg",
+            rotateY: enableTilt ? tiltRotateY : "0deg",
+            transformStyle: "preserve-3d",
+          }}
+          className="relative w-full h-full"
+        >
+          {/* ================= FRONT ================= */}
+          <div className="absolute inset-0 backface-hidden">
+            <div className="relative w-full h-full rounded-[2rem] overflow-hidden border border-[#3a2a1d] bg-[#1a120b] shadow-[0_20px_80px_rgba(0,0,0,0.6)]">
+              {/* Glow */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-amber-600/20 to-yellow-500/10 blur-xl opacity-0 group-hover:opacity-100 transition" />
 
-      <motion.div
-        style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
-        className="relative w-full h-full rounded-3xl border border-white/10 bg-[#050507] p-[1px] overflow-hidden"
-      >
-        {/* Dynamic Spotlight Layer */}
-        <motion.div className="absolute inset-0 z-10 pointer-events-none" style={{ background }} />
+              {/* Image */}
+              <motion.div
+                animate={{
+                  scale: isHovered ? 1.1 : 1,
+                  filter: isHovered
+                    ? "brightness(0.6) blur(0.8px)"
+                    : "brightness(0.7)",
+                }}
+                className="absolute inset-0"
+              >
+                <Image src={image} alt={title} fill className="object-cover" />
+              </motion.div>
 
-        {/* The Main Visual Container */}
-        <div className="relative w-full h-full rounded-[23px] overflow-hidden bg-[#0a0a0c]">
+              {/* Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1a120b] via-transparent to-transparent" />
 
-          {/* Background Image with Kinetic Zoom */}
-          <motion.div
-            animate={{ scale: isHovered ? 1.1 : 1, filter: isHovered ? "blur(4px) brightness(0.4)" : "blur(0px) brightness(0.7)" }}
-            className="absolute inset-0"
-          >
-            <Image src={image} alt={title} fill className="object-cover" />
-          </motion.div>
+              {/* Content */}
+              <div className="absolute bottom-0 left-0 right-0 p-8 w-full flex flex-col justify-end gap-3">
+                <p className="text-amber-400 text-xs tracking-[0.3em] uppercase font-mono">
+                  Event Brief
+                </p>
 
-          {/* Decorative Corner Brackets */}
-          <div className="absolute inset-4 border border-white/5 pointer-events-none z-20">
-            <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-cyan-500" />
-            <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-white/20" />
-            <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-white/20" />
-            <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-cyan-500" />
+                <h2 className="text-3xl font-black text-white leading-tight mb-2">
+                  {title}
+                </h2>
+
+                <Button
+                  onClick={() => setFlippedCardId(eventId)}
+                  className="w-full h-12 flex items-center justify-center rounded-xl bg-[#f6c20a] hover:bg-[#ffcf1f] text-black text-sm font-extrabold tracking-[0.1em] uppercase shadow-[0_10px_20px_rgba(246,194,10,0.2)] hover:scale-[1.02] transition"
+                >
+                  REGISTER NOW
+                  <ChevronRight className="ml-1 w-4 h-4" />
+                </Button>
+              </div>
+            </div>
           </div>
 
-          {/* Floating UI Elements */}
-          <div className="absolute top-8 left-8 z-30">
-            <motion.div
-              animate={{ opacity: isHovered ? 1 : 0, x: isHovered ? 0 : -20 }}
-              className="flex items-center gap-2 px-3 py-1 bg-cyan-500/10 border border-cyan-500/20 rounded-full backdrop-blur-md"
-            >
-              <Target className="w-3 h-3 text-cyan-400" />
-              <span className="text-[10px] font-kodeMono text-cyan-400 tracking-[0.2em]">LOCKED_ON</span>
-            </motion.div>
-          </div>
+          {/* ================= BACK ================= */}
+          <div className="absolute inset-0 rotate-y-180 backface-hidden">
+            <div className="relative w-full h-full rounded-[2rem] bg-[#120c07] border border-[#3a2a1d] p-5 flex flex-col gap-3 overflow-hidden">
+              <div className="absolute -right-12 -top-12 h-32 w-32 rounded-full bg-amber-400/10 blur-2xl" />
+              <div className="absolute -left-16 bottom-20 h-40 w-40 rounded-full bg-yellow-500/5 blur-3xl" />
 
-          {/* Content Overlay */}
-          <div className="absolute inset-0 z-40 flex flex-col justify-end p-8">
-            <AnimatePresence>
-              {flippedCardId !== eventId ? (
-                <motion.div
-                  initial={{ y: 20, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  exit={{ y: -20, opacity: 0 }}
-                  transition={{ duration: 0.3, ease: "circOut" }}
-                  className="w-full"
+              {/* Top */}
+              <div className="relative flex justify-between items-start">
+                <div className="flex items-center gap-3">
+                  <div className="h-10 w-10 rounded-xl bg-amber-500/20 flex items-center justify-center border border-amber-500/30">
+                    <Cpu className="text-amber-400 w-5 h-5" />
+                  </div>
+                  <div>
+                    <p className="text-[10px] tracking-[0.25em] uppercase text-white/40 font-mono">
+                      Intel
+                    </p>
+                    <p className="text-xs text-amber-300 font-semibold uppercase tracking-wider">
+                      {type}
+                    </p>
+                  </div>
+                </div>
+
+                <button
+                  onClick={() => setFlippedCardId(null)}
+                  aria-label="Close event details"
+                  title="Close"
+                  className="p-1.5 rounded-lg hover:bg-white/10 transition"
                 >
-                  <h2 className="text-2xl font-bold text-white font-orbitron tracking-wider leading-tight">{title}</h2>
-                  <p className="text-sm text-cyan-200/70 font-kodeMono mt-1 mb-4">REG_ID: {eventId}</p>
-                  <Button
-                    onClick={() => setFlippedCardId(eventId)}
-                    className="w-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 hover:bg-cyan-500/20 backdrop-blur-md"
-                  >
-                    <Terminal className="w-4 h-4 mr-2" />
-                    View Details
-                  </Button>
-                </motion.div>
-              ) : (
-                <motion.div
-                  initial={{ y: 20, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  exit={{ y: -20, opacity: 0 }}
-                  transition={{ duration: 0.3, ease: "circOut" }}
-                  className="w-full"
-                >
-                  <div className="flex justify-between items-start mb-4">
-                    <div>
-                      <h3 className="text-lg font-bold text-white font-orbitron">MISSION_BRIEF</h3>
-                      <p className="text-xs text-cyan-200/70 font-kodeMono">OBJECTIVE: {title}</p>
+                  <X className="text-white/60 w-5 h-5" />
+                </button>
+              </div>
+
+              <div className="relative border border-amber-200/10 rounded-2xl bg-black/40 p-3 space-y-1.5 backdrop-blur-sm">
+                <p className="text-[10px] tracking-[0.3em] uppercase text-amber-300/80 font-mono">
+                  Deck Summary
+                </p>
+                <h3 className="text-lg leading-tight font-bold text-white">
+                  {title}
+                </h3>
+                <p className="text-xs text-white/55 leading-relaxed">
+                  Complete details are available. Use register to secure your
+                  slot.
+                </p>
+              </div>
+
+              {/* Info */}
+              <div className="relative flex-1 min-h-0 flex flex-col gap-3">
+                <div className="min-h-0 space-y-3 overflow-y-auto pr-1">
+                  <div className="border border-white/10 rounded-2xl p-3 bg-white/[0.02]">
+                    <h3 className="text-white/40 text-[10px] tracking-widest uppercase mb-2 font-mono">
+                      Specifications
+                    </h3>
+
+                    <div className="space-y-2 text-sm">
+                      <div className="flex justify-between items-center">
+                        <span className="text-white/60 flex items-center gap-2 text-xs">
+                          <Trophy size={14} className="text-amber-400/70" />{" "}
+                          Prize
+                        </span>
+                        <span className="text-amber-400 font-bold tracking-wide">
+                          ₹{prize.toLocaleString()}
+                        </span>
+                      </div>
+
+                      <div className="flex justify-between items-center">
+                        <span className="text-white/60 text-xs">Status</span>
+                        <span className="text-green-400 flex items-center gap-1 text-xs font-medium">
+                          <ShieldCheck size={14} /> Verified
+                        </span>
+                      </div>
+
+                      <div className="flex justify-between items-center">
+                        <span className="text-white/60 text-xs">
+                          Prize Pool
+                        </span>
+                        <span className="text-white/80 max-w-[55%] text-right truncate text-xs font-medium">
+                          {showValue(prizePool)}
+                        </span>
+                      </div>
                     </div>
-                    <button onClick={() => setFlippedCardId(null)} className="text-white/50 hover:text-white transition-colors">
-                      <Zap className="w-5 h-5" />
-                    </button>
                   </div>
 
-                  <div className="space-y-3 text-sm text-white/80 font-sans mb-6">
-                    <p className="flex items-center gap-2">
-                      <ShieldCheck className="w-4 h-4 text-cyan-400" />
-                      <span>Status: <span className="font-bold text-green-400">Active</span></span>
-                    </p>
-                    <p className="flex items-center gap-2">
-                      <Zap className="w-4 h-4 text-cyan-400" />
-                      <span>Prize Pool: <span className="font-bold text-amber-400">₹{eventData.prize.toLocaleString()}</span></span>
-                    </p>
+                  <div className="grid grid-cols-2 gap-2 text-xs">
+                    <div className="rounded-xl border border-white/10 bg-white/[0.02] p-2.5">
+                      <p className="text-white/45 mb-1 flex items-center gap-1.5 text-[10px] uppercase tracking-wider">
+                        <CalendarClock size={12} /> Last Date
+                      </p>
+                      <p className="text-white/90 truncate font-medium">
+                        {showValue(lastDate)}
+                      </p>
+                    </div>
+                    <div className="rounded-xl border border-white/10 bg-white/[0.02] p-2.5">
+                      <p className="text-white/45 mb-1 flex items-center gap-1.5 text-[10px] uppercase tracking-wider">
+                        <Clock3 size={12} /> Time
+                      </p>
+                      <p className="text-white/90 truncate font-medium">
+                        {showValue(time)}
+                      </p>
+                    </div>
                   </div>
+                </div>
 
-                  <div className="flex gap-2">
-                    <Link href={registrationLink} target="_blank" className="flex-1">
-                      <Button className="w-full bg-cyan-500 text-black hover:bg-cyan-400 font-bold">
-                        Register Now
-                      </Button>
-                    </Link>
-                    <Button variant="outline" size="icon" className="border-white/20 bg-white/10 hover:bg-white/20">
-                      <Share2 className="w-4 h-4" />
+                {/* Bottom Action Area */}
+                <div className="mt-auto pt-2">
+                  <Link
+                    href={registrationLink}
+                    target="_blank"
+                    className="block w-full"
+                  >
+                    <Button className="w-full h-12 flex items-center justify-center rounded-xl bg-gradient-to-r from-amber-500 to-yellow-400 text-black text-sm tracking-[0.1em] font-extrabold uppercase shadow-[0_10px_20px_rgba(246,194,10,0.2)] hover:scale-[1.02] transition">
+                      REGISTER
                     </Button>
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
+                  </Link>
+                </div>
+              </div>
+            </div>
           </div>
-
-          {/* Background Decorative "Code" */}
-          <div className="absolute top-0 right-4 h-full pointer-events-none opacity-20 z-10">
-            <p className="[writing-mode:vertical-rl] text-[8px] font-kodeMono text-cyan-500 tracking-[1em] uppercase">
-              system.integrity.check() // status: stable // priority: high // node: {eventId.slice(0, 8)}
-            </p>
-          </div>
-        </div>
+        </motion.div>
       </motion.div>
     </motion.div>
   );

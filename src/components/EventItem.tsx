@@ -43,6 +43,5 @@ const getIconForEvent = (type: string) => {
      return {
           tech: <Zap size={18} className="h-4 w-4 text-red-400" />,
           esports: <Gamepad2 size={18} className="h-4 w-4 text-purple-400" />,
-          cultural: <Sparkles size={18} className="h-4 w-4 text-yellow-400" />,
-     }[type] || <Sparkles size={18} className="h-4 w-4 text-yellow-400" />;
+       }[type] || <Sparkles size={18} className="h-4 w-4 text-yellow-400" />;
 };
