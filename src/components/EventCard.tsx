@@ -128,7 +128,7 @@ const EventCard: React.FC<Props> = ({
                 animate={{
                   scale: isHovered ? 1.1 : 1,
                   filter: isHovered
-                    ? "brightness(0.5) blur(2px)"
+                    ? "brightness(0.6) blur(0.8px)"
                     : "brightness(0.7)",
                 }}
                 className="absolute inset-0"

@@ -65,7 +65,7 @@ export default function ClientLayout({
           <Navbar />
           {children}
           <Footer />
-          {!lowPerformanceMode && <BackgroundMusic />}
+          <BackgroundMusic />
         </div>
       )}
     </div>
