@@ -179,5 +179,14 @@ export const teamMembers: TeamMember[] = [
     "instagram": "https://www.instagram.com/ra_jib9998",
     "twitter": "",
     "linkedin": ""
+  },
+  {
+    "name": "DEBJIT BISWAS",
+    "role": "e-Sports Co-Head",
+    "image": "/team/20.jpg",
+    "facebook": "",
+    "instagram": "https://www.instagram.com/devalay25?igsh=MXV3MXpiY2l2Z3Axeg==",
+    "twitter": "",
+    "linkedin": ""
   }
 ];

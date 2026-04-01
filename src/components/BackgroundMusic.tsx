@@ -17,18 +17,43 @@ export default function BackgroundMusic() {
     }
   }, []);
 
+  useEffect(() => {
+    const pauseWhenInactive = () => {
+      if (!audioRef.current) return;
+
+      if (document.hidden || !document.hasFocus()) {
+        audioRef.current.pause();
+        setIsPlaying(false);
+      }
+    };
+
+    document.addEventListener("visibilitychange", pauseWhenInactive);
+    window.addEventListener("blur", pauseWhenInactive);
+    window.addEventListener("pagehide", pauseWhenInactive);
+
+    return () => {
+      document.removeEventListener("visibilitychange", pauseWhenInactive);
+      window.removeEventListener("blur", pauseWhenInactive);
+      window.removeEventListener("pagehide", pauseWhenInactive);
+    };
+  }, []);
+
   const toggleMusic = () => {
     if (audioRef.current) {
       audioRef.current.volume = MUSIC_VOLUME;
 
       if (isPlaying) {
         audioRef.current.pause();
+        setIsPlaying(false);
       } else {
-        audioRef.current.play().catch((error) => {
-          console.log("Audio playback failed:", error);
-        });
+        audioRef.current
+          .play()
+          .then(() => setIsPlaying(true))
+          .catch((error) => {
+            console.log("Audio playback failed:", error);
+            setIsPlaying(false);
+          });
       }
-      setIsPlaying(!isPlaying);
     }
   };
 
