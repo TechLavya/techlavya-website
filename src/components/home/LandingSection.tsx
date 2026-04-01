@@ -54,16 +54,11 @@ const LandingSection = () => {
           transition={{ duration: 1, delay: 0.8 }}
           className="flex flex-wrap justify-center items-center gap-3 sm:gap-8 mb-12 sm:mb-16 px-2"
         >
-          {["Innovate", "Compete", "Create"].map((text, i) => (
-            <div key={text} className="flex items-center gap-3 sm:gap-8">
-              <span className="text-[11px] sm:text-lg font-spaceGrotesk text-muted-foreground tracking-[0.12em] sm:tracking-[0.2em] uppercase hover:text-primary transition-colors duration-300 cursor-default">
-                {text}
-              </span>
-              {i < 2 && (
-                <div className="hidden sm:block w-[1px] h-4 bg-white/20 rotate-[25deg]" />
-              )}
-            </div>
-          ))}
+          <div className="flex items-center gap-3 sm:gap-8">
+            <span className="text-[11px] sm:text-lg font-spaceGrotesk text-muted-foreground tracking-[0.12em] sm:tracking-[0.2em] uppercase hover:text-primary transition-colors duration-300 cursor-default">
+              WHERE IMAGINATION MEETS TECHNOLOGY
+            </span>
+          </div>
         </motion.div>
 
         {/* Timer Container with Glassmorphism */}
@@ -74,22 +69,6 @@ const LandingSection = () => {
           className="mb-12 sm:mb-16 py-2 sm:py-6 rounded-2xl w-full"
         >
           <CountdownTimer />
-        </motion.div>
-
-        {/* CTA BUTTONS: Sleek & Minimal */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.2 }}
-          className="flex flex-col sm:flex-row gap-5 items-center justify-center w-full"
-        >
-          <Link
-            href="/#techlavya"
-            className="group relative px-10 py-4 bg-white text-black font-orbitron text-xs tracking-[0.2em] uppercase transition-all duration-300 hover:bg-primary hover:text-white rounded-full overflow-hidden"
-          >
-            <span className="relative z-10">Explore Events</span>
-            <motion.div className="absolute inset-0 bg-primary translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
-          </Link>
         </motion.div>
       </div>
     </div>
