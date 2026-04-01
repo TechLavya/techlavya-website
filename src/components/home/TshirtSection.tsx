@@ -22,6 +22,10 @@ const TshirtSection = () => {
     setEnableTilt(!reducedMotion && !coarsePointer);
   }, []);
 
+  const handleClick = () => {
+    window.open("https://forms.gle/fN8e2at6m5Hr6mct8", "_blank", "noopener,noreferrer");
+  };
+
   const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
     if (!enableTilt) return;
     const rect = event.currentTarget.getBoundingClientRect();
@@ -157,7 +161,7 @@ const TshirtSection = () => {
           {/* RIGHT: Action & Pricing */}
           <div className="w-full lg:w-1/4 p-6 md:p-8 lg:p-10 bg-background/50 border-t lg:border-t-0 lg:border-l border-accent/10 flex flex-col justify-center order-3">
             <h2 className="text-muted-foreground font-kodeMono text-[9px] md:text-[10px] tracking-[0.3em] uppercase mb-2">
-              TECHLAVYA / 202X
+              TECHLAVYA / 2026
             </h2>
             <h3 className="text-2xl md:text-3xl lg:text-4xl font-light text-foreground mb-4 md:mb-6 font-orbitron tracking-wider">
               The{" "}
@@ -174,10 +178,10 @@ const TshirtSection = () => {
             <div className="space-y-6">
               <div className="flex items-baseline gap-2 md:gap-3">
                 <span className="text-2xl md:text-3xl font-bold text-highlight font-spaceGrotesk tracking-widest">
-                  ₹---
+                  ₹299
                 </span>
                 <span className="text-accent/40 line-through text-[10px] md:text-xs font-kodeMono">
-                  TBA
+                  599
                 </span>
               </div>
 
@@ -185,6 +189,7 @@ const TshirtSection = () => {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.95 }}
                 className="w-full h-12 md:h-14 bg-primary/10 hover:bg-primary/20 border border-primary text-primary font-kodeMono font-bold text-[10px] md:text-xs tracking-widest uppercase transition-all flex items-center justify-center gap-2 group shadow-[0_0_15px_rgba(184,92,56,0.15)] hover:shadow-[0_0_25px_rgba(184,92,56,0.3)] backdrop-blur-sm"
+                onClick={handleClick}
               >
                 Initialize
                 <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

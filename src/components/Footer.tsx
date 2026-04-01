@@ -42,14 +42,14 @@ const Footer: React.FC = () => {
                         <h3 className="text-highlight font-orbitron tracking-widest text-lg font-bold mb-8">TRANSMISSIONS</h3>
                         <div className="flex flex-col space-y-4">
                             <Link href="mailto:techfest@rkmgec.ac.in" className="group flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors duration-300">
-                                <span className="font-kodeMono text-xs tracking-widest uppercase">Email</span>
+                                <span className="font-kodeMono text-xs tracking-widest uppercase">Email:techfest@rkmgec.ac.in</span>
                                 <span className="h-[1px] w-6 bg-accent/20 group-hover:w-12 group-hover:bg-primary/60 transition-all duration-500" />
                             </Link>
                             <div className="flex gap-4 pt-4">
                                 <SocialLink href="https://www.facebook.com/share/16AmVp6gyk/" Icon={Facebook} />
                                 <SocialLink href="https://www.instagram.com/techlavya.rkmgec/" Icon={Instagram} />
                                 <SocialLink href="https://www.youtube.com/@RKMGECOFFICIAL" Icon={Youtube} />
-                                <SocialLink href="https://github.com/TechLavya" Icon={Github} />
+                                {/* <SocialLink href="https://github.com/TechLavya" Icon={Github} /> */}
                             </div>
                         </div>
                     </div>
@@ -82,7 +82,7 @@ const Footer: React.FC = () => {
                         ©202X TECHLAVYA SYSTEM. ALL PROTOCOLS RESERVED.
                     </p>
                     <p className="text-center md:text-right text-xs text-muted-foreground font-kodeMono tracking-widest flex items-center gap-1.5 uppercase">
-                        BUILT BY <span className="text-accent underline decoration-accent/30 underline-offset-4">TEAM AIKATAN</span>
+                        BUILT BY <span className="text-accent underline decoration-accent/30 underline-offset-4">TEAM TECHLAVYA</span>
                     </p>
                 </div>
             </div>
