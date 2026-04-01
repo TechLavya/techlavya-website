@@ -35,7 +35,6 @@ const EventCard: React.FC<Props> = ({
     title,
     prize,
     prizePool,
-    time,
     lastDate,
     eventDate,
     type,

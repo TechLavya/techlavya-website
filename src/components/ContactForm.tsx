@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Title from './Title';
-import { Mail, Phone, MapPin, Send, Clock } from 'lucide-react';
+import { Mail, MapPin, Send, Clock } from 'lucide-react';
 import './ContactForm.css';
 
 const ContactForm = () => {
