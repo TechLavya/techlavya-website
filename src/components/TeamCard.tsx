@@ -38,7 +38,7 @@ const TeamCard: React.FC<TeamCardProps> = ({ name, role, image, instagram, twitt
                </div>
 
                {/* Social Links */}
-               <div className="flex justify-center gap-4 relative z-10 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
+               <div className="flex justify-center gap-4 relative z-10">
                     {instagram && <SocialIcon href={instagram} Icon={Instagram} />}
                     {twitter && <SocialIcon href={twitter} Icon={Twitter} />}
                     {facebook && <SocialIcon href={facebook} Icon={Facebook} />}
