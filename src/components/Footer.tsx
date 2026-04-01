@@ -38,38 +38,22 @@ const Footer: React.FC = () => {
             </div>
           </div>
 
-          {/* Middle: Links/Social */}
-          <div className="md:col-span-3 flex flex-col items-center md:items-start text-center md:text-left">
-            <h3 className="text-highlight font-orbitron tracking-widest text-lg font-bold mb-8">
-              TRANSMISSIONS
-            </h3>
-            <div className="flex flex-col space-y-4">
-              <Link
-                href="mailto:techfest@rkmgec.ac.in"
-                className="group flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors duration-300"
-              >
-                <span className="font-kodeMono text-xs tracking-widest uppercase">
-                  Email
-                </span>
-                <span className="h-[1px] w-6 bg-accent/20 group-hover:w-12 group-hover:bg-primary/60 transition-all duration-500" />
-              </Link>
-              <div className="flex gap-4 pt-4">
-                <SocialLink
-                  href="https://www.facebook.com/share/16AmVp6gyk/"
-                  Icon={Facebook}
-                />
-                <SocialLink
-                  href="https://www.instagram.com/techlavya.rkmgec/"
-                  Icon={Instagram}
-                />
-                <SocialLink
-                  href="https://www.youtube.com/@RKMGECOFFICIAL"
-                  Icon={Youtube}
-                />
-                <SocialLink href="https://github.com/TechLavya" Icon={Github} />
-              </div>
-            </div>
-          </div>
+                    {/* Middle: Links/Social */}
+                    <div className="md:col-span-3 flex flex-col items-center md:items-start text-center md:text-left">
+                        <h3 className="text-highlight font-orbitron tracking-widest text-lg font-bold mb-8">TRANSMISSIONS</h3>
+                        <div className="flex flex-col space-y-4">
+                            <Link href="mailto:techfest@rkmgec.ac.in" className="group flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors duration-300">
+                                <span className="font-kodeMono text-xs tracking-widest uppercase">Email:techfest@rkmgec.ac.in</span>
+                                <span className="h-[1px] w-6 bg-accent/20 group-hover:w-12 group-hover:bg-primary/60 transition-all duration-500" />
+                            </Link>
+                            <div className="flex gap-4 pt-4">
+                                <SocialLink href="https://www.facebook.com/share/16AmVp6gyk/" Icon={Facebook} />
+                                <SocialLink href="https://www.instagram.com/techlavya.rkmgec/" Icon={Instagram} />
+                                <SocialLink href="https://www.youtube.com/@RKMGECOFFICIAL" Icon={Youtube} />
+                                {/* <SocialLink href="https://github.com/TechLavya" Icon={Github} /> */}
+                            </div>
+                        </div>
+                    </div>
 
           {/* Right: Location */}
           <div className="md:col-span-4 flex flex-col items-center md:items-start text-center md:text-left">
@@ -96,22 +80,19 @@ const Footer: React.FC = () => {
         {/* Divider */}
         <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-accent/20 to-transparent my-12" />
 
-        {/* Copyright */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-center md:text-left text-xs text-muted-foreground font-kodeMono tracking-[0.2em] uppercase">
-            ©202X TECHLAVYA SYSTEM. ALL PROTOCOLS RESERVED.
-          </p>
-          <p className="text-center md:text-right text-xs text-muted-foreground font-kodeMono tracking-widest flex items-center gap-1.5 uppercase">
-            BUILT BY{" "}
-            <span className="text-accent underline decoration-accent/30 underline-offset-4">
-              TEAM AIKATAN
-            </span>
-          </p>
-        </div>
-      </div>
-    </footer>
-  );
-};
+                {/* Copyright */}
+                <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+                    <p className="text-center md:text-left text-xs text-muted-foreground font-kodeMono tracking-[0.2em] uppercase">
+                        ©202X TECHLAVYA SYSTEM. ALL PROTOCOLS RESERVED.
+                    </p>
+                    <p className="text-center md:text-right text-xs text-muted-foreground font-kodeMono tracking-widest flex items-center gap-1.5 uppercase">
+                        BUILT BY <span className="text-accent underline decoration-accent/30 underline-offset-4">TEAM TECHLAVYA</span>
+                    </p>
+                </div>
+            </div>
+        </footer>
+    );
+}
 
 export default Footer;
 

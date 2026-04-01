@@ -37,6 +37,7 @@ const EventCard: React.FC<Props> = ({
     prizePool,
     time,
     lastDate,
+    eventDate,
     type,
   } = eventData;
   const [isHovered, setIsHovered] = useState(false);
@@ -253,10 +254,10 @@ const EventCard: React.FC<Props> = ({
                     </div>
                     <div className="rounded-xl border border-white/10 bg-white/[0.02] p-2.5">
                       <p className="text-white/45 mb-1 flex items-center gap-1.5 text-[10px] uppercase tracking-wider">
-                        <Clock3 size={12} /> Time
+                        <Clock3 size={12} /> Event Date
                       </p>
                       <p className="text-white/90 truncate font-medium">
-                        {showValue(time)}
+                        {showValue(eventDate)}
                       </p>
                     </div>
                   </div>

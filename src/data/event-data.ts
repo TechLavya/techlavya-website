@@ -6,12 +6,13 @@ export type EventDataType = {
   image: string;
   buttonText: string;
   prizePool: string;
-  prize: number;
+  prize: number |string;
   time: string;
   location: string;
   contact: string;
   lastDate: string;
   registrationLink: string;
+  eventDate: string;
   type: 'techlavya' | 'esport';
 }
 
@@ -22,13 +23,14 @@ export const TechlavyaEventData: EventDataType[] = [
     title: 'HACKATHON',
     image: '/events/HACKATHON.webp',
     buttonText: 'Tap in Register',
-    prizePool: '10K',
-    prize: 10000,
+    prizePool: 'Upto 10K',
+    prize: "Upto 10000",
     time: '10:00 AM onwards - morning; Judgement & Presentation: 10:00 AM - 1:00 PM',
     location: 'CSE',
     contact: 'Yet to be announced',
-    lastDate: '15th May',
+    lastDate: '4th May',
     registrationLink: 'https://unstop.com/hackathons/hack-vengers-techlavya-ignite-2026-ramkrishna-mahato-government-engineering-college-purulia-1645547',
+    eventDate: '14th May 2026',
     type: 'techlavya'
   },
   {
@@ -36,13 +38,14 @@ export const TechlavyaEventData: EventDataType[] = [
     title: 'CODETHON',
     image: '/events/CODETHON.webp',
     buttonText: 'Tap in Register',
-    prizePool: '8K',
-    prize: 8000,
+    prizePool: 'Upto 8K',
+    prize: "Upto 8000",
     time: '11:00 AM - 2:00 PM',
     location: 'CSE',
     contact: 'Yet to be announced',
-    lastDate: '13th May',
+    lastDate: '4th May',
     registrationLink: 'https://unstop.com/competitions/gravity-algogems-techlavya-ignite-2026-ramkrishna-mahato-government-engineering-college-purulia-1647291',
+    eventDate: '13th May 2026',
     type: 'techlavya'
   },
   {
@@ -50,13 +53,14 @@ export const TechlavyaEventData: EventDataType[] = [
     title: 'AUTOCAD',
     image: '/events/AUTOCAD.webp',
     buttonText: 'Tap in Register',
-    prizePool: '6K',
-    prize: 6000,
+    prizePool: 'Upto 6K',
+    prize: "Upto 6000",
     time: '11:00 AM - 2:00 PM',
     location: 'CAD Lab',
     contact: 'Yet to be announced',
-    lastDate: '13th May',
+    lastDate: '4th May',
     registrationLink: 'https://unstop.com/competitions/cad-builder-techlavya-ignite-2026-ramkrishna-mahato-government-engineering-college-purulia-1645388',
+    eventDate: '13th May 2026',
     type: 'techlavya'
   },
   {
@@ -64,13 +68,14 @@ export const TechlavyaEventData: EventDataType[] = [
     title: 'ROBORUSH',
     image: '/events/ROBO RUSH.webp',
     buttonText: 'Tap in Register',
-    prizePool: '8K',
-    prize: 8000,
+    prizePool: 'Upto 8K',
+    prize: "Upto 8000",
     time: '7:30 PM - 9:00 PM',
     location: 'Yet to be announced',
     contact: 'Yet to be announced',
-    lastDate: '14th May',
+    lastDate: '4th May',
     registrationLink: 'https://unstop.com/competitions/robo-rush-techlavya-ignite-2026-ramkrishna-mahato-government-engineering-college-purulia-1645405',
+    eventDate: '14th May 2026',
     type: 'techlavya'
   },
   {
@@ -79,12 +84,13 @@ export const TechlavyaEventData: EventDataType[] = [
     image: '/events/ACADEXPO.webp',
     buttonText: 'Tap in Register',
     prizePool: 'Yet to be announced',
-    prize: 0,
+    prize: "TBA",
     time: '10:00 AM - 1:00 PM',
     location: 'Civil',
     contact: 'Yet to be announced',
-    lastDate: '14th May',
+    lastDate: '4th May',
     registrationLink: 'https://unstop.com/competitions/acadexpo-techlavya-ignite-2026-ramkrishna-mahato-government-engineering-college-purulia-1645493',
+    eventDate: '14th May 2026',
     type: 'techlavya'
   },
   {
@@ -92,13 +98,14 @@ export const TechlavyaEventData: EventDataType[] = [
     title: 'CIRCUIT DESIGN',
     image: '/events/CIRCUIT DESIGN.webp',
     buttonText: 'Tap in Register',
-    prizePool: '3K',
-    prize: 3000,
+    prizePool: 'Upto 3K',
+    prize: "Upto 3000",
     time: '2:00 PM - 5:00 PM',
     location: 'Yet to be announced',
     contact: 'Yet to be announced',
-    lastDate: '13th May',
+    lastDate: '4th May',
     registrationLink: 'https://unstop.com/competitions/circuit-design-techlavya-ignite-2026-ramkrishna-mahato-government-engineering-college-purulia-1645509',
+    eventDate: '13th May 2026',
     type: 'techlavya'
   },
   {
@@ -106,13 +113,14 @@ export const TechlavyaEventData: EventDataType[] = [
     title: 'TECH QUIZ',
     image: '/events/BRAIN BUSTER.webp',
     buttonText: 'Tap in Register',
-    prizePool: '6K',
-    prize: 6000,
+    prizePool: 'Upto 6K',
+    prize: "Upto 6000",
     time: '6:30 PM - 7:30 PM',
     location: 'CSE Seminar',
     contact: 'Yet to be announced',
-    lastDate: '13th May',
+    lastDate: '4th May',
     registrationLink: 'https://unstop.com/competitions/brain-buster-techlavya-ignite-2026-ramkrishna-mahato-government-engineering-college-purulia-1645515',
+    eventDate: '13th May 2026',
     type: 'techlavya'
   },
   {
@@ -120,13 +128,14 @@ export const TechlavyaEventData: EventDataType[] = [
     title: 'TYPING TEST',
     image: '/events/TYPING TEST.webp',
     buttonText: 'Tap in Register',
-    prizePool: '3K',
-    prize: 3000,
+    prizePool: 'Upto 3K',
+    prize: "Upto 3000",
     time: '10:00 AM - 12:00 PM',
     location: 'CAD Lab',
     contact: 'Yet to be announced',
-    lastDate: '14th May',
+    lastDate: '4th May',
     registrationLink: 'https://unstop.com/competitions/typing-test-techlavya-ignite-2026-ramkrishna-mahato-government-engineering-college-purulia-1645525',
+    eventDate: '14th May 2026',
     type: 'techlavya'
   },
   {
@@ -135,12 +144,13 @@ export const TechlavyaEventData: EventDataType[] = [
     image: '/events/TREASURE HUNT.webp',
     buttonText: 'Tap in Register',
     prizePool: 'Yet to be announced',
-    prize: 0,
+    prize: "TBA",
     time: '4:00 PM - 6:00 PM',
     location: 'Yet to be announced',
     contact: 'Yet to be announced',
-    lastDate: '14th May',
+    lastDate: '4th May',
     registrationLink: 'https://unstop.com/competitions/treasure-hunt-techlavya-ignite-2026-ramkrishna-mahato-government-engineering-college-purulia-1646050',
+    eventDate: '14th May 2026',
     type: 'techlavya'
   },
   {
@@ -148,13 +158,14 @@ export const TechlavyaEventData: EventDataType[] = [
     title: "Line Follow Robot",
     image: '/events/LINE FOLLOWER ROBOT.webp',
     buttonText: 'Tap in Register',
-    prizePool: '6K',
-    prize: 6000,
+    prizePool: 'Upto 6K',
+    prize: "Upto 6000",
     time: '5:00 PM - 6:30 PM',
     location: 'Yet to be announced',
     contact: 'Yet to be announced',
-    lastDate: '13th May',
+    lastDate: '4th May',
     registrationLink: 'https://unstop.com/competitions/line-follower-robot-techlavya-ignite-2026-ramkrishna-mahato-government-engineering-college-purulia-1646042',
+    eventDate: '13th May 2026',
     type: 'techlavya'
   }
 ]
@@ -166,12 +177,13 @@ export const EsportsEventData: EventDataType[] = [
     image: '/events/Free Fire.webp',
     buttonText: 'Tap in Register',
     prizePool: 'Championship Merchandise',
-    prize: 0,
+    prize: "TBA",
     time: '5:00 PM - 6:30 PM',
     location: 'Yet to be announced',
     contact: 'Yet to be announced',
-    lastDate: '13th May',
+    lastDate: '4th May',
     registrationLink: 'https://unstop.com/events/free-fire-max-techlavya-ignite-2026-ramkrishna-mahato-government-engineering-college-purulia-1646065',
+    eventDate: '13th May 2026',
     type: 'esport'
   },
   {
@@ -180,12 +192,13 @@ export const EsportsEventData: EventDataType[] = [
     image: '/events/BGMI.webp',
     buttonText: 'Tap in Register',
     prizePool: 'Championship Merchandise',
-    prize: 0,
+    prize: "TBA",
     time: '5:00 PM - 6:30 PM',
     location: 'Yet to be announced',
     contact: 'Yet to be announced',
-    lastDate: '13th May',
+    lastDate: '4th May',
     registrationLink: 'https://unstop.com/p/bgmi-crimson-circle-conquest-rkmgec-2k26-techlavya-ignite-2026-ramkrishna-mahato-government-engineering-college-puruli-1647307',
+    eventDate: '13th May 2026',
     type: 'esport'
   },
   {
@@ -194,12 +207,13 @@ export const EsportsEventData: EventDataType[] = [
     image: '/events/e FOOTBALL.webp',
     buttonText: 'Tap in Register',
     prizePool: 'Championship Merchandise',
-    prize: 0,
+    prize: "TBA",
     time: '8:15 PM - 9:00 PM',
     location: 'Yet to be announced',
     contact: 'Yet to be announced',
-    lastDate: '13th May',
+    lastDate: '4th May',
     registrationLink: 'https://unstop.com/events/e-football-mobile-techlavya-ignite-2026-ramkrishna-mahato-government-engineering-college-purulia-1646072',
+    eventDate: '13th May 2026',
     type: 'esport'
   },
   {
@@ -208,12 +222,13 @@ export const EsportsEventData: EventDataType[] = [
     image: '/events/MINI MILITIA.webp',
     buttonText: 'Tap in Register',
     prizePool: 'Championship Merchandise',
-    prize: 0,
+    prize: "TBA",
     time: '5:00 PM - 6:00 PM',
     location: 'Yet to be announced',
     contact: 'Yet to be announced',
-    lastDate: '14th May',
+    lastDate: '4th May',
     registrationLink: 'https://unstop.com/events/mini-militia-techlavya-ignite-2026-ramkrishna-mahato-government-engineering-college-purulia-1646080',
+    eventDate: '14th May 2026',
     type: 'esport'
   },
   {
@@ -222,12 +237,13 @@ export const EsportsEventData: EventDataType[] = [
     image: '/events/VALORANT.webp',
     buttonText: 'Tap in Register',
     prizePool: 'Championship Merchandise',
-    prize: 0,
+    prize: "TBA",
     time: '7:30 PM - 8:15 PM',
     location: 'Yet to be announced',
     contact: 'Yet to be announced',
-    lastDate: '13th May',
+    lastDate: '4th May',
     registrationLink: 'https://unstop.com/events/valorant-pc-techlavya-ignite-2026-ramkrishna-mahato-government-engineering-college-purulia-1646083',
+    eventDate: '13th May 2026',
     type: 'esport'
   },
   {
@@ -236,12 +252,13 @@ export const EsportsEventData: EventDataType[] = [
     image: '/events/FIFA.webp',
     buttonText: 'Tap in Register',
     prizePool: 'Championship Merchandise',
-    prize: 0,
+    prize: "TBA",
     time: 'Yet to be announced',
     location: 'Yet to be announced',
     contact: 'Yet to be announced',
     lastDate: 'Yet to be announced',
     registrationLink: 'https://unstop.com/events/fifa-pc-edition-techlavya-ignite-2026-ramkrishna-mahato-government-engineering-college-purulia-1647262',
+    eventDate: 'Yet to be announced',
     type: 'esport'
   },
   {
@@ -250,12 +267,13 @@ export const EsportsEventData: EventDataType[] = [
     image: '/events/ASPHALT.webp',
     buttonText: 'Tap in Register',
     prizePool: 'Championship Merchandise',
-    prize: 0,
+    prize: "TBA",
     time: '7:00 PM - 8:00 PM',
     location: 'Yet to be announced',
     contact: 'Yet to be announced',
-    lastDate: '14th May',
+    lastDate: '4th May',
     registrationLink: 'https://unstop.com/events/asphalt-9-legends-techlavya-ignite-2026-ramkrishna-mahato-government-engineering-college-purulia-1646090',
+    eventDate: '14th May 2026',
     type: 'esport'
   },
   {
@@ -264,12 +282,13 @@ export const EsportsEventData: EventDataType[] = [
     image: '/events/COC.webp',
     buttonText: 'Tap in Register',
     prizePool: 'Championship Merchandise',
-    prize: 0,
+    prize: "TBA",
     time: '6:00 PM - 7:00 PM',
     location: 'Yet to be announced',
     contact: 'Yet to be announced',
-    lastDate: '14th May',
+    lastDate: '4th May',
     registrationLink: 'https://unstop.com/competitions/clash-of-clans-techlavya-ignite-2026-ramkrishna-mahato-government-engineering-college-purulia-1646093',
+    eventDate: '14th May 2026',
     type: 'esport'
   },
   {
@@ -278,12 +297,13 @@ export const EsportsEventData: EventDataType[] = [
     image: '/events/CHESS.webp',
     buttonText: 'Tap in Register',
     prizePool: 'Championship Merchandise',
-    prize: 0,
+    prize: "TBA",
     time: '2:00 PM - 4:00 PM',
     location: 'Yet to be announced',
     contact: 'Yet to be announced',
-    lastDate: '14th May',
+    lastDate: '4th May',
     registrationLink: 'https://unstop.com/events/chess-techlavya-ignite-2026-ramkrishna-mahato-government-engineering-college-purulia-1646096',
+    eventDate: '14th May 2026',
     type: 'esport'
   },
   {
@@ -292,12 +312,13 @@ export const EsportsEventData: EventDataType[] = [
     image: '/events/RUBIK RUMBLE.webp',
     buttonText: 'Tap in Register',
     prizePool: 'Championship Merchandise',
-    prize: 0,
+    prize: "TBA",
     time: '7:30 PM - 8:30 PM',
     location: 'Yet to be announced',
     contact: 'Yet to be announced',
-    lastDate: '13th May',
+    lastDate: '4th May',
     registrationLink: 'https://unstop.com/events/rubik-rumble-techlavya-ignite-2026-ramkrishna-mahato-government-engineering-college-purulia-1646097',
+    eventDate: '13th May 2026',
     type: 'esport'
   }
 ]

@@ -93,7 +93,7 @@ const ContactForm = () => {
             </div>
 
             {/* Phone */}
-            <div className="group p-6 rounded-[20px] border border-accent/10 bg-secondary-bg/20 backdrop-blur-md hover:border-primary/40 hover:bg-secondary-bg/40 hover:shadow-[0_10px_30px_rgba(184,92,56,0.15)] transition-all duration-500 overflow-hidden relative">
+            {/* <div className="group p-6 rounded-[20px] border border-accent/10 bg-secondary-bg/20 backdrop-blur-md hover:border-primary/40 hover:bg-secondary-bg/40 hover:shadow-[0_10px_30px_rgba(184,92,56,0.15)] transition-all duration-500 overflow-hidden relative">
               <div className="absolute top-0 left-0 w-1 h-full bg-primary/50 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300" />
               <div className="flex items-start gap-5 relative z-10">
                 <div className="p-3.5 rounded-xl bg-background border border-accent/10 text-primary group-hover:border-primary/50 group-hover:shadow-[0_0_15px_rgba(184,92,56,0.3)] transition-all duration-300">
@@ -106,7 +106,7 @@ const ContactForm = () => {
                   </a>
                 </div>
               </div>
-            </div>
+            </div> */}
 
             {/* Location */}
             <div className="group p-6 rounded-[20px] border border-accent/10 bg-secondary-bg/20 backdrop-blur-md hover:border-primary/40 hover:bg-secondary-bg/40 hover:shadow-[0_10px_30px_rgba(184,92,56,0.15)] transition-all duration-500 overflow-hidden relative">
