@@ -98,7 +98,7 @@ export const EventDetailsModal: React.FC<EventDetailsModalProps> = ({
       });
   }, [events, date, month]);
 
-  const dateStr = new Date(year, month - 1, date).toLocaleDateString("en-US", {
+  const dateStr = new Date(year, month, date).toLocaleDateString("en-US", {
     weekday: "long",
     month: "long",
     day: "numeric",

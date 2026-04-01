@@ -1,7 +1,7 @@
 import ClientLayout from "@/components/ClientLayout";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import { Kode_Mono, Bruno_Ace, Orbitron, Space_Grotesk, Sora, Inter, Poppins } from "next/font/google";
+import {Bruno_Ace, Orbitron, Space_Grotesk, Sora, Inter, Poppins } from "next/font/google";
 import "./globals.css";
 
 const digitalFont = localFont({
@@ -9,10 +9,6 @@ const digitalFont = localFont({
   variable: "--font-digital",
 });
 
-const kodeMonoFont = Kode_Mono({
-  subsets: ["latin"],
-  variable: "--font-kode-mono",
-});
 
 const brunoAceFont = Bruno_Ace({
   subsets: ["latin"],
@@ -47,24 +43,60 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Techlavya",
-  description: "Techlavya is the official premium tech festival of Ramkrishna Mahato Government Engineering College.",
+  title: {
+    default: "Techlavya 2026 | Official Tech Fest of RKMGEC",
+    template: "%s | Techlavya",
+  },
+  description:
+    "Techlavya 2026 is the official annual tech fest of Ramkrishna Mahato Government Engineering College (RKMGEC), featuring coding competitions, robotics, esports, innovation showcases, workshops, and campus-wide technical events.",
   keywords: [
     "techlavya",
+    "techlavya 2026",
     "rkmgec",
+    "ramkrishna mahato government engineering college",
     "tech fest",
-    "luxury tech",
-    "awwwards",
+    "engineering college tech fest",
+    "coding competition",
+    "hackathon",
+    "robotics event",
+    "esports tournament",
+    "workshops",
+    "innovation fest",
+    "west bengal tech fest",
+    "college fest india",
   ],
-  metadataBase: new URL("https://techlavya-rkmgec.com/"),
+  metadataBase: new URL("http://techlavya.rkmgec.ac.in/"),
+  applicationName: "Techlavya",
+  category: "technology",
+  authors: [{ name: "Techlavya Team" }],
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   openGraph: {
-    title: "Techlavya",
+    title: "Techlavya 2026 | Official Tech Fest of RKMGEC",
     type: "website",
     siteName: "Techlavya",
-    description: "Premium Tech Festival Experience",
+    url: "http://techlavya.rkmgec.ac.in/",
+    description:
+      "Join Techlavya 2026, the official tech fest of RKMGEC, for coding contests, robotics, esports, workshops, and innovation-driven student events.",
+    locale: "en_IN",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Techlavya 2026 | Official Tech Fest of RKMGEC",
+    description:
+      "Explore events, competitions, workshops, and updates from Techlavya 2026 at RKMGEC.",
   },
   alternates: {
-    canonical: "https://techlavya-rkmgec.com/"
+    canonical: "http://techlavya.rkmgec.ac.in/"
   },
   icons: ["/techlavya-logo.png"]
 };
@@ -77,7 +109,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${digitalFont.variable} ${kodeMonoFont.variable} ${brunoAceFont.variable} ${orbitronFont.variable} ${spaceGrotesk.variable} ${sora.variable} ${inter.variable} ${poppins.variable} antialiased w-full text-foreground bg-background font-inter`}
+        className={`${digitalFont.variable} ${brunoAceFont.variable} ${orbitronFont.variable} ${spaceGrotesk.variable} ${sora.variable} ${inter.variable} ${poppins.variable} antialiased w-full text-foreground bg-background font-inter`}
       >
         <ClientLayout>{children}</ClientLayout>
       </body>
